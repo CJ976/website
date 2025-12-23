@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaltAcademy // The Gold Standard in Cyber Training</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stat-item i {
+            font-size: 2rem;
+            color: var(--accent-secondary);
+            margin-bottom: 8px;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.06) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-top: 40px;
+                padding-top: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+    <div class="scanline"></div>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-shield">
+                    <i class="ph-bold ph-shield-check"></i>
+                </div>
+                <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
+            </a>
+            <button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roadmap.html">Course Roadmap</a></li>
+                    <li><a href="labs.html">Practical Labs</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="schedule.html" class="btn btn-live-class">Live Class</a>
+                <a href="roadmap.html" class="btn btn-primary">Start Learning</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container" style="position: relative;">
+                <div class="hero-glow"></div>
+                <div class="cyber-grid"></div>
+                <div class="hero-content">
+                    <span class="hero-tag">100% Free • No Login Required • Hands-On Learning</span>
+                    <h1>Learn Cybersecurity —<br><span style="color: var(--accent-secondary);">Free & Practical</span>
+                    </h1>
+                    <p class="hero-subtitle">Hands-on hacking • Real-world labs • Zero cost</p>
+                    <p style="max-width: 660px; margin-bottom: 40px;">Master the elite tactics used by security
+                        researchers from top-tier firms. Immersive environments. Battle-tested curriculum. Completely
+                        free, forever.</p>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                        <a href="roadmap.html" class="btn btn-primary"
+                            style="padding: 14px 32px; font-size: 1rem;">Start Learning <i
+                                class="ph ph-compass"></i></a>
+                        <a href="watch.html" class="btn btn-outline" style="padding: 14px 32px; font-size: 1rem;">Watch
+                            Intro <i class="ph ph-play-circle"></i></a>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="ph ph-video"></i>
+                            <h3>100+</h3>
+                            <p>Free Video Lessons</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="ph ph-flask"></i>
+                            <h3>40+</h3>
+                            <p>Hands-On Labs</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="ph ph-graduation-cap"></i>
+                            <h3>5k+</h3>
+                            <p>Active Learners</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                        <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
+                    </div>
+                    <p>Free cybersecurity education for everyone. Learn at your own pace, build real skills, and join a
+                        global community of security enthusiasts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="roadmap.html">Course Roadmap</a></li>
+                        <li><a href="watch.html">Video Lessons</a></li>
+                        <li><a href="labs.html">Practical Labs</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Join Community</a></li>
+                        <li><a href="https://youtube.com" target="_blank">YouTube Channel</a></li>
+                        <li><a href="https://discord.gg" target="_blank">Discord Server</a></li>
+                        <li><a href="https://t.me" target="_blank">Telegram Group</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="about.html">Our Mission</a></li>
+                        <li><a href="about.html#instructor">Instructor</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HaltAcademy. Free Cybersecurity Education for All.</p>
+                <div class="social-links">
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="ph-fill ph-youtube-logo"></i></a>
+                    <a href="https://discord.gg" target="_blank" aria-label="Discord"><i
+                            class="ph-fill ph-discord-logo"></i></a>
+                    <a href="https://t.me" target="_blank" aria-label="Telegram"><i
+                            class="ph-fill ph-telegram-logo"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="https://www.linkedin.com/in/hacker-halt-live/" target="_blank" aria-label="LinkedIn"><i
+                            class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i
+                            class="ph-fill ph-github-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Navigation toggle for mobile
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        navToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('mobile-active');
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('ph-list');
+            icon.classList.toggle('ph-x');
+        });
+
+        // Optional: Disable right-click and dev tools shortcuts (for production)
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'i' || e.key === 'j' || e.key === 's')) e.preventDefault();
+            if (e.key === 'F12') e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>

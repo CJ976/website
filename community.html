@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | HaltAcademy - Join Our Cybersecurity Community</title>
+    <meta name="description"
+        content="Connect with thousands of cybersecurity learners. Join our Discord, Telegram, YouTube community and learn together.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .page-header {
+            padding: 80px 0 60px;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 255, 163, 0.06) 0%, transparent 60%);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 60px 0;
+        }
+
+        .platform-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-secondary);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        .platform-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--bg-primary);
+            margin-bottom: 24px;
+            box-shadow: 0 8px 24px rgba(0, 210, 255, 0.3);
+        }
+
+        .platform-card.youtube .platform-icon {
+            background: linear-gradient(135deg, #FF0000, #CC0000);
+        }
+
+        .platform-card.discord .platform-icon {
+            background: linear-gradient(135deg, #5865F2, #404EED);
+        }
+
+        .platform-card.telegram .platform-icon {
+            background: linear-gradient(135deg, #2AABEE, #229ED9);
+        }
+
+        .platform-card.instagram .platform-icon {
+            background: linear-gradient(135deg, #E1306C, #C13584, #833AB4);
+        }
+
+        .platform-card.github .platform-icon {
+            background: linear-gradient(135deg, #6e5494, #4a3f6a);
+        }
+
+        .platform-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .platform-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .member-count {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--accent-secondary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-secondary);
+            margin-bottom: 20px;
+            font-family: var(--font-mono);
+        }
+
+        .guidelines-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 48px;
+            margin: 60px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .guidelines-section h2 {
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .guideline-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .guideline-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 255, 163, 0.1);
+            border: 1px solid var(--accent-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--accent-primary);
+            flex-shrink: 0;
+        }
+
+        .guideline-content h4 {
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .guideline-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-shield">
+                    <i class="ph-bold ph-shield-check"></i>
+                </div>
+                <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
+            </a>
+            <button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roadmap.html">Course Roadmap</a></li>
+                    <li><a href="labs.html">Practical Labs</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html" class="active">Community</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="schedule.html" class="btn btn-live-class">Live Class</a>
+                <a href="roadmap.html" class="btn btn-primary">Start Learning</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <span class="hero-tag">Connect & Collaborate</span>
+                <h1>Join Our <span style="color: var(--accent-primary);">Community</span></h1>
+                <p style="max-width: 700px; margin: 16px auto 0;">Connect with thousands of cybersecurity learners,
+                    share knowledge, ask questions, and grow together. Learning is better when we do it together.</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <div class="platforms-grid">
+
+                <div class="platform-card youtube">
+                    <div class="platform-icon"><i class="ph-fill ph-youtube-logo"></i></div>
+                    <span class="member-count"><i class="ph ph-users-three"></i> 12K+ Subscribers</span>
+                    <h3>YouTube Channel</h3>
+                    <p>Watch all our free video lessons, tutorials, and walkthroughs. New content uploaded weekly.
+                        Subscribe for notifications.</p>
+                    <a href="https://youtube.com" target="_blank" class="btn btn-primary"
+                        style="background: #FF0000;">Subscribe Now <i class="ph ph-arrow-square-out"></i></a>
+                </div>
+
+                <div class="platform-card discord">
+                    <div class="platform-icon"><i class="ph-fill ph-discord-logo"></i></div>
+                    <span class="member-count"><i class="ph ph-users-three"></i> 3.5K+ Members</span>
+                    <h3>Discord Server</h3>
+                    <p>Real-time chat with fellow students and instructors. Get help, share wins, participate in CTFs,
+                        and collaborate on projects.</p>
+                    <a href="https://discord.gg" target="_blank" class="btn btn-primary"
+                        style="background: #5865F2;">Join Discord <i class="ph ph-arrow-square-out"></i></a>
+                </div>
+
+                <div class="platform-card telegram">
+                    <div class="platform-icon"><i class="ph-fill ph-telegram-logo"></i></div>
+                    <span class="member-count"><i class="ph ph-users-three"></i> 2.1K+ Members</span>
+                    <h3>Telegram Group</h3>
+                    <p>Quick updates, announcements, and discussions. Perfect for mobile. Share articles, tools, and
+                        learning resources.</p>
+                    <a href="https://t.me" target="_blank" class="btn btn-primary" style="background: #2AABEE;">Join
+                        Telegram <i class="ph ph-arrow-square-out"></i></a>
+                </div>
+
+                <div class="platform-card instagram">
+                    <div class="platform-icon"><i class="ph-fill ph-instagram-logo"></i></div>
+                    <span class="member-count"><i class="ph ph-users-three"></i> 8K+ Followers</span>
+                    <h3>Instagram</h3>
+                    <p>Quick tips, infographics, behind-the-scenes content, and community highlights. Follow for daily
+                        cybersecurity insights.</p>
+                    <a href="https://instagram.com" target="_blank" class="btn btn-primary"
+                        style="background: linear-gradient(135deg, #E1306C, #C13584);">Follow Us <i
+                            class="ph ph-arrow-square-out"></i></a>
+                </div>
+
+                <div class="platform-card github">
+                    <div class="platform-icon"><i class="ph-fill ph-github-logo"></i></div>
+                    <span class="member-count"><i class="ph ph-code"></i> Open Source</span>
+                    <h3>GitHub Organization</h3>
+                    <p>Access code examples, tooling, scripts, and contributed resources. Star repos, contribute, and
+                        collaborate on open source projects.</p>
+                    <a href="https://github.com" target="_blank" class="btn btn-primary"
+                        style="background: #6e5494;">View Repos <i class="ph ph-arrow-square-out"></i></a>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="ph-fill ph-envelope-simple"></i></div>
+                    <span class="member-count"><i class="ph ph-envelope"></i> Newsletter</span>
+                    <h3>Email Updates</h3>
+                    <p>Get weekly summaries, new course announcements, and curated cybersecurity news directly in your
+                        inbox. No spam, ever.</p>
+                    <a href="#" class="btn btn-primary">Subscribe <i class="ph ph-arrow-right"></i></a>
+                </div>
+
+            </div>
+
+            <div class="guidelines-section">
+                <h2><i class="ph-bold ph-shield-check"></i> Community Guidelines</h2>
+                <p
+                    style="text-align: center; color: var(--text-secondary); margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    We're building a positive, inclusive community. Please follow these guidelines to keep it that way.
+                </p>
+
+                <div class="guidelines-grid">
+
+                    <div class="guideline-item">
+                        <div class="guideline-icon"><i class="ph-bold ph-handshake"></i></div>
+                        <div class="guideline-content">
+                            <h4>Be Respectful</h4>
+                            <p>Treat everyone with kindness and respect. No harassment, hate speech, or personal
+                                attacks.</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-item">
+                        <div class="guideline-icon"><i class="ph-bold ph-chats-circle"></i></div>
+                        <div class="guideline-content">
+                            <h4>Help Others</h4>
+                            <p>Share knowledge, answer questions, and support fellow learners. We all started somewhere.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-item">
+                        <div class="guideline-icon"><i class="ph-bold ph-gavel"></i></div>
+                        <div class="guideline-content">
+                            <h4>Stay Legal</h4>
+                            <p>Only discuss legal, ethical hacking. Never share illegal tools, methods, or encourage
+                                malicious activities.</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-item">
+                        <div class="guideline-icon"><i class="ph-bold ph-magnifying-glass"></i></div>
+                        <div class="guideline-content">
+                            <h4>Search First</h4>
+                            <p>Before asking, search if your question has been answered. It helps keep discussions
+                                organized.</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-item">
+                        <div class="guideline-icon"><i class="ph-bold ph-prohibit"></i></div>
+                        <div class="guideline-content">
+                            <h4>No Spam</h4>
+                            <p>Don't spam links, advertisements, or off-topic content. Keep discussions relevant and
+                                valuable.</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-item">
+                        <div class="guideline-icon"><i class="ph-bold ph-user-focus"></i></div>
+                        <div class="guideline-content">
+                            <h4>Stay On-Topic</h4>
+                            <p>Keep conversations focused on cybersecurity, learning, and helping each other grow.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Connect?</h2>
+                <p>Join thousands of learners on their cybersecurity journey. Ask questions, share knowledge, and build
+                    your network.</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://discord.gg" target="_blank" class="btn btn-primary"
+                        style="padding: 14px 32px; font-size: 1rem; background: #5865F2;">Join Discord <i
+                            class="ph ph-discord-logo"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="btn btn-outline"
+                        style="padding: 14px 32px; font-size: 1rem;">Subscribe on YouTube <i
+                            class="ph ph-youtube-logo"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                        <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
+                    </div>
+                    <p>Free cybersecurity education for everyone. Learn at your own pace, build real skills, and join a
+                        global community of security enthusiasts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="roadmap.html">Course Roadmap</a></li>
+                        <li><a href="watch.html">Video Lessons</a></li>
+                        <li><a href="labs.html">Practical Labs</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Join Community</a></li>
+                        <li><a href="https://youtube.com" target="_blank">YouTube Channel</a></li>
+                        <li><a href="https://discord.gg" target="_blank">Discord Server</a></li>
+                        <li><a href="https://t.me" target="_blank">Telegram Group</a></li>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="about.html">Our Mission</a></li>
+                        <li><a href="about.html#instructor">Instructor</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HaltAcademy. Free Cybersecurity Education for All.</p>
+                <div class="social-links">
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="ph-fill ph-youtube-logo"></i></a>
+                    <a href="https://discord.gg" target="_blank" aria-label="Discord"><i
+                            class="ph-fill ph-discord-logo"></i></a>
+                    <a href="https://t.me" target="_blank" aria-label="Telegram"><i
+                            class="ph-fill ph-telegram-logo"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="https://www.linkedin.com/in/hacker-halt-live/" target="_blank" aria-label="LinkedIn"><i
+                            class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i
+                            class="ph-fill ph-github-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle for mobile
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        navToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('mobile-active');
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('ph-list');
+            icon.classList.toggle('ph-x');
+        });
+    </script>
+</body>
+
+</html>

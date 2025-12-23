@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Labs | HaltAcademy - Hands-On Cybersecurity Training</title>
+    <meta name="description"
+        content="Practice your cybersecurity skills with free hands-on labs, CTF challenges, and real-world scenarios.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .page-header {
+            padding: 80px 0 60px;
+            background: radial-gradient(circle at 100% 0%, rgba(0, 255, 163, 0.05) 0%, transparent 50%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin: 60px 0;
+        }
+
+        .lab-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .lab-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .lab-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-secondary);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        .lab-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--accent-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent-secondary);
+            margin-bottom: 20px;
+        }
+
+        .lab-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .lab-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .lab-meta {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .lab-badge {
+            padding: 4px 10px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .lab-badge.difficulty-beginner {
+            color: var(--accent-primary);
+            border-color: rgba(0, 255, 163, 0.3);
+        }
+
+        .lab-badge.difficulty-intermediate {
+            color: var(--accent-secondary);
+            border-color: rgba(0, 210, 255, 0.3);
+        }
+
+        .lab-badge.difficulty-advanced {
+            color: #ff6b6b;
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+
+        .platform-section {
+            margin-bottom: 80px;
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .platform-logo {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--bg-primary);
+        }
+
+        .platform-header h2 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .command-block {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 8px;
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .command-block::before {
+            content: '$ ';
+            color: var(--accent-secondary);
+            font-weight: 700;
+        }
+
+        .setup-guide {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+        }
+
+        .setup-guide h3 {
+            color: var(--accent-secondary);
+            margin-bottom: 20px;
+        }
+
+        .setup-steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .setup-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 24px;
+            padding-left: 40px;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .setup-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--accent-secondary);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .labs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-shield">
+                    <i class="ph-bold ph-shield-check"></i>
+                </div>
+                <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
+            </a>
+            <button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roadmap.html">Course Roadmap</a></li>
+                    <li><a href="labs.html" class="active">Practical Labs</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="schedule.html" class="btn btn-live-class">Live Class</a>
+                <a href="roadmap.html" class="btn btn-primary">View Roadmap</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <span class="hero-tag">Hands-On Practice</span>
+                <h1>Practical <span style="color: var(--accent-primary);">Labs</span></h1>
+                <p style="max-width: 700px; margin: 16px auto 0;">Sharpen your skills with real-world scenarios and
+                    challenges. Practice in safe, legal environments designed for learning.</p>
+            </div>
+        </section>
+
+        <div class="container" style="padding: 60px 0;">
+
+            <!-- TryHackMe Section -->
+            <div class="platform-section">
+                <div class="platform-header">
+                    <div class="platform-logo"><i class="ph-fill ph-target"></i></div>
+                    <h2>TryHackMe Rooms</h2>
+                </div>
+                <p style="margin-bottom: 32px; color: var(--text-secondary); max-width: 800px;">TryHackMe offers guided,
+                    beginner-friendly labs with step-by-step walkthroughs. Perfect for building foundational skills.</p>
+
+                <div class="labs-grid">
+                    <div class="lab-card">
+                        <div class="lab-icon"><i class="ph-bold ph-shield-warning"></i></div>
+                        <h3>Introduction to Pentesting</h3>
+                        <p>Learn the basics of penetration testing methodology, reconnaissance, and vulnerability
+                            scanning in a structured environment.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-beginner">Beginner</span>
+                            <span class="lab-badge">2-3 hours</span>
+                        </div>
+                        <a href="https://tryhackme.com" target="_blank" class="btn btn-outline">Launch Lab <i
+                                class="ph ph-arrow-square-out"></i></a>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-icon"><i class="ph-bold ph-globe"></i></div>
+                        <h3>OWASP Top 10</h3>
+                        <p>Exploit the most critical web application vulnerabilities including injection, broken
+                            authentication, and XSS attacks.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-intermediate">Intermediate</span>
+                            <span class="lab-badge">4-5 hours</span>
+                        </div>
+                        <a href="https://tryhackme.com" target="_blank" class="btn btn-outline">Launch Lab <i
+                                class="ph ph-arrow-square-out"></i></a>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-icon"><i class="ph-bold ph-windows-logo"></i></div>
+                        <h3>Active Directory Basics</h3>
+                        <p>Understand AD structure, enumeration, and basic attack vectors including pass-the-hash and
+                            Kerberoasting.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-intermediate">Intermediate</span>
+                            <span class="lab-badge">6-8 hours</span>
+                        </div>
+                        <a href="https://tryhackme.com" target="_blank" class="btn btn-outline">Launch Lab <i
+                                class="ph ph-arrow-square-out"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reconnaissance & Pentesting Section -->
+            <div class="platform-section">
+                <div class="platform-header">
+                    <div class="platform-logo" style="background: var(--accent-primary);"><i
+                            class="ph-bold ph-radar"></i></div>
+                    <h2>Reconnaissance & Pentesting</h2>
+                </div>
+                <p style="margin-bottom: 32px; color: var(--text-secondary); max-width: 800px;">
+                    Practical exercises to master network scanning, enumeration, and basic exploitation
+                    techniques.
+                </p>
+
+                <div class="labs-grid">
+                    <div class="lab-card" id="nmap-basics">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-primary); background: rgba(0, 210, 255, 0.1);">
+                            <i class="ph-bold ph-wifi-high"></i>
+                        </div>
+                        <h3>Nmap Basics</h3>
+                        <p>Learn HOST discovery, port scanning, and service version detection using Nmap.
+                        </p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-beginner">Beginner</span>
+                            <span class="lab-badge">Day 2</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Start Lab <i class="ph ph-arrow-right"></i></a>
+                    </div>
+
+                    <div class="lab-card" id="nmap-scripting">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-primary); background: rgba(0, 210, 255, 0.1);">
+                            <i class="ph-bold ph-code"></i>
+                        </div>
+                        <h3>Nmap Scripting (NSE)</h3>
+                        <p>Automate vulnerability detection and advanced enumeration using the Nmap
+                            Scripting Engine.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-advanced">Advanced</span>
+                            <span class="lab-badge">Day 3</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Start Lab <i class="ph ph-arrow-right"></i></a>
+                    </div>
+
+                    <div class="lab-card" id="simple-ctf">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-secondary); background: rgba(255, 46, 99, 0.1);">
+                            <i class="ph-bold ph-flag"></i>
+                        </div>
+                        <h3>Simple CTF</h3>
+                        <p>A beginner-friendly Capture The Flag challenge. Apply your recon skills to find
+                            the flag.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-intermediate">Intermediate</span>
+                            <span class="lab-badge">Day 5</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Start Lab <i class="ph ph-arrow-right"></i></a>
+                    </div>
+
+                    <div class="lab-card" id="basic-pentesting">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-secondary); background: rgba(255, 46, 99, 0.1);">
+                            <i class="ph-bold ph-skull"></i>
+                        </div>
+                        <h3>Basic Pentesting</h3>
+                        <p>Full pentest methodology: from web scanning to obtaining shell and privilege
+                            escalation.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-advanced">Advanced</span>
+                            <span class="lab-badge">Day 6</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Start Lab <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hack The Box Section -->
+            <div class="platform-section">
+                <div class="platform-header">
+                    <div class="platform-logo" style="background: var(--accent-primary);"><i
+                            class="ph-fill ph-cube"></i></div>
+                    <h2>Hack The Box Challenges</h2>
+                </div>
+                <p style="margin-bottom: 32px; color: var(--text-secondary); max-width: 800px;">HTB provides realistic,
+                    enterprise-level machines. Great for intermediate to advanced practitioners looking for a challenge.
+                </p>
+
+                <div class="labs-grid">
+                    <div class="lab-card">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-primary); background: rgba(0, 255, 163, 0.1);"><i
+                                class="ph-bold ph-terminal-window"></i></div>
+                        <h3>Linux Privilege Escalation</h3>
+                        <p>Master techniques to escalate from low-privileged user to root access through misconfigured
+                            permissions and services.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-intermediate">Intermediate</span>
+                            <span class="lab-badge">3-4 hours</span>
+                        </div>
+                        <a href="https://hackthebox.com" target="_blank" class="btn btn-outline">Launch Lab <i
+                                class="ph ph-arrow-square-out"></i></a>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-primary); background: rgba(0, 255, 163, 0.1);"><i
+                                class="ph-bold ph-bug"></i></div>
+                        <h3>Buffer Overflow</h3>
+                        <p>Exploit stack-based buffer overflows to gain code execution. Learn the fundamentals of binary
+                            exploitation.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-advanced">Advanced</span>
+                            <span class="lab-badge">5-7 hours</span>
+                        </div>
+                        <a href="https://hackthebox.com" target="_blank" class="btn btn-outline">Launch Lab <i
+                                class="ph ph-arrow-square-out"></i></a>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-primary); background: rgba(0, 255, 163, 0.1);"><i
+                                class="ph-bold ph-infinity"></i></div>
+                        <h3>Full Chain Exploitation</h3>
+                        <p>Compromise a multi-tier environment through chained exploits, pivoting, and post-exploitation
+                            techniques.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-advanced">Advanced</span>
+                            <span class="lab-badge">10-12 hours</span>
+                        </div>
+                        <a href="https://hackthebox.com" target="_blank" class="btn btn-outline">Launch Lab <i
+                                class="ph ph-arrow-square-out"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VulnHub Section -->
+            <div class="platform-section">
+                <div class="platform-header">
+                    <div class="platform-logo" style="background: #9b59b6;"><i class="ph-fill ph-download-simple"></i>
+                    </div>
+                    <h2>VulnHub Machines</h2>
+                </div>
+                <p style="margin-bottom: 32px; color: var(--text-secondary); max-width: 800px;">Download vulnerable VMs
+                    and practice locally. Perfect for offline learning and custom lab setups.</p>
+
+                <div class="labs-grid">
+                    <div class="lab-card">
+                        <div class="lab-icon"
+                            style="border-color: #9b59b6; background: rgba(155, 89, 182, 0.1); color: #9b59b6;"><i
+                                class="ph-bold ph-robot"></i></div>
+                        <h3>Mr. Robot CTF</h3>
+                        <p>A beginner-friendly machine based on the TV show. Practice enumeration, WordPress
+                            exploitation, and privilege escalation.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-beginner">Beginner</span>
+                            <span class="lab-badge">Local VM</span>
+                        </div>
+                        <a href="https://vulnhub.com" target="_blank" class="btn btn-outline">Download VM <i
+                                class="ph ph-download-simple"></i></a>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-icon"
+                            style="border-color: #9b59b6; background: rgba(155, 89, 182, 0.1); color: #9b59b6;"><i
+                                class="ph-bold ph-detective"></i></div>
+                        <h3>Kioptrix Series</h3>
+                        <p>Classic boot-to-root machines focusing on service exploitation and kernel vulnerabilities.
+                            Great for OSCP prep.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-intermediate">Intermediate</span>
+                            <span class="lab-badge">Local VM</span>
+                        </div>
+                        <a href="https://vulnhub.com" target="_blank" class="btn btn-outline">Download VM <i
+                                class="ph ph-download-simple"></i></a>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-icon"
+                            style="border-color: #9b59b6; background: rgba(155, 89, 182, 0.1); color: #9b59b6;"><i
+                                class="ph-bold ph-skull"></i></div>
+                        <h3>VulnOS Series</h3>
+                        <p>Advanced vulnerable operating systems requiring creative exploitation chains and
+                            out-of-the-box thinking.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-advanced">Advanced</span>
+                            <span class="lab-badge">Local VM</span>
+                        </div>
+                        <a href="https://vulnhub.com" target="_blank" class="btn btn-outline">Download VM <i
+                                class="ph ph-download-simple"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud & DevOps Section -->
+            <div class="platform-section">
+                <div class="platform-header">
+                    <div class="platform-logo" style="background: var(--accent-secondary); color: var(--bg-primary);"><i
+                            class="ph-bold ph-cloud"></i></div>
+                    <h2>Cloud & DevOps Labs</h2>
+                </div>
+                <p style="margin-bottom: 32px; color: var(--text-secondary); max-width: 800px;">Advanced scenarios
+                    focusing on modern infrastructure security, CI/CD pipelines, and cloud environments.</p>
+
+                <div class="labs-grid">
+                    <div class="lab-card">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-secondary); background: rgba(0, 210, 255, 0.1);"><i
+                                class="ph-bold ph-infinity"></i></div>
+                        <h3>DevSecOps Pipeline Security</h3>
+                        <p>Audit and secure a CI/CD pipeline. Identify vulnerable dependencies, hardcoded secrets, and
+                            misconfigured build steps.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-advanced">Expert</span>
+                            <span class="lab-badge">Cloud Lab</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Launch Lab <i class="ph ph-arrow-square-out"></i></a>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-secondary); background: rgba(0, 210, 255, 0.1);"><i
+                                class="ph-bold ph-cloud-warning"></i></div>
+                        <h3>Cloud IAM Exploitation</h3>
+                        <p>Simulate a cloud breach starting from a misconfigured IAM role. Pivot through cloud services
+                            to gain administrative access.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-advanced">Expert</span>
+                            <span class="lab-badge">AWS/Azure</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Launch Lab <i class="ph ph-arrow-square-out"></i></a>
+                    </div>
+
+                    <div class="lab-card">
+                        <div class="lab-icon"
+                            style="border-color: var(--accent-secondary); background: rgba(0, 210, 255, 0.1);"><i
+                                class="ph-bold ph-container"></i></div>
+                        <h3>Container Breakout</h3>
+                        <p>Escape from a Docker container to the host system using kernel vulnerabilities and
+                            misconfigured capabilities.</p>
+                        <div class="lab-meta">
+                            <span class="lab-badge difficulty-advanced">Expert</span>
+                            <span class="lab-badge">Docker</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Launch Lab <i class="ph ph-arrow-square-out"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Setup Guide -->
+            <div class="setup-guide">
+                <h3><i class="ph-bold ph-wrench"></i> Setting Up Your Local Lab Environment</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 24px;">Follow these steps to create a safe,
+                    isolated penetration testing lab on your machine.</p>
+
+                <ol class="setup-steps">
+                    <li>
+                        <strong style="color: var(--text-primary);">Install VirtualBox or VMware</strong><br>
+                        Download virtualization software to run vulnerable machines safely. VMware Workstation or
+                        VirtualBox are both excellent choices.
+                    </li>
+                    <li>
+                        <strong style="color: var(--text-primary);">Set Up Kali Linux</strong><br>
+                        Create a Kali Linux VM as your attacking machine. This comes pre-loaded with all essential
+                        pentesting tools.
+                        <div class="command-block" style="margin-top: 12px;">wget
+                            https://kali.org/downloads/kali-linux-vm.ova</div>
+                    </li>
+                    <li>
+                        <strong style="color: var(--text-primary);">Configure Network Isolation</strong><br>
+                        Use host-only or NAT networking to isolate your lab from your main network. Never attack real
+                        systems.
+                    </li>
+                    <li>
+                        <strong style="color: var(--text-primary);">Download Vulnerable Machines</strong><br>
+                        Get VMs from VulnHub or create intentionally vulnerable targets for practice.
+                    </li>
+                    <li>
+                        <strong style="color: var(--text-primary);">Practice Responsibly</strong><br>
+                        Only test against systems you own or have explicit written permission to attack. Stay legal and
+                        ethical.
+                    </li>
+                </ol>
+            </div>
+
+        </div>
+
+        <section style="padding: 60px 0; background: var(--bg-secondary); border-top: 1px solid var(--border-color);">
+            <div class="container" style="text-align: center;">
+                <h2 style="margin-bottom: 20px;">Need Guidance?</h2>
+                <p style="max-width: 600px; margin: 0 auto 32px; color: var(--text-secondary);">Our video courses walk
+                    you through each technique before you practice in the labs.</p>
+                <a href="roadmap.html" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;">View Course
+                    Roadmap <i class="ph ph-map-trifold"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                        <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
+                    </div>
+                    <p>Free cybersecurity education for everyone. Learn at your own pace, build real skills, and join a
+                        global community of security enthusiasts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="roadmap.html">Course Roadmap</a></li>
+                        <li><a href="watch.html">Video Lessons</a></li>
+                        <li><a href="labs.html">Practical Labs</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Join Community</a></li>
+                        <li><a href="https://youtube.com" target="_blank">YouTube Channel</a></li>
+                        <li><a href="https://discord.gg" target="_blank">Discord Server</a></li>
+                        <li><a href="https://t.me" target="_blank">Telegram Group</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="about.html">Our Mission</a></li>
+                        <li><a href="about.html#instructor">Instructor</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HaltAcademy. Free Cybersecurity Education for All.</p>
+                <div class="social-links">
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="ph-fill ph-youtube-logo"></i></a>
+                    <a href="https://discord.gg" target="_blank" aria-label="Discord"><i
+                            class="ph-fill ph-discord-logo"></i></a>
+                    <a href="https://t.me" target="_blank" aria-label="Telegram"><i
+                            class="ph-fill ph-telegram-logo"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="https://www.linkedin.com/in/hacker-halt-live/" target="_blank" aria-label="LinkedIn"><i
+                            class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i
+                            class="ph-fill ph-github-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle for mobile
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        navToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('mobile-active');
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('ph-list');
+            icon.classList.toggle('ph-x');
+        });
+    </script>
+</body>
+
+</html>

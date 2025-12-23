@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Lessons | HaltAcademy - Free Cybersecurity Training</title>
+    <meta name="description"
+        content="Watch free cybersecurity video lessons with multiple modules and track your progress.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            flex-shrink: 0;
+        }
+
+        .video-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .video-main {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-primary);
+            overflow-y: auto;
+        }
+
+        .video-player-section {
+            background: #000;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .video-embed {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 40px 48px;
+            max-width: 1200px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-secondary);
+        }
+
+        .breadcrumb-separator {
+            color: var(--border-color);
+        }
+
+        .breadcrumb-current {
+            color: var(--accent-secondary);
+            font-weight: 600;
+        }
+
+        .video-info h1 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        .lesson-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            max-width: 900px;
+        }
+
+        .video-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .meta-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .meta-badge:hover {
+            border-color: var(--accent-secondary);
+            background: rgba(0, 210, 255, 0.05);
+        }
+
+        .meta-badge i {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+        }
+
+        .meta-badge.difficulty-beginner {
+            background: rgba(0, 255, 163, 0.08);
+            border-color: rgba(0, 255, 163, 0.2);
+        }
+
+        .meta-badge.difficulty-beginner i {
+            color: var(--accent-primary);
+        }
+
+        .meta-badge.lab-badge {
+            background: rgba(255, 50, 50, 0.1);
+            border-color: rgba(255, 50, 50, 0.3);
+            color: #ff5555;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .meta-badge.lab-badge:hover {
+            background: rgba(255, 50, 50, 0.2);
+            border-color: rgba(255, 50, 50, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 50, 50, 0.3);
+        }
+
+        .meta-badge.lab-badge i {
+            color: #ff5555;
+        }
+
+        .learn-section {
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.03) 0%, rgba(0, 255, 163, 0.02) 100%);
+            padding: 32px;
+            border-radius: 12px;
+            margin: 32px 0;
+            border: 1px solid rgba(0, 210, 255, 0.15);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .learn-section h3 {
+            color: var(--accent-secondary);
+            margin-bottom: 24px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .learn-section h3 i {
+            font-size: 1.4rem;
+        }
+
+        .learn-section ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 14px;
+        }
+
+        .learn-section li {
+            padding: 12px 16px 12px 44px;
+            position: relative;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-primary);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .learn-section li:hover {
+            background: rgba(0, 210, 255, 0.05);
+            transform: translateX(4px);
+        }
+
+        .learn-section li:before {
+            content: '✓';
+            position: absolute;
+            left: 16px;
+            color: var(--accent-primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .lesson-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-card {
+            background: var(--bg-elevated);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 210, 255, 0.1);
+        }
+
+        .stat-card-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .stat-card-value {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-family: var(--font-mono);
+        }
+
+        .stat-card-value i {
+            color: var(--accent-secondary);
+            margin-right: 8px;
+        }
+
+        /* Sidebar */
+        .video-sidebar {
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: calc(100vh - 64px);
+            /* Full height minus header */
+            position: sticky;
+            top: 64px;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .course-progress {
+            margin-top: 16px;
+        }
+
+        .progress-bar-bg {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transition: width 0.5s ease;
+            border-radius: 3px;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-percentage {
+            font-family: var(--font-mono);
+            color: var(--accent-secondary);
+            font-weight: 700;
+        }
+
+        .lesson-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .lesson-item {
+            padding: 16px 24px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.2s;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .lesson-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .lesson-item.active {
+            background: rgba(0, 210, 255, 0.05);
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .lesson-item.completed {
+            opacity: 0.7;
+        }
+
+        .lesson-status {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .lesson-item.completed .lesson-status {
+            background: rgba(0, 255, 163, 0.1);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .lesson-item.active .lesson-status {
+            border-color: var(--accent-secondary);
+            color: var(--accent-secondary);
+        }
+
+        .lesson-info {
+            flex: 1;
+        }
+
+        .lesson-info h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .lesson-duration {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+        }
+
+        .module-section-header {
+            padding: 16px 24px 8px 24px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: rgba(0, 210, 255, 0.03);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .module-section-header i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+            padding: 24px 40px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .nav-buttons .btn {
+            flex: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .video-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .video-sidebar {
+                display: none;
+            }
+
+            .show-sidebar .video-sidebar {
+                display: flex;
+                position: fixed;
+                top: 72px;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                max-width: 400px;
+                z-index: 1000;
+                box-shadow: -4px 0 24px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-info {
+                padding: 24px 20px;
+            }
+
+            .video-info h1 {
+                font-size: 1.4rem;
+            }
+
+            .nav-buttons {
+                padding: 16px 20px;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <header>
+        <div class="container" style="max-width: 100%; padding: 0 40px;">
+            <a href="index.html" class="logo">
+                <div class="logo-shield">
+                    <i class="ph-bold ph-shield-check"></i>
+                </div>
+                <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
+            </a>
+            <button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roadmap.html">Course Roadmap</a></li>
+                    <li><a href="labs.html">Practical Labs</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline" id="sidebarToggle" style="display: none;">
+                    <i class="ph ph-list-bullets"></i> Lessons
+                </button>
+                <a href="schedule.html" class="btn btn-live-class">Live Class</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="video-layout" id="videoLayout">
+        <div class="video-main">
+            <!-- Video Player Section -->
+            <div class="video-player-section">
+                <div class="video-embed">
+                    <iframe id="videoPlayer" src="" allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
+            </div>
+
+            <div class="video-info">
+                <div class="breadcrumb" id="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <a href="roadmap.html">Courses</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span id="breadcrumbCourse">Course Name</span>
+                    <span class="breadcrumb-separator">/</span>
+                    <span id="breadcrumbModule" class="breadcrumb-current">Module</span>
+                </div>
+
+                <h1 id="videoTitle">Lesson Title</h1>
+                <p class="lesson-description" id="lessonDescription"></p>
+
+                <div class="video-meta">
+                    <span class="meta-badge"><i class="ph ph-clock"></i> <span id="videoDuration">--:--</span></span>
+                    <span class="meta-badge difficulty-beginner" id="difficultyBadge"><i class="ph ph-chart-bar"></i>
+                        <span id="difficultyText">Beginner</span></span>
+                    <span class="meta-badge"><i class="ph ph-hash"></i> <span id="videoModule">Lesson 1/1</span></span>
+                    <span class="meta-badge lab-badge" id="labBadge" style="display: none;">
+                        <i class="ph-bold ph-flask"></i> Practice Lab Available
+                    </span>
+                </div>
+
+                <div class="learn-section" id="learnSection">
+                    <h3><i class="ph-bold ph-lightbulb"></i> What You'll Learn</h3>
+                    <ul id="learnList">
+                        <li>Loading course content...</li>
+                    </ul>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-outline" id="prevBtn" onclick="navigateLesson('prev')">
+                        <i class="ph ph-caret-left"></i> Previous
+                    </button>
+                    <button class="btn btn-primary" id="nextBtn" onclick="navigateLesson('next')">
+                        Next <i class="ph ph-caret-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <aside class="video-sidebar">
+            <div class="sidebar-header">
+                <h2 id="courseTitle">Course Title</h2>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);" id="lessonCount">0 lessons</p>
+
+                <div class="course-progress">
+                    <div class="progress-text">
+                        <span>Progress</span>
+                        <span class="progress-percentage" id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-list" id="lessonList">
+                <!-- Lessons will be injected here -->
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Course data structure with multiple sub-modules
+        const courses = {
+            basics: {
+                title: "Cybersecurity Basics",
+                lessons: [
+                    // 1. Introduction
+                    {
+                        id: "basics-intro-1",
+                        title: "1.1 Introduction to Cybersecurity",
+                        duration: "15:30",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Introduction",
+                        hasLab: true,
+                        labUrl: "labs.html#intro-basics",
+                        learningPoints: [
+                            "What is cybersecurity and why it matters",
+                            "Overview of the cybersecurity landscape",
+                            "Career opportunities in cybersecurity",
+                            "Ethical considerations in security",
+                            "Getting started with cybersecurity learning"
+                        ]
+                    },
+                    {
+                        id: "basics-intro-2",
+                        title: "1.2 Introduction to CIA Triad",
+                        duration: "22:45",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Introduction",
+                        hasLab: true,
+                        labUrl: "labs.html#cia-triad",
+                        learningPoints: [
+                            "Understanding Confidentiality: protecting sensitive data",
+                            "Understanding Integrity: ensuring data accuracy",
+                            "Understanding Availability: maintaining system access",
+                            "Real-world examples of CIA triad violations",
+                            "Balancing the three pillars in security design"
+                        ]
+                    },
+                    {
+                        id: "basics-intro-3",
+                        title: "1.3 Cybersecurity Terminology",
+                        duration: "18:20",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Introduction",
+                        hasLab: true,
+                        labUrl: "labs.html#terminology",
+                        learningPoints: [
+                            "Essential security terms and definitions",
+                            "Understanding vulnerabilities, exploits, and threats",
+                            "Attack vectors and attack surfaces",
+                            "Common acronyms (APT, DDoS, MITM, etc.)",
+                            "Building your security vocabulary"
+                        ]
+                    },
+
+                    // 2. Basics of Networking (For Security)
+                    {
+                        id: "basics-net-1",
+                        title: "2.1 Introduction of Network & Networking",
+                        duration: "25:15",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Basics",
+                        hasLab: true,
+                        labUrl: "labs.html#networking-intro",
+                        learningPoints: [
+                            "What is a network and why networking matters",
+                            "Network components: hosts, routers, switches",
+                            "How data travels across networks",
+                            "Client-server vs peer-to-peer models",
+                            "Introduction to network protocols"
+                        ]
+                    },
+                    {
+                        id: "basics-net-2",
+                        title: "2.2 Types of Networking",
+                        duration: "20:30",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Basics",
+                        hasLab: true,
+                        labUrl: "labs.html#networking-types",
+                        learningPoints: [
+                            "LAN (Local Area Network) architecture",
+                            "WAN (Wide Area Network) and the internet",
+                            "MAN (Metropolitan Area Network)",
+                            "PAN (Personal Area Network) and wireless networks",
+                            "Network topologies and their security implications"
+                        ]
+                    },
+                    {
+                        id: "basics-net-3",
+                        title: "2.3 Networking Devices",
+                        duration: "23:40",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Basics",
+                        hasLab: true,
+                        labUrl: "labs.html#networking-devices",
+                        learningPoints: [
+                            "Routers: routing traffic between networks",
+                            "Switches: managing traffic within networks",
+                            "Hubs vs switches: understanding the difference",
+                            "Firewalls and their role in network security",
+                            "Modems, access points, and network adapters"
+                        ]
+                    },
+                    {
+                        id: "basics-net-4",
+                        title: "2.4 IP Address (IPv4 and IPv6)",
+                        duration: "28:15",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Basics",
+                        hasLab: true,
+                        labUrl: "labs.html#ip-addressing",
+                        learningPoints: [
+                            "Understanding IPv4 addressing and structure",
+                            "Subnet masks and CIDR notation",
+                            "Private vs public IP addresses",
+                            "Introduction to IPv6 and its benefits",
+                            "IP address classes and subnetting basics"
+                        ]
+                    },
+                    {
+                        id: "basics-net-5",
+                        title: "2.5 OSI Model",
+                        duration: "32:50",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Basics",
+                        hasLab: true,
+                        labUrl: "labs.html#osi-model",
+                        learningPoints: [
+                            "The 7 layers of the OSI model explained",
+                            "Physical, Data Link, and Network layers",
+                            "Transport, Session, Presentation, and Application layers",
+                            "How data flows through OSI layers",
+                            "OSI model in cybersecurity context"
+                        ]
+                    },
+                    {
+                        id: "basics-net-6",
+                        title: "2.6 TCP/IP Model",
+                        duration: "26:35",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Basics",
+                        hasLab: true,
+                        labUrl: "labs.html#tcpip-model",
+                        learningPoints: [
+                            "Understanding the TCP/IP 4-layer model",
+                            "TCP vs UDP: connection-oriented vs connectionless",
+                            "Three-way handshake process",
+                            "Ports and sockets explained",
+                            "Comparing OSI and TCP/IP models"
+                        ]
+                    },
+                    {
+                        id: "basics-net-7-1",
+                        title: "2.7.1 FTP Protocol",
+                        duration: "15:20",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Protocols",
+                        hasLab: true,
+                        labUrl: "labs.html#ftp-protocol",
+                        learningPoints: [
+                            "File Transfer Protocol (FTP) fundamentals",
+                            "FTP active vs passive mode",
+                            "Security concerns with FTP",
+                            "FTPS and SFTP alternatives",
+                            "Common FTP commands and usage"
+                        ]
+                    },
+                    {
+                        id: "basics-net-7-2",
+                        title: "2.7.2 SSH Protocol",
+                        duration: "22:10",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Protocols",
+                        hasLab: true,
+                        labUrl: "labs.html#ssh-protocol",
+                        learningPoints: [
+                            "Secure Shell (SSH) protocol overview",
+                            "SSH authentication methods (password, key-based)",
+                            "SSH tunneling and port forwarding",
+                            "Generating and managing SSH keys",
+                            "SSH best practices for security"
+                        ]
+                    },
+                    {
+                        id: "basics-net-7-3",
+                        hasLab: true,
+                        labUrl: "labs.html#telnet-protocol",
+                        title: "2.7.3 Telnet Protocol",
+                        duration: "12:45",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Protocols",
+                        learningPoints: [
+                            "Understanding Telnet and its purpose",
+                            "Why Telnet is insecure (cleartext transmission)",
+                            "Telnet vs SSH comparison",
+                            "Legacy systems using Telnet",
+                            "When Telnet might still be used"
+                        ]
+                    },
+                    {
+                        id: "basics-net-7-4",
+                        hasLab: true,
+                        labUrl: "labs.html#smb-protocol",
+                        title: "2.7.4 SMB Protocol",
+                        duration: "19:30",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Protocols",
+                        learningPoints: [
+                            "Server Message Block (SMB) protocol basics",
+                            "SMB file and printer sharing",
+                            "SMB versions and security improvements",
+                            "Common SMB vulnerabilities (EternalBlue, etc.)",
+                            "Securing SMB in Windows environments"
+                        ]
+                    },
+                    {
+                        id: "basics-net-7-5",
+                        hasLab: true,
+                        labUrl: "labs.html#dns-protocol",
+                        title: "2.7.5 DNS Protocol",
+                        duration: "24:15",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Protocols",
+                        learningPoints: [
+                            "Domain Name System (DNS) fundamentals",
+                            "How DNS queries and responses work",
+                            "DNS record types (A, AAAA, MX, CNAME, etc.)",
+                            "DNS security threats (DNS spoofing, cache poisoning)",
+                            "DNSSEC and DNS over HTTPS (DoH)"
+                        ]
+                    },
+                    {
+                        id: "basics-net-7-6",
+                        hasLab: true,
+                        labUrl: "labs.html#mysql-protocol",
+                        title: "2.7.6 MySQL Protocol",
+                        duration: "18:50",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Protocols",
+                        learningPoints: [
+                            "MySQL database protocol overview",
+                            "MySQL default port (3306) and connections",
+                            "Authentication and access control",
+                            "Common MySQL security misconfigurations",
+                            "Securing MySQL databases"
+                        ]
+                    },
+                    {
+                        id: "basics-net-7-7",
+                        hasLab: true,
+                        labUrl: "labs.html#smtp-protocol",
+                        title: "2.7.7 SMTP Protocol",
+                        duration: "20:25",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Protocols",
+                        learningPoints: [
+                            "Simple Mail Transfer Protocol (SMTP) basics",
+                            "How email delivery works (SMTP, POP3, IMAP)",
+                            "SMTP commands and message flow",
+                            "Email security concerns (spam, phishing)",
+                            "SPF, DKIM, and DMARC email authentication"
+                        ]
+                    },
+                    {
+                        id: "basics-net-7-8",
+                        hasLab: true,
+                        labUrl: "labs.html#snmp-protocol",
+                        title: "2.7.8 SNMP Protocol",
+                        duration: "17:40",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Protocols",
+                        learningPoints: [
+                            "Simple Network Management Protocol (SNMP) overview",
+                            "SNMP agents, managers, and MIBs",
+                            "SNMP versions (v1, v2c, v3)",
+                            "Security weaknesses in SNMP v1 and v2",
+                            "SNMPv3 security enhancements"
+                        ]
+                    },
+                    {
+                        id: "basics-net-7-9",
+                        hasLab: true,
+                        labUrl: "labs.html#rdp-protocol",
+                        title: "2.7.9 RDP Protocol",
+                        duration: "21:15",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Protocols",
+                        learningPoints: [
+                            "Remote Desktop Protocol (RDP) fundamentals",
+                            "RDP default port (3389) and setup",
+                            "Common RDP attack vectors",
+                            "RDP security best practices",
+                            "Alternatives to RDP (VNC, TeamViewer)"
+                        ]
+                    },
+                    {
+                        id: "basics-net-8",
+                        hasLab: true,
+                        labUrl: "labs.html#network-topology",
+                        title: "2.8 Networking Topology",
+                        duration: "23:55",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Networking Basics",
+                        learningPoints: [
+                            "Bus topology and its characteristics",
+                            "Star topology: centralized architecture",
+                            "Ring topology and token passing",
+                            "Mesh topology for redundancy",
+                            "Hybrid topologies and security considerations"
+                        ]
+                    }
+                ]
+            },
+            linux: {
+                title: "Linux & Command Line",
+                lessons: [
+                    {
+                        id: "linux-1",
+                        hasLab: true,
+                        labUrl: "labs.html#linux-basics",
+                        title: "Linux Command Line Basics",
+                        duration: "28:30",
+                        difficulty: "Beginner",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Linux Fundamentals",
+                        learningPoints: [
+                            "Terminal navigation and file system",
+                            "Essential commands (ls, cd, cat, grep)",
+                            "File permissions and ownership",
+                            "Text editing with vim/nano",
+                            "Process management"
+                        ]
+                    },
+                    {
+                        id: "linux-2",
+                        hasLab: true,
+                        labUrl: "labs.html#linux-advanced",
+                        title: "Advanced Linux Administration",
+                        duration: "32:15",
+                        difficulty: "Intermediate",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Linux Fundamentals",
+                        learningPoints: [
+                            "User and group management",
+                            "Package management (apt, yum)",
+                            "System services and systemd",
+                            "Log analysis and monitoring",
+                            "Bash scripting basics"
+                        ]
+                    }
+                ]
+            },
+            recon: {
+                title: "Reconnaissance & Scanning",
+                lessons: [
+                    {
+                        id: "recon-1",
+                        title: "Day 1: Introduction to Reconnaissance",
+                        duration: "22:00",
+                        difficulty: "Beginner",
+                        videoId: "q3IMaQ5-2_g",
+                        module: "Introduction",
+                        hasLab: false,
+                        labUrl: "",
+                        learningPoints: [
+                            "Understanding the importance of reconnaissance",
+                            "Passive vs Active information gathering",
+                            "Setting up the recon environment",
+                            "Ethical considerations and legal boundaries",
+                            "Overview of recon tools and methodologies"
+                        ]
+                    },
+                    {
+                        id: "recon-2",
+                        title: "Day 2: Introduction of Nmap",
+                        duration: "35:00",
+                        difficulty: "Intermediate",
+                        videoId: "cIrBUHBE4jE",
+                        module: "Nmap Scanning",
+                        hasLab: true,
+                        labUrl: "labs.html#nmap-basics",
+                        learningPoints: [
+                            "Installing and configuring Nmap",
+                            "Basic scan types (TCP Connect, SYN)",
+                            "Target specification and ranges",
+                            "Understanding Nmap output",
+                            "Port states (Open, Closed, Filtered)"
+                        ]
+                    },
+                    {
+                        id: "recon-3",
+                        title: "Day 3: Nmap Scripting Engine (NSE)",
+                        duration: "1:01:24",
+                        difficulty: "Advanced",
+                        videoId: "qmpEHkUVbVY",
+                        module: "Nmap Advanced",
+                        hasLab: true,
+                        labUrl: "labs.html#nmap-scripting",
+                        learningPoints: [
+                            "Introduction to NSE (Nmap Scripting Engine)",
+                            "Using default scripts for vulnerability detection",
+                            "Writing custom Nmap scripts (Lua basics)",
+                            "Automating recon with NSE",
+                            "Advanced scanning techniques"
+                        ]
+                    },
+                    {
+                        id: "recon-4",
+                        title: "Day 4: Information Gathering Techniques",
+                        duration: "25:00",
+                        difficulty: "Intermediate",
+                        videoId: "Bw8B8H6HPLQ",
+                        module: "Info Gathering",
+                        hasLab: false,
+                        labUrl: "",
+                        learningPoints: [
+                            "DNS enumeration and sub-domain takeover",
+                            "Using Shodan and Censys effectively",
+                            "Harvesting emails and credentials",
+                            "Metadata analysis (FOCA, ExifTool)",
+                            "Analyzing web technologies (Wappalyzer)"
+                        ]
+                    },
+                    {
+                        id: "recon-5",
+                        title: "Day 5: Lab - Simple CTF Walkthrough",
+                        duration: "45:00",
+                        difficulty: "Intermediate",
+                        videoId: "LqyfskrEnGc",
+                        module: "Practical Labs",
+                        hasLab: true,
+                        labUrl: "labs.html#simple-ctf",
+                        learningPoints: [
+                            "Applied recon in a CTF scenario",
+                            "Identifying vulnerable services",
+                            "Exploiting weak configurations",
+                            "Privilege escalation basics",
+                            "Capturing the flag"
+                        ]
+                    },
+                    {
+                        id: "recon-6",
+                        title: "Day 6: Lab - Basic Pentesting",
+                        duration: "50:00",
+                        difficulty: "Advanced",
+                        videoId: "K8fXVUzpryE",
+                        module: "Practical Labs",
+                        hasLab: true,
+                        labUrl: "labs.html#basic-pentesting",
+                        learningPoints: [
+                            "Full pentest methodology application",
+                            "Web app vulnerability scanning",
+                            "Exploiting SMB and RDP",
+                            "Post-exploitation gathering",
+                            "Report writing basics"
+                        ]
+                    }
+                ]
+            },
+            "web-attacks": {
+                title: "Web Application Attacks",
+                lessons: [
+                    {
+                        id: "web-1",
+                        title: "Introduction to Web Security",
+                        duration: "25:00",
+                        difficulty: "Intermediate",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Web Fundamentals",
+                        hasLab: false,
+                        labUrl: "",
+                        learningPoints: [
+                            "HTTP protocol deep dive",
+                            "Understanding cookies and sessions",
+                            "Same-origin policy (SOP)",
+                            "OWASP Top 10 overview",
+                            "Web application architecture"
+                        ]
+                    },
+                    {
+                        id: "web-2",
+                        title: "SQL Injection (SQLi)",
+                        duration: "40:00",
+                        difficulty: "Intermediate",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Injection Attacks",
+                        hasLab: true,
+                        labUrl: "labs.html#sqli-basics",
+                        learningPoints: [
+                            "Understanding SQL injection mechanics",
+                            "Types of SQLi (Union, Error, Blind)",
+                            "Manual exploitation techniques",
+                            "Using SQLmap responsibly",
+                            "Remediation and prevention"
+                        ]
+                    }
+                ]
+            },
+            "active-directory": {
+                title: "Active Directory Exploitation",
+                lessons: [
+                    {
+                        id: "ad-1",
+                        title: "Active Directory Fundamentals",
+                        duration: "30:00",
+                        difficulty: "Advanced",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "AD Structure",
+                        hasLab: false,
+                        labUrl: "",
+                        learningPoints: [
+                            "Domain Controllers, Forests, and Trees",
+                            "Users, Groups, and OUs",
+                            "Authentication protocols (Kerberos, NTLM)",
+                            "LDAP basics",
+                            "Common AD misconfigurations"
+                        ]
+                    }
+                ]
+            },
+            "red-team": {
+                title: "Red Team Fundamentals",
+                lessons: [
+                    {
+                        id: "red-1",
+                        title: "Introduction to Red Teaming",
+                        duration: "28:00",
+                        difficulty: "Expert",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Red Team Ops",
+                        hasLab: false,
+                        labUrl: "",
+                        learningPoints: [
+                            "Red Team vs Pentesting",
+                            "Rules of Engagement (RoE)",
+                            "Kill chain methodology",
+                            "C2 (Command & Control) basics",
+                            "Reporting and debriefing"
+                        ]
+                    }
+                ]
+            },
+            devops: {
+                title: "DevSecOps Fundamentals",
+                lessons: [
+                    {
+                        id: "devops-1",
+                        title: "Introduction to DevSecOps",
+                        duration: "24:00",
+                        difficulty: "Intermediate",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "DevSecOps Basics",
+                        hasLab: false,
+                        labUrl: "",
+                        learningPoints: [
+                            "Understanding DevOps culture and CI/CD",
+                            "Shifting security left",
+                            "Automated security testing (SAST/DAST)",
+                            "Container security basics (Docker/Kubernetes)",
+                            "Infrastructure as Code (IaC) security"
+                        ]
+                    }
+                ]
+            },
+            cloud: {
+                title: "Cloud Computing Security",
+                lessons: [
+                    {
+                        id: "cloud-1",
+                        title: "Cloud Security Essentials",
+                        duration: "30:00",
+                        difficulty: "Intermediate",
+                        videoId: "dQw4w9WgXcQ",
+                        module: "Cloud Fundamentals",
+                        hasLab: false,
+                        labUrl: "",
+                        learningPoints: [
+                            "Shared responsibility model (AWS, Azure, GCP)",
+                            "IAM (Identity and Access Management)",
+                            "Cloud storage security (S3 buckets)",
+                            "Serverless security risks",
+                            "Cloud compliance and governance"
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseId = urlParams.get('module') || 'basics';
+        const lessonId = urlParams.get('lesson');
+
+        // Current state
+        let currentCourse = courses[courseId];
+        let currentLessonIndex = 0;
+
+        // LocalStorage for progress tracking
+        function getProgress() {
+            const progress = localStorage.getItem(`course_${courseId}_progress`);
+            return progress ? JSON.parse(progress) : {};
+        }
+
+        function saveProgress(lessonId) {
+            const progress = getProgress();
+            progress[lessonId] = true;
+            localStorage.setItem(`course_${courseId}_progress`, JSON.stringify(progress));
+            updateProgressBar();
+        }
+
+        function isLessonCompleted(lessonId) {
+            const progress = getProgress();
+            return progress[lessonId] === true;
+        }
+
+        // Initialize page
+        function init() {
+            if (!currentCourse) {
+                document.getElementById('videoTitle').textContent = "Course not found";
+                return;
+            }
+
+            // Set course title
+            document.getElementById('courseTitle').textContent = currentCourse.title;
+            document.getElementById('lessonCount').textContent = `${currentCourse.lessons.length} lessons`;
+
+            // Find lesson index
+            if (lessonId) {
+                currentLessonIndex = currentCourse.lessons.findIndex(l => l.id === lessonId);
+                if (currentLessonIndex === -1) currentLessonIndex = 0;
+            }
+
+            // Render lessons in sidebar
+            renderLessonList();
+
+            // Load current lesson
+            loadLesson(currentLessonIndex);
+
+            // Update progress bar
+            updateProgressBar();
+        }
+
+        function renderLessonList() {
+            const lessonList = document.getElementById('lessonList');
+            lessonList.innerHTML = '';
+
+            let currentModule = null;
+
+            currentCourse.lessons.forEach((lesson, index) => {
+                // Add module header if this is a new module section
+                if (lesson.module && lesson.module !== currentModule) {
+                    currentModule = lesson.module;
+                    const moduleHeader = document.createElement('div');
+                    moduleHeader.className = 'module-section-header';
+
+                    // Choose icon based on module name
+                    let icon = 'ph-folder';
+                    if (currentModule.includes('Introduction')) icon = 'ph-book-open';
+                    else if (currentModule.includes('Networking')) icon = 'ph-network';
+                    else if (currentModule.includes('Protocol')) icon = 'ph-globe';
+                    else if (currentModule.includes('Linux')) icon = 'ph-terminal';
+
+                    moduleHeader.innerHTML = `<i class="ph ${icon}"></i>${currentModule}`;
+                    lessonList.appendChild(moduleHeader);
+                }
+
+                const isActive = index === currentLessonIndex;
+                const isCompleted = isLessonCompleted(lesson.id);
+
+                const lessonItem = document.createElement('div');
+                lessonItem.className = `lesson-item ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}`;
+                lessonItem.onclick = () => loadLesson(index);
+
+                lessonItem.innerHTML = `
+                    <div class="lesson-status">
+                        ${isCompleted ? '<i class="ph-fill ph-check"></i>' : ''}
+                        ${isActive && !isCompleted ? '<i class="ph-fill ph-play"></i>' : ''}
+                    </div>
+                    <div class="lesson-info">
+                        <h4>${lesson.title}</h4>
+                        <div class="lesson-duration">${lesson.duration}</div>
+                    </div>
+                `;
+
+                lessonList.appendChild(lessonItem);
+            });
+        }
+
+        function loadLesson(index) {
+            currentLessonIndex = index;
+            const lesson = currentCourse.lessons[index];
+
+            // Update URL
+            const newUrl = `watch.html?module=${courseId}&lesson=${lesson.id}`;
+            window.history.pushState({}, '', newUrl);
+
+            // Update Video Source
+            const iframe = document.getElementById('videoPlayer');
+            if (iframe) {
+                iframe.src = `https://www.youtube.com/embed/${lesson.videoId}?rel=0`;
+            }
+
+            // Update breadcrumb
+            document.getElementById('breadcrumbCourse').textContent = currentCourse.title;
+            document.getElementById('breadcrumbModule').textContent = lesson.module || 'Lesson';
+
+            // Update lesson info
+            document.getElementById('videoTitle').textContent = lesson.title;
+
+            // Generate lesson description based on learning points
+            const description = `In this lesson, you'll explore ${lesson.learningPoints[0].toLowerCase()}. This comprehensive ${lesson.duration}-minute session covers essential concepts in ${lesson.module || 'cybersecurity'}.`;
+            document.getElementById('lessonDescription').textContent = description;
+
+            document.getElementById('videoDuration').textContent = lesson.duration;
+            document.getElementById('difficultyText').textContent = lesson.difficulty;
+            document.getElementById('videoModule').textContent = `Lesson ${index + 1}/${currentCourse.lessons.length}`;
+
+            // Update difficulty badge styling
+            const difficultyBadge = document.getElementById('difficultyBadge');
+            difficultyBadge.className = 'meta-badge';
+            if (lesson.difficulty === 'Beginner') {
+                difficultyBadge.classList.add('difficulty-beginner');
+            }
+
+            // Update Lab button
+            const labBadge = document.getElementById('labBadge');
+            if (lesson.hasLab && lesson.labUrl) {
+                labBadge.href = lesson.labUrl;
+                labBadge.style.display = 'flex';
+            } else {
+                labBadge.style.display = 'none';
+            }
+
+            // Update learning points
+            const learnList = document.getElementById('learnList');
+            learnList.innerHTML = lesson.learningPoints.map(point => `<li>${point}</li>`).join('');
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === currentCourse.lessons.length - 1;
+
+            // Mark as completed after 3 seconds (simulate watching)
+            setTimeout(() => {
+                saveProgress(lesson.id);
+                renderLessonList();
+            }, 3000);
+
+            // Render lesson list to update active state
+            renderLessonList();
+
+            // Scroll to top
+            document.querySelector('.video-main').scrollTop = 0;
+        }
+
+        function navigateLesson(direction) {
+            let newIndex = direction === 'next' ? currentLessonIndex + 1 : currentLessonIndex - 1;
+
+            if (newIndex >= 0 && newIndex < currentCourse.lessons.length) {
+                loadLesson(newIndex);
+            }
+        }
+
+        function updateProgressBar() {
+            const progress = getProgress();
+            const completed = Object.keys(progress).filter(k => progress[k]).length;
+            const total = currentCourse.lessons.length;
+            const percentage = Math.round((completed / total) * 100);
+
+            document.getElementById('progressPercent').textContent = `${percentage}%`;
+            document.getElementById('progressFill').style.width = `${percentage}%`;
+        }
+
+        // Sidebar toggle for mobile
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const videoLayout = document.getElementById('videoLayout');
+
+        if (window.innerWidth <= 1024) {
+            sidebarToggle.style.display = 'block';
+        }
+
+        sidebarToggle.addEventListener('click', () => {
+            videoLayout.classList.toggle('show-sidebar');
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 1024) {
+                sidebarToggle.style.display = 'block';
+            } else {
+                sidebarToggle.style.display = 'none';
+                videoLayout.classList.remove('show-sidebar');
+            }
+        });
+
+        // Navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        navToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('mobile-active');
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('ph-list');
+            icon.classList.toggle('ph-x');
+        });
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>
