@@ -20,7 +20,22 @@
         header {
             flex-shrink: 0;
         }
+<<<<<<< HEAD
 
+=======
+    </style>
+    <script>
+        // Check for registration before loading content
+        (function () {
+            const user = localStorage.getItem('haltAcademyUser');
+            if (!user) {
+                // User is not registered, redirect to roadmap
+                window.location.replace('roadmap.html');
+            }
+        })();
+    </script>
+    <style>
+>>>>>>> 3889e78 (update the Registration form)
         .video-layout {
             display: grid;
             grid-template-columns: 1fr 380px;
