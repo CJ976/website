@@ -241,7 +241,9 @@
                 form.style.display = 'none';
                 success.style.display = 'block';
                 setTimeout(() => {
-                    toggleBox();
+                    if (box.classList.contains('active')) {
+                        toggleBox();
+                    }
                     // Reset form after closing
                     setTimeout(() => {
                         form.reset();

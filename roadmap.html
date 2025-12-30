@@ -663,7 +663,8 @@
                     <h4>Community</h4>
                     <ul>
                         <li><a href="community.html">Join Community</a></li>
-                        <li><a href="https://www.youtube.com/@hackerhaltLiveTarget" target="_blank">YouTube Channel</a></li>
+                        <li><a href="https://www.youtube.com/@hackerhaltLiveTarget" target="_blank">YouTube Channel</a>
+                        </li>
                         <li><a href="https://discord.gg" target="_blank">Discord Server</a></li>
                         <li><a href="https://t.me" target="_blank">Telegram Group</a></li>
                     </ul>
@@ -721,21 +722,14 @@
             // Check if user is registered
             const isRegistered = localStorage.getItem('hackshala_user'); // Key stored in local storage
 
-            if (!isRegistered) {
-                // Show modal on first load if not registered
-                // setTimeout(() => {
-                //    modal.classList.add('active');
-                // }, 1000);
-
-                // Intercept clicks on start buttons
-                startButtons.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        pendingUrl = btn.getAttribute('href');
-                        modal.classList.add('active');
-                    });
+            // Intercept clicks on start buttons
+            startButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    pendingUrl = btn.getAttribute('href');
+                    modal.classList.add('active');
                 });
-            }
+            });
 
             // Close modal (X button) - Optional: Disable if forced registration needed
             closeBtn.addEventListener('click', () => {
