@@ -96,7 +96,7 @@ h4 {
 
 /* --- HEADER --- */
 header {
-    height: 72px;
+    height: 80px;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
@@ -198,7 +198,7 @@ nav ul li a.active::after {
 
     nav {
         position: fixed;
-        top: 72px;
+        top: 80px;
         left: 0;
         width: 100%;
         background: var(--glass-bg);
@@ -564,13 +564,12 @@ footer {
 
     /* Header */
     header {
-        height: auto;
+        height: 64px;
+        padding: 0 16px;
     }
 
     header .container {
-        flex-direction: column;
-        padding: 16px;
-        gap: 12px;
+        padding: 0;
     }
 
     .logo {
