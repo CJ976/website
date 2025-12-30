@@ -1,4 +1,4 @@
-# HaltAcademy - Free Cybersecurity Learning Platform
+# Hackshala - Free Cybersecurity Learning Platform
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-GitHub%20Pages-green.svg)
@@ -46,8 +46,8 @@ website/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/haltacademy.git
-   cd haltacademy
+   git clone https://github.com/yourusername/hackshala.git
+   cd hackshala
    ```
 
 2. **Start a local server**
@@ -78,7 +78,7 @@ website/
    git add .
    git commit -m "Initial commit"
    git branch -M main
-   git remote add origin https://github.com/yourusername/haltacademy.git
+   git remote add origin https://github.com/yourusername/hackshala.git
    git push -u origin main
    ```
 
@@ -227,7 +227,7 @@ If you find this project helpful:
 ## 📧 Contact
 
 - **Website**: [Your website URL]
-- **Email**: ops@haltacademy.io
+- **Email**: ops@hackshala.io
 - **Discord**: [Your Discord invite]
 - **YouTube**: [Your YouTube channel]
 

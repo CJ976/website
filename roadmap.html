@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Roadmap | HaltAcademy - Your Path to Cybersecurity Mastery</title>
+    <title>Course Roadmap | Hackshala - Your Path to Cybersecurity Mastery</title>
     <meta name="description"
-        content="Follow our structured cybersecurity learning path from beginner to advanced. Free online courses in ethical hacking, penetration testing, and security research.">
+        content="Follow our structured cybersecurity learning path. Master the art of Red Teaming with our comprehensive Operator course.">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
@@ -225,335 +225,6 @@
             }
         }
     </style>
-</head>
-
-<body>
-    <div class="scanline"></div>
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo">
-                <div class="logo-shield">
-                    <i class="ph-bold ph-shield-check"></i>
-                </div>
-                <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
-            </a>
-            <button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
-            <nav id="mainNav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="roadmap.html" class="active">Course Roadmap</a></li>
-                    <li><a href="labs.html">Practical Labs</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="community.html">Community</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <a href="schedule.html" class="btn btn-live-class">Live Class</a>
-                <a href="watch.html" class="btn btn-primary">Watch Lessons</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <span class="hero-tag">Structured Learning Path</span>
-                <h1>Cybersecurity <span style="color: var(--accent-secondary);">Roadmap</span></h1>
-                <p style="max-width: 700px; margin: 16px auto 0; color: var(--text-secondary);">Follow our carefully
-                    designed curriculum from fundamentals to advanced techniques. Each module builds on the previous,
-                    ensuring comprehensive knowledge.</p>
-            </div>
-        </section>
-
-        <div class="container roadmap-container">
-            <div class="roadmap-path">
-                <div class="roadmap-line"></div>
-
-                <!-- Phase 1 -->
-                <div class="phase-header">
-                    <span class="phase-badge">Phase 1: Foundation</span>
-                </div>
-
-                <!-- Module 1 -->
-                <div class="module-item">
-                    <div class="module-number">01</div>
-                    <div class="module-card">
-                        <span class="module-tag">Beginner</span>
-                        <h3>Introduction to Cybersecurity</h3>
-                        <p>Begin your journey with fundamental concepts, security principles, and the mindset needed for
-                            ethical hacking. Learn about threat landscapes and defense strategies.</p>
-                        <div class="module-meta">
-                            <span class="meta-badge"><i class="ph ph-clock"></i> 4 hours</span>
-                            <span class="meta-badge"><i class="ph ph-video-camera"></i> 12 lessons</span>
-                            <span class="meta-badge"><i class="ph ph-certificate"></i> Certificate</span>
-                        </div>
-                        <div class="module-actions">
-                            <a href="watch.html?module=intro" class="btn btn-primary">Start Module</a>
-                            <a href="#" class="btn btn-outline">View Syllabus</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 2 -->
-                <div class="module-item">
-                    <div class="module-number">02</div>
-                    <div class="module-card">
-                        <span class="module-tag">Beginner</span>
-                        <h3>Linux & Command Line</h3>
-                        <p>Master the Linux operating system and command-line tools essential for cybersecurity work.
-                            Learn file systems, permissions, networking, and bash scripting.</p>
-                        <div class="module-meta">
-                            <span class="meta-badge"><i class="ph ph-clock"></i> 6 hours</span>
-                            <span class="meta-badge"><i class="ph ph-video-camera"></i> 18 lessons</span>
-                            <span class="meta-badge"><i class="ph ph-certificate"></i> Certificate</span>
-                        </div>
-                        <div class="module-actions">
-                            <a href="watch.html?module=linux" class="btn btn-primary">Start Module</a>
-                            <a href="#" class="btn btn-outline">View Syllabus</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 3 -->
-                <div class="module-item">
-                    <div class="module-number">03</div>
-                    <div class="module-card">
-                        <span class="module-tag">Beginner</span>
-                        <h3>Networking Fundamentals</h3>
-                        <p>Understand how networks function, protocols, and network architecture. Learn TCP/IP, DNS,
-                            HTTP/HTTPS, and network security basics.</p>
-                        <div class="module-meta">
-                            <span class="meta-badge"><i class="ph ph-clock"></i> 8 hours</span>
-                            <span class="meta-badge"><i class="ph ph-video-camera"></i> 20 lessons</span>
-                            <span class="meta-badge"><i class="ph ph-certificate"></i> Certificate</span>
-                        </div>
-                        <div class="prerequisites">
-                            <strong>Prerequisites</strong>
-                            <ul>
-                                <li>Linux & Command Line</li>
-                            </ul>
-                        </div>
-                        <div class="module-actions">
-                            <a href="watch.html?module=networking" class="btn btn-primary">Start Module</a>
-                            <a href="#" class="btn btn-outline">View Syllabus</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Phase 2 -->
-                <div class="phase-header">
-                    <span class="phase-badge">Phase 2: Reconnaissance</span>
-                </div>
-
-                <!-- Module 4 -->
-                <div class="module-item">
-                    <div class="module-number">04</div>
-                    <div class="module-card">
-                        <span class="module-tag">Intermediate</span>
-                        <h3>Reconnaissance & Scanning</h3>
-                        <p>Learn information gathering techniques, OSINT, network scanning with Nmap, and target
-                            enumeration. Build a comprehensive understanding of your target's attack surface.</p>
-                        <div class="module-meta">
-                            <span class="meta-badge"><i class="ph ph-clock"></i> 10 hours</span>
-                            <span class="meta-badge"><i class="ph ph-video-camera"></i> 24 lessons</span>
-                            <span class="meta-badge"><i class="ph ph-certificate"></i> Certificate</span>
-                        </div>
-                        <div class="prerequisites">
-                            <strong>Prerequisites</strong>
-                            <ul>
-                                <li>Networking Fundamentals</li>
-                                <li>Linux & Command Line</li>
-                            </ul>
-                        </div>
-                        <div class="module-actions">
-                            <a href="watch.html?module=recon" class="btn btn-primary">Start Module</a>
-                            <a href="#" class="btn btn-outline">View Syllabus</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 5 -->
-                <div class="module-item">
-                    <div class="module-number">05</div>
-                    <div class="module-card">
-                        <span class="module-tag">Intermediate</span>
-                        <h3>Web Application Attacks</h3>
-                        <p>Dive into web vulnerabilities including SQL injection, XSS, CSRF, and OWASP Top 10. Learn to
-                            identify and exploit common web application security flaws.</p>
-                        <div class="module-meta">
-                            <span class="meta-badge"><i class="ph ph-clock"></i> 12 hours</span>
-                            <span class="meta-badge"><i class="ph ph-video-camera"></i> 28 lessons</span>
-                            <span class="meta-badge"><i class="ph ph-certificate"></i> Certificate</span>
-                        </div>
-                        <div class="prerequisites">
-                            <strong>Prerequisites</strong>
-                            <ul>
-                                <li>Reconnaissance & Scanning</li>
-                                <li>Basic Web Development Knowledge</li>
-                            </ul>
-                        </div>
-                        <div class="module-actions">
-                            <a href="watch.html?module=webattacks" class="btn btn-primary">Start Module</a>
-                            <a href="#" class="btn btn-outline">View Syllabus</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 6 -->
-                <div class="module-item">
-                    <div class="module-number">06</div>
-                    <div class="module-card">
-                        <span class="module-tag">Intermediate</span>
-                        <h3>System Exploitation</h3>
-                        <p>Master exploitation techniques for Linux and Windows systems. Learn buffer overflows,
-                            privilege escalation, and post-exploitation strategies.</p>
-                        <div class="module-meta">
-                            <span class="meta-badge"><i class="ph ph-clock"></i> 14 hours</span>
-                            <span class="meta-badge"><i class="ph ph-video-camera"></i> 32 lessons</span>
-                            <span class="meta-badge"><i class="ph ph-certificate"></i> Certificate</span>
-                        </div>
-                        <div class="prerequisites">
-                            <strong>Prerequisites</strong>
-                            <ul>
-                                <li>Linux & Command Line (Advanced)</li>
-                                <li>Reconnaissance & Scanning</li>
-                                < li>Assembly Language Basics</li>
-                            </ul>
-                        </div>
-                        <div class="module-actions">
-                            <a href="watch.html?module=exploitation" class="btn btn-primary">Start Module</a>
-                            <a href="#" class="btn btn-outline">View Syllabus</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Phase 3 -->
-                <div class="phase-header">
-                    <span class="phase-badge">Phase 3: Advanced Techniques</span>
-                </div>
-
-                <!-- Module 7 -->
-                <div class="module-item">
-                    <div class="module-number">07</div>
-                    <div class="module-card">
-                        <span class="module-tag">Advanced</span>
-                        <h3>Active Directory Attacks</h3>
-                        <p>Learn advanced Active Directory enumeration and exploitation techniques. Master Kerberos
-                            attacks, lateral movement, and domain escalation.</p>
-                        <div class="module-meta">
-                            <span class="meta-badge"><i class="ph ph-clock"></i> 16 hours</span>
-                            <span class="meta-badge"><i class="ph ph-video-camera"></i> 36 lessons</span>
-                            <span class="meta-badge"><i class="ph ph-certificate"></i> Certificate</span>
-                        </div>
-                        <div class="prerequisites">
-                            <strong>Prerequisites</strong>
-                            <ul>
-                                <li>System Exploitation</li>
-                                <li>Windows Fundamentals</li>
-                                <li>Network Security</li>
-                            </ul>
-                        </div>
-                        <div class="module-actions">
-                            <a href="watch.html?module=ad" class="btn btn-primary">Start Module</a>
-                            <a href="#" class="btn btn-outline">View Syllabus</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 8 -->
-                <div class="module-item">
-                    <div class="module-number">08</div>
-                    <div class="module-card">
-                        <span class="module-tag">Advanced</span>
-                        <h3>Penetration Testing Methodology</h3>
-                        <p>Complete penetration testing workflows, reporting, and professional practices. Prepare for
-                            certifications like OSCP and real-world engagements.</p>
-                        <div class="module-meta">
-                            <span class="meta-badge"><i class="ph ph-clock"></i> 20 hours</span>
-                            <span class="meta-badge"><i class="ph ph-video-camera"></i> 40 lessons</span>
-                            <span class="meta-badge"><i class="ph ph-certificate"></i> Certificate</span>
-                        </div>
-                        <div class="prerequisites">
-                            <strong>Prerequisites</strong>
-                            <ul>
-                                <li>All Previous Modules</li>
-                                <li>Hands-on Lab Experience</li>
-                            </ul>
-                        </div>
-                        <div class="module-actions">
-                            <a href="watch.html?module=pentest" class="btn btn-primary">Start Module</a>
-                            <a href="#" class="btn btn-outline">Take Assessment</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
-                        <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
-                    </div>
-                    <p>Free cybersecurity education for everyone. Learn at your own pace, build real skills, and join a
-                        global community of security enthusiasts.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Learn</h4>
-                    <ul>
-                        <li><a href="roadmap.html">Course Roadmap</a></li>
-                        <li><a href="watch.html">Video Lessons</a></li>
-                        <li><a href="labs.html">Practical Labs</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Community</h4>
-                    <ul>
-                        <li><a href="community.html">Join Community</a></li>
-                        <li><a href="https://youtube.com" target="_blank">YouTube Channel</a></li>
-                        <li><a href="https://discord.gg" target="_blank">Discord Server</a></li>
-                        <li><a href="https://t.me" target="_blank">Telegram Group</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="about.html">Our Mission</a></li>
-                        <li><a href="about.html#instructor">Instructor</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 HaltAcademy. Free Cybersecurity Education for All.</p>
-                <div class="social-links">
-                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
-                            class="ph-fill ph-youtube-logo"></i></a>
-                    <a href="https://discord.gg" target="_blank" aria-label="Discord"><i
-                            class="ph-fill ph-discord-logo"></i></a>
-                    <a href="https://t.me" target="_blank" aria-label="Telegram"><i
-                            class="ph-fill ph-telegram-logo"></i></a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
-                            class="ph-fill ph-instagram-logo"></i></a>
-                    <a href="https://www.linkedin.com/in/hacker-halt-live/" target="_blank" aria-label="LinkedIn"><i
-                            class="ph-fill ph-linkedin-logo"></i></a>
-                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i
-                            class="ph-fill ph-github-logo"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-<<<<<<< HEAD
-=======
     <style>
         /* Registration Modal Styles */
         .modal-overlay {
@@ -721,7 +392,10 @@
             }
         }
     </style>
+</head>
 
+<body>
+    <div class="scanline"></div>
     <!-- Registration Modal -->
     <div id="registrationModal" class="modal-overlay">
         <div class="modal-content">
@@ -729,7 +403,7 @@
             <div class="modal-header">
                 <div class="modal-icon"><i class="ph-bold ph-user-plus"></i></div>
                 <h2>Student Registration</h2>
-                <p>Join HaltAcademy to access premium course materials and track your progress.</p>
+                <p>Join Hackshala to access premium course materials and track your progress.</p>
             </div>
             <form id="registrationForm">
                 <div class="form-group">
@@ -776,7 +450,254 @@
         </div>
     </div>
 
->>>>>>> 3889e78 (update the Registration form)
+    <!-- Syllabus Modal -->
+    <div id="syllabusModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 800px;">
+            <button class="modal-close" id="closeSyllabusModal"><i class="ph ph-x"></i></button>
+            <div class="modal-header">
+                <div class="modal-icon"><i class="ph-bold ph-list-dashes"></i></div>
+                <h2>Course Syllabus</h2>
+                <p>Detailed curriculum for Red Team Operator</p>
+            </div>
+            <div class="syllabus-content" style="max-height: 60vh; overflow-y: auto; padding-right: 10px;">
+                <div class="syllabus-module">
+                    <h3
+                        style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                        Linux & Command Line</h3>
+                    <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;">
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Introduction to Linux
+                        </li>
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Linux Server
+                            Administration</li>
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Networking Fundamentals
+                        </li>
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Cryptography Basics</li>
+                    </ul>
+                </div>
+                <div class="syllabus-module">
+                    <h3
+                        style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                        Information Gathering</h3>
+                    <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;">
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Active & Passive Recon
+                        </li>
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Google Dorking & OSINT
+                        </li>
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Phishing Attacks</li>
+                    </ul>
+                </div>
+                <div class="syllabus-module">
+                    <h3
+                        style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                        Network Attacks</h3>
+                    <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;">
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Sniffing & Wireshark</li>
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Enumeration (Nmap, SMB,
+                            FTP)</li>
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Password Cracking</li>
+                    </ul>
+                </div>
+                <div class="syllabus-module">
+                    <h3
+                        style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                        Web & Active Directory</h3>
+                    <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;">
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>SQL Injection & XSS</li>
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>File Upload Exploitation
+                        </li>
+                        <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                style="color: var(--accent-secondary); margin-right: 8px;"></i>Active Directory Attacks
+                            (LLMNR, Bloodhound)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-actions" style="margin-top: 20px; text-align: center;">
+                <a href="watch.html?module=redteam" class="btn btn-primary">Start Learning Now</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-shield">
+                    <i class="ph-bold ph-shield-check"></i>
+                </div>
+                <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
+            </a>
+            <button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roadmap.html" class="active">Course Roadmap</a></li>
+                    <li><a href="labs.html">Practical Labs</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="schedule.html" class="btn btn-live-class">Live Class</a>
+                <a href="watch.html" class="btn btn-primary">Watch Lessons</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <span class="hero-tag">Intensive Training</span>
+                <h1>Red Team <span style="color: var(--accent-secondary);">Operator</span></h1>
+                <p style="max-width: 700px; margin: 16px auto 0; color: var(--text-secondary);">
+                    An advanced, comprehensive course designed for aspiring Red Team Operators.
+                    Master the art of adversary simulation, evasion, and offensive security operations.
+                </p>
+            </div>
+        </section>
+
+        <div class="container roadmap-container">
+            <div class="roadmap-path">
+                <div class="roadmap-line"></div>
+
+                <!-- Phase 1 -->
+                <div class="phase-header">
+                    <span class="phase-badge">Elite Track</span>
+                </div>
+
+                <style>
+                    .module-logo {
+                        flex-shrink: 0;
+                        width: 90px;
+                        height: 90px;
+                        background: var(--bg-primary);
+                        border: 2px solid var(--accent-secondary);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        overflow: hidden;
+                        position: relative;
+                        z-index: 2;
+                        box-shadow: 0 0 20px rgba(220, 38, 38, 0.2);
+                    }
+
+                    .module-logo img {
+                        width: 65%;
+                        height: 65%;
+                        object-fit: contain;
+                        filter: drop-shadow(0 0 5px rgba(220, 38, 38, 0.5));
+                        /* Optional: adds a glow to the logo itself */
+                    }
+                </style>
+                <!-- Module 1: Red Team Operator -->
+                <div class="module-item">
+                    <div class="module-logo">
+                        <img src="assets/red-team-logo.svg" alt="Red Team Operator Logo">
+                    </div>
+                    <div class="module-card">
+                        <span class="module-tag">Advanced</span>
+                        <h3>Red Team Operator</h3>
+                        <p>This all-encompassing course takes you deep into the world of Red Teaming. You will learn
+                            advanced C2 infrastructure setup, payload development, EDR evasion, Active Directory
+                            exploitation, and post-exploitation tradecraft. Designed for those who want to operate at
+                            the highest level.</p>
+                        <div class="module-meta">
+                            <span class="meta-badge"><i class="ph ph-clock"></i> 80+ Hours</span>
+                            <span class="meta-badge"><i class="ph ph-video-camera"></i> 85+ Lessons</span>
+                            <span class="meta-badge"><i class="ph ph-certificate"></i> Certified Operator</span>
+                        </div>
+                        <div class="prerequisites">
+                            <strong>Prerequisites</strong>
+                            <ul>
+                                <li>Solid understanding of Networking (TCP/IP, DNS)</li>
+                                <li>Proficiency in Linux & Windows command line</li>
+                                <li>Basic scripting (Python, PowerShell, Bash)</li>
+                                <li>Prior Penetration Testing experience recommended</li>
+                            </ul>
+                        </div>
+                        <div class="module-actions">
+                            <a href="watch.html?module=redteam" class="btn btn-primary">Start Course</a>
+                            <a href="#" id="viewSyllabusBtn" class="btn btn-outline">View Syllabus</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                        <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
+                    </div>
+                    <p>Free cybersecurity education for everyone. Learn at your own pace, build real skills, and join a
+                        global community of security enthusiasts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="roadmap.html">Course Roadmap</a></li>
+                        <li><a href="watch.html">Video Lessons</a></li>
+                        <li><a href="labs.html">Practical Labs</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Join Community</a></li>
+                        <li><a href="https://youtube.com" target="_blank">YouTube Channel</a></li>
+                        <li><a href="https://discord.gg" target="_blank">Discord Server</a></li>
+                        <li><a href="https://t.me" target="_blank">Telegram Group</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="about.html">Our Mission</a></li>
+                        <li><a href="about.html#instructor">Instructor</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hackshala. Free Cybersecurity Education for All.</p>
+                <div class="social-links">
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                            class="ph-fill ph-youtube-logo"></i></a>
+                    <a href="https://discord.gg" target="_blank" aria-label="Discord"><i
+                            class="ph-fill ph-discord-logo"></i></a>
+                    <a href="https://t.me" target="_blank" aria-label="Telegram"><i
+                            class="ph-fill ph-telegram-logo"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="https://www.linkedin.com/in/hacker-halt-live/" target="_blank" aria-label="LinkedIn"><i
+                            class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i
+                            class="ph-fill ph-github-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // Navigation toggle for mobile
         const navToggle = document.getElementById('navToggle');
@@ -788,8 +709,6 @@
             icon.classList.toggle('ph-list');
             icon.classList.toggle('ph-x');
         });
-<<<<<<< HEAD
-=======
 
         // Registration Logic
         document.addEventListener('DOMContentLoaded', () => {
@@ -799,143 +718,110 @@
             const startButtons = document.querySelectorAll('.btn-primary[href^="watch.html"]'); // Target module start buttons
             let pendingUrl = '';
 
-            // Check if user is already registered
-            const isRegistered = () => {
-                return localStorage.getItem('haltAcademyUser') !== null;
-            };
+            // Check if user is registered
+            const isRegistered = localStorage.getItem('hackshala_user'); // Key stored in local storage
 
-            // Open Modal
-            const openModal = (url = '', isMandatory = false) => {
-                pendingUrl = url;
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            if (!isRegistered) {
+                // Show modal on first load if not registered
+                // setTimeout(() => {
+                //    modal.classList.add('active');
+                // }, 1000);
 
-                if (isMandatory) {
-                    // Hide close button if mandatory
-                    if (closeBtn) closeBtn.style.display = 'none';
-                }
-            };
-
-            // Close Modal
-            const closeModal = () => {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-                pendingUrl = ''; // Reset
-            };
-
-            // Only allow closing if we enable it (failsafe)
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    // In strict mode, we might not want this, but if we opened with mandatory=false (future proof), it's fine.
-                    // However, since we now hide the button in mandatory mode, this click only works if button is visible.
-                    closeModal();
-                });
-            }
-
-            // Close on outside click - DISABLED for strict gating compliance
-            /* 
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeModal();
-            });
-            */
-
-            // === STRICT GATING: Check immediately on load ===
-            if (!isRegistered()) {
-                openModal('', true); // True = Mandatory
-            }
-
-            // Intercept button clicks (Failsafe for returning users who might be viewing cached version or similar)
-            startButtons.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    if (!isRegistered()) {
+                // Intercept clicks on start buttons
+                startButtons.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
                         e.preventDefault();
-                        const url = btn.getAttribute('href');
-                        openModal(url, true);
-                    }
-                    // If registered, let the default action happen (navigation)
+                        pendingUrl = btn.getAttribute('href');
+                        modal.classList.add('active');
+                    });
                 });
+            }
+
+            // Close modal (X button) - Optional: Disable if forced registration needed
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
             });
 
             // Handle Form Submission
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                const userData = {
-                    name: document.getElementById('fullName').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    interest: document.getElementById('interest').value,
-                    registeredAt: new Date().toISOString()
-                };
+                // Get form values
+                const name = document.getElementById('fullName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const interest = document.getElementById('interest').value;
 
-                // Save to localStorage
-                localStorage.setItem('haltAcademyUser', JSON.stringify(userData));
+                console.log('Registration:', { name, email, phone, interest });
 
-                // --- DISCORD WEBHOOK INTEGRATION ---
-                const webhookUrl = "https://discord.com/api/webhooks/1453256468315766784/8EXWVGM0Cf7f8tYVlBuUoa9yYd8x-k1WZ0-5_5tysT89L2I5GGEeYds5grFXO-ifvLeL";
+                // Discord Webhook Logic
+                const webhookUrl = 'YOUR_WEBHOOK_URL_HERE'; // REPLACE THIS WITH YOUR ACTUAL WEBHOOK URL
 
-                // Format interest string
-                const formatInterest = (str) => {
-                    if (!str) return "General";
-                    return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-                };
-
-                const discordPayload = {
+                const payload = {
+                    content: "🚀 **New Registration Received!**",
                     embeds: [{
-                        title: "🎓 New Student Enrollment",
-                        description: "**A new candidate has joined the academy.**",
-                        color: 0x00ffa3, // Matches var(--accent-primary) Green
+                        title: "New Student Registration",
+                        color: 0x00ff9d, // Neon Green
                         fields: [
-                            {
-                                name: "👤 Candidate Profile",
-                                value: `**Name:** \`${userData.name}\`\n**Email:** ${userData.email}\n**Phone:** ||${userData.phone}||`,
-                                inline: false
-                            },
-                            {
-                                name: "🎯 Career Path",
-                                value: `\`\`\`${formatInterest(userData.interest)}\`\`\``,
-                                inline: true
-                            },
-                            {
-                                name: "⏰ Registered",
-                                value: `<t:${Math.floor(Date.now() / 1000)}:R>`,
-                                inline: true
-                            }
+                            { name: "👤 Name", value: name, inline: true },
+                            { name: "📧 Email", value: email, inline: true },
+                            { name: "📱 Phone", value: phone, inline: true },
+                            { name: "🎯 Interest", value: interest, inline: true }
                         ],
                         footer: {
-                            text: "HaltAcademy Enrollment System • Secure Verification"
+                            text: "Hackshala Registration System"
                         },
                         timestamp: new Date().toISOString()
                     }]
                 };
 
-                // Send to Discord (Non-blocking logic)
+                // Send to Discord (Fire and forget)
                 fetch(webhookUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(discordPayload)
-                }).catch(err => console.error("Webhook Error:", err));
-                // -----------------------------------
+                    body: JSON.stringify(payload)
+                }).catch(err => console.error('Webhook Error:', err));
 
-                // Success animation/feedback
-                const submitBtn = form.querySelector('button[type="submit"]');
+                // Save registration state
+                localStorage.setItem('hackshala_user', 'true');
 
-                submitBtn.innerHTML = '<i class="ph ph-check"></i> Registration Complete';
-                submitBtn.style.background = 'var(--accent-primary)';
-                submitBtn.style.borderColor = 'var(--accent-primary)';
+                // Show success feedback
+                modal.classList.remove('active');
 
-                setTimeout(() => {
-                    closeModal();
-                    if (pendingUrl) {
-                        window.location.href = pendingUrl;
-                    } else {
-                        // Reload to ensure state is clean
-                        window.location.reload();
-                    }
-                }, 800);
+                if (pendingUrl) {
+                    window.location.href = pendingUrl;
+                } else {
+                    alert("Registration Successful! Welcome to Hackshala.");
+                }
             });
         });
->>>>>>> 3889e78 (update the Registration form)
+
+        // Syllabus Modal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const syllabusModal = document.getElementById('syllabusModal');
+            const viewSyllabusBtn = document.getElementById('viewSyllabusBtn');
+            const closeSyllabusBtn = document.getElementById('closeSyllabusModal');
+
+            if (viewSyllabusBtn) {
+                viewSyllabusBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    syllabusModal.classList.add('active');
+                });
+            }
+
+            if (closeSyllabusBtn) {
+                closeSyllabusBtn.addEventListener('click', () => {
+                    syllabusModal.classList.remove('active');
+                });
+            }
+
+            // Close on outside click
+            syllabusModal.addEventListener('click', (e) => {
+                if (e.target === syllabusModal) {
+                    syllabusModal.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Lessons | HaltAcademy - Free Cybersecurity Training</title>
+    <title>Video Lessons | Hackshala - Free Cybersecurity Training</title>
     <meta name="description"
         content="Watch free cybersecurity video lessons with multiple modules and track your progress.">
     <link rel="stylesheet" href="css/style.css">
@@ -20,14 +20,11 @@
         header {
             flex-shrink: 0;
         }
-<<<<<<< HEAD
-
-=======
     </style>
     <script>
         // Check for registration before loading content
         (function () {
-            const user = localStorage.getItem('haltAcademyUser');
+            const user = localStorage.getItem('hackshala_user');
             if (!user) {
                 // User is not registered, redirect to roadmap
                 window.location.replace('roadmap.html');
@@ -35,7 +32,6 @@
         })();
     </script>
     <style>
->>>>>>> 3889e78 (update the Registration form)
         .video-layout {
             display: grid;
             grid-template-columns: 1fr 380px;
@@ -485,6 +481,61 @@
                 flex-direction: column;
             }
         }
+
+        .video-thumbnail-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 10;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-thumbnail-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            transition: background 0.3s;
+        }
+
+        .video-thumbnail-overlay:hover::before {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .play-button-overlay {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 210, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .play-button-overlay i {
+            font-size: 2.5rem;
+            color: #000;
+            margin-left: 4px;
+            /* Optical adjustment */
+        }
+
+        .video-thumbnail-overlay:hover .play-button-overlay {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.6);
+        }
     </style>
 </head>
 
@@ -496,7 +547,7 @@
                 <div class="logo-shield">
                     <i class="ph-bold ph-shield-check"></i>
                 </div>
-                <div class="logo-text">HALT <span class="logo-highlight">ACADEMY</span></div>
+                <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
             </a>
             <button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
             <nav id="mainNav">
@@ -523,6 +574,11 @@
             <!-- Video Player Section -->
             <div class="video-player-section">
                 <div class="video-embed">
+                    <div id="thumbnailOverlay" class="video-thumbnail-overlay" onclick="playVideo()">
+                        <div class="play-button-overlay">
+                            <i class="ph-fill ph-play"></i>
+                        </div>
+                    </div>
                     <iframe id="videoPlayer" src="" allowfullscreen
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                 </div>
@@ -593,617 +649,128 @@
     </div>
 
     <script>
-        // Course data structure with multiple sub-modules
         const courses = {
-            basics: {
-                title: "Cybersecurity Basics",
+            redteam: {
+                title: "Red Team Operator",
                 lessons: [
-                    // 1. Introduction
-                    {
-                        id: "basics-intro-1",
-                        title: "1.1 Introduction to Cybersecurity",
-                        duration: "15:30",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Introduction",
-                        hasLab: true,
-                        labUrl: "labs.html#intro-basics",
-                        learningPoints: [
-                            "What is cybersecurity and why it matters",
-                            "Overview of the cybersecurity landscape",
-                            "Career opportunities in cybersecurity",
-                            "Ethical considerations in security",
-                            "Getting started with cybersecurity learning"
-                        ]
-                    },
-                    {
-                        id: "basics-intro-2",
-                        title: "1.2 Introduction to CIA Triad",
-                        duration: "22:45",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Introduction",
-                        hasLab: true,
-                        labUrl: "labs.html#cia-triad",
-                        learningPoints: [
-                            "Understanding Confidentiality: protecting sensitive data",
-                            "Understanding Integrity: ensuring data accuracy",
-                            "Understanding Availability: maintaining system access",
-                            "Real-world examples of CIA triad violations",
-                            "Balancing the three pillars in security design"
-                        ]
-                    },
-                    {
-                        id: "basics-intro-3",
-                        title: "1.3 Cybersecurity Terminology",
-                        duration: "18:20",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Introduction",
-                        hasLab: true,
-                        labUrl: "labs.html#terminology",
-                        learningPoints: [
-                            "Essential security terms and definitions",
-                            "Understanding vulnerabilities, exploits, and threats",
-                            "Attack vectors and attack surfaces",
-                            "Common acronyms (APT, DDoS, MITM, etc.)",
-                            "Building your security vocabulary"
-                        ]
-                    },
+                    // --- Linux ---
+                    { id: "linux-1", title: "Introduction of Linux", duration: "1:13:47", difficulty: "Beginner", videoId: "GHKoCbpN4TA", module: "Linux", thumbnail: "assets/thumbnails/linux-1.png" },
+                    { id: "linux-2", title: "Linux Part 2", duration: "1:30:44", difficulty: "Beginner", videoId: "PzXlMkXGDMY", module: "Linux" },
+                    { id: "linux-3", title: "Linux Part 3", duration: "1:21:05", difficulty: "Beginner", videoId: "2R9lN6ZSYJ0", module: "Linux" },
+                    { id: "linux-4", title: "Linux Part 4", duration: "1:22:49", difficulty: "Beginner", videoId: "L44PHNg_xj8", module: "Linux" },
+                    { id: "linux-5", title: "Linux Server Part 1", duration: "52:24", difficulty: "Intermediate", videoId: "-lGRFGvMggQ", module: "Linux" },
+                    { id: "linux-6", title: "Linux Root File System", duration: "1:06:21", difficulty: "Intermediate", videoId: "Jd4yYKdilwQ", module: "Linux" },
+                    { id: "linux-7", title: "Networking Fundamentals", duration: "1:05:59", difficulty: "Beginner", videoId: "BxzdU7uDK4s", module: "Linux" },
+                    { id: "linux-8", title: "Networking Fundamentals Part 2", duration: "45:03", difficulty: "Beginner", videoId: "sPnIIGxu544", module: "Linux" },
+                    { id: "linux-9", title: "Cryptography", duration: "1:37:35", difficulty: "Intermediate", videoId: "cNmltzATQa8", module: "Linux" },
 
-                    // 2. Basics of Networking (For Security)
-                    {
-                        id: "basics-net-1",
-                        title: "2.1 Introduction of Network & Networking",
-                        duration: "25:15",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Basics",
-                        hasLab: true,
-                        labUrl: "labs.html#networking-intro",
-                        learningPoints: [
-                            "What is a network and why networking matters",
-                            "Network components: hosts, routers, switches",
-                            "How data travels across networks",
-                            "Client-server vs peer-to-peer models",
-                            "Introduction to network protocols"
-                        ]
-                    },
-                    {
-                        id: "basics-net-2",
-                        title: "2.2 Types of Networking",
-                        duration: "20:30",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Basics",
-                        hasLab: true,
-                        labUrl: "labs.html#networking-types",
-                        learningPoints: [
-                            "LAN (Local Area Network) architecture",
-                            "WAN (Wide Area Network) and the internet",
-                            "MAN (Metropolitan Area Network)",
-                            "PAN (Personal Area Network) and wireless networks",
-                            "Network topologies and their security implications"
-                        ]
-                    },
-                    {
-                        id: "basics-net-3",
-                        title: "2.3 Networking Devices",
-                        duration: "23:40",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Basics",
-                        hasLab: true,
-                        labUrl: "labs.html#networking-devices",
-                        learningPoints: [
-                            "Routers: routing traffic between networks",
-                            "Switches: managing traffic within networks",
-                            "Hubs vs switches: understanding the difference",
-                            "Firewalls and their role in network security",
-                            "Modems, access points, and network adapters"
-                        ]
-                    },
-                    {
-                        id: "basics-net-4",
-                        title: "2.4 IP Address (IPv4 and IPv6)",
-                        duration: "28:15",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Basics",
-                        hasLab: true,
-                        labUrl: "labs.html#ip-addressing",
-                        learningPoints: [
-                            "Understanding IPv4 addressing and structure",
-                            "Subnet masks and CIDR notation",
-                            "Private vs public IP addresses",
-                            "Introduction to IPv6 and its benefits",
-                            "IP address classes and subnetting basics"
-                        ]
-                    },
-                    {
-                        id: "basics-net-5",
-                        title: "2.5 OSI Model",
-                        duration: "32:50",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Basics",
-                        hasLab: true,
-                        labUrl: "labs.html#osi-model",
-                        learningPoints: [
-                            "The 7 layers of the OSI model explained",
-                            "Physical, Data Link, and Network layers",
-                            "Transport, Session, Presentation, and Application layers",
-                            "How data flows through OSI layers",
-                            "OSI model in cybersecurity context"
-                        ]
-                    },
-                    {
-                        id: "basics-net-6",
-                        title: "2.6 TCP/IP Model",
-                        duration: "26:35",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Basics",
-                        hasLab: true,
-                        labUrl: "labs.html#tcpip-model",
-                        learningPoints: [
-                            "Understanding the TCP/IP 4-layer model",
-                            "TCP vs UDP: connection-oriented vs connectionless",
-                            "Three-way handshake process",
-                            "Ports and sockets explained",
-                            "Comparing OSI and TCP/IP models"
-                        ]
-                    },
-                    {
-                        id: "basics-net-7-1",
-                        title: "2.7.1 FTP Protocol",
-                        duration: "15:20",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Protocols",
-                        hasLab: true,
-                        labUrl: "labs.html#ftp-protocol",
-                        learningPoints: [
-                            "File Transfer Protocol (FTP) fundamentals",
-                            "FTP active vs passive mode",
-                            "Security concerns with FTP",
-                            "FTPS and SFTP alternatives",
-                            "Common FTP commands and usage"
-                        ]
-                    },
-                    {
-                        id: "basics-net-7-2",
-                        title: "2.7.2 SSH Protocol",
-                        duration: "22:10",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Protocols",
-                        hasLab: true,
-                        labUrl: "labs.html#ssh-protocol",
-                        learningPoints: [
-                            "Secure Shell (SSH) protocol overview",
-                            "SSH authentication methods (password, key-based)",
-                            "SSH tunneling and port forwarding",
-                            "Generating and managing SSH keys",
-                            "SSH best practices for security"
-                        ]
-                    },
-                    {
-                        id: "basics-net-7-3",
-                        hasLab: true,
-                        labUrl: "labs.html#telnet-protocol",
-                        title: "2.7.3 Telnet Protocol",
-                        duration: "12:45",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Protocols",
-                        learningPoints: [
-                            "Understanding Telnet and its purpose",
-                            "Why Telnet is insecure (cleartext transmission)",
-                            "Telnet vs SSH comparison",
-                            "Legacy systems using Telnet",
-                            "When Telnet might still be used"
-                        ]
-                    },
-                    {
-                        id: "basics-net-7-4",
-                        hasLab: true,
-                        labUrl: "labs.html#smb-protocol",
-                        title: "2.7.4 SMB Protocol",
-                        duration: "19:30",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Protocols",
-                        learningPoints: [
-                            "Server Message Block (SMB) protocol basics",
-                            "SMB file and printer sharing",
-                            "SMB versions and security improvements",
-                            "Common SMB vulnerabilities (EternalBlue, etc.)",
-                            "Securing SMB in Windows environments"
-                        ]
-                    },
-                    {
-                        id: "basics-net-7-5",
-                        hasLab: true,
-                        labUrl: "labs.html#dns-protocol",
-                        title: "2.7.5 DNS Protocol",
-                        duration: "24:15",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Protocols",
-                        learningPoints: [
-                            "Domain Name System (DNS) fundamentals",
-                            "How DNS queries and responses work",
-                            "DNS record types (A, AAAA, MX, CNAME, etc.)",
-                            "DNS security threats (DNS spoofing, cache poisoning)",
-                            "DNSSEC and DNS over HTTPS (DoH)"
-                        ]
-                    },
-                    {
-                        id: "basics-net-7-6",
-                        hasLab: true,
-                        labUrl: "labs.html#mysql-protocol",
-                        title: "2.7.6 MySQL Protocol",
-                        duration: "18:50",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Protocols",
-                        learningPoints: [
-                            "MySQL database protocol overview",
-                            "MySQL default port (3306) and connections",
-                            "Authentication and access control",
-                            "Common MySQL security misconfigurations",
-                            "Securing MySQL databases"
-                        ]
-                    },
-                    {
-                        id: "basics-net-7-7",
-                        hasLab: true,
-                        labUrl: "labs.html#smtp-protocol",
-                        title: "2.7.7 SMTP Protocol",
-                        duration: "20:25",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Protocols",
-                        learningPoints: [
-                            "Simple Mail Transfer Protocol (SMTP) basics",
-                            "How email delivery works (SMTP, POP3, IMAP)",
-                            "SMTP commands and message flow",
-                            "Email security concerns (spam, phishing)",
-                            "SPF, DKIM, and DMARC email authentication"
-                        ]
-                    },
-                    {
-                        id: "basics-net-7-8",
-                        hasLab: true,
-                        labUrl: "labs.html#snmp-protocol",
-                        title: "2.7.8 SNMP Protocol",
-                        duration: "17:40",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Protocols",
-                        learningPoints: [
-                            "Simple Network Management Protocol (SNMP) overview",
-                            "SNMP agents, managers, and MIBs",
-                            "SNMP versions (v1, v2c, v3)",
-                            "Security weaknesses in SNMP v1 and v2",
-                            "SNMPv3 security enhancements"
-                        ]
-                    },
-                    {
-                        id: "basics-net-7-9",
-                        hasLab: true,
-                        labUrl: "labs.html#rdp-protocol",
-                        title: "2.7.9 RDP Protocol",
-                        duration: "21:15",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Protocols",
-                        learningPoints: [
-                            "Remote Desktop Protocol (RDP) fundamentals",
-                            "RDP default port (3389) and setup",
-                            "Common RDP attack vectors",
-                            "RDP security best practices",
-                            "Alternatives to RDP (VNC, TeamViewer)"
-                        ]
-                    },
-                    {
-                        id: "basics-net-8",
-                        hasLab: true,
-                        labUrl: "labs.html#network-topology",
-                        title: "2.8 Networking Topology",
-                        duration: "23:55",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Networking Basics",
-                        learningPoints: [
-                            "Bus topology and its characteristics",
-                            "Star topology: centralized architecture",
-                            "Ring topology and token passing",
-                            "Mesh topology for redundancy",
-                            "Hybrid topologies and security considerations"
-                        ]
-                    }
-                ]
-            },
-            linux: {
-                title: "Linux & Command Line",
-                lessons: [
-                    {
-                        id: "linux-1",
-                        hasLab: true,
-                        labUrl: "labs.html#linux-basics",
-                        title: "Linux Command Line Basics",
-                        duration: "28:30",
-                        difficulty: "Beginner",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Linux Fundamentals",
-                        learningPoints: [
-                            "Terminal navigation and file system",
-                            "Essential commands (ls, cd, cat, grep)",
-                            "File permissions and ownership",
-                            "Text editing with vim/nano",
-                            "Process management"
-                        ]
-                    },
-                    {
-                        id: "linux-2",
-                        hasLab: true,
-                        labUrl: "labs.html#linux-advanced",
-                        title: "Advanced Linux Administration",
-                        duration: "32:15",
-                        difficulty: "Intermediate",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Linux Fundamentals",
-                        learningPoints: [
-                            "User and group management",
-                            "Package management (apt, yum)",
-                            "System services and systemd",
-                            "Log analysis and monitoring",
-                            "Bash scripting basics"
-                        ]
-                    }
-                ]
-            },
-            recon: {
-                title: "Reconnaissance & Scanning",
-                lessons: [
-                    {
-                        id: "recon-1",
-                        title: "Day 1: Introduction to Reconnaissance",
-                        duration: "22:00",
-                        difficulty: "Beginner",
-                        videoId: "q3IMaQ5-2_g",
-                        module: "Introduction",
-                        hasLab: false,
-                        labUrl: "",
-                        learningPoints: [
-                            "Understanding the importance of reconnaissance",
-                            "Passive vs Active information gathering",
-                            "Setting up the recon environment",
-                            "Ethical considerations and legal boundaries",
-                            "Overview of recon tools and methodologies"
-                        ]
-                    },
-                    {
-                        id: "recon-2",
-                        title: "Day 2: Introduction of Nmap",
-                        duration: "35:00",
-                        difficulty: "Intermediate",
-                        videoId: "cIrBUHBE4jE",
-                        module: "Nmap Scanning",
-                        hasLab: true,
-                        labUrl: "labs.html#nmap-basics",
-                        learningPoints: [
-                            "Installing and configuring Nmap",
-                            "Basic scan types (TCP Connect, SYN)",
-                            "Target specification and ranges",
-                            "Understanding Nmap output",
-                            "Port states (Open, Closed, Filtered)"
-                        ]
-                    },
-                    {
-                        id: "recon-3",
-                        title: "Day 3: Nmap Scripting Engine (NSE)",
-                        duration: "1:01:24",
-                        difficulty: "Advanced",
-                        videoId: "qmpEHkUVbVY",
-                        module: "Nmap Advanced",
-                        hasLab: true,
-                        labUrl: "labs.html#nmap-scripting",
-                        learningPoints: [
-                            "Introduction to NSE (Nmap Scripting Engine)",
-                            "Using default scripts for vulnerability detection",
-                            "Writing custom Nmap scripts (Lua basics)",
-                            "Automating recon with NSE",
-                            "Advanced scanning techniques"
-                        ]
-                    },
-                    {
-                        id: "recon-4",
-                        title: "Day 4: Information Gathering Techniques",
-                        duration: "25:00",
-                        difficulty: "Intermediate",
-                        videoId: "Bw8B8H6HPLQ",
-                        module: "Info Gathering",
-                        hasLab: false,
-                        labUrl: "",
-                        learningPoints: [
-                            "DNS enumeration and sub-domain takeover",
-                            "Using Shodan and Censys effectively",
-                            "Harvesting emails and credentials",
-                            "Metadata analysis (FOCA, ExifTool)",
-                            "Analyzing web technologies (Wappalyzer)"
-                        ]
-                    },
-                    {
-                        id: "recon-5",
-                        title: "Day 5: Lab - Simple CTF Walkthrough",
-                        duration: "45:00",
-                        difficulty: "Intermediate",
-                        videoId: "LqyfskrEnGc",
-                        module: "Practical Labs",
-                        hasLab: true,
-                        labUrl: "labs.html#simple-ctf",
-                        learningPoints: [
-                            "Applied recon in a CTF scenario",
-                            "Identifying vulnerable services",
-                            "Exploiting weak configurations",
-                            "Privilege escalation basics",
-                            "Capturing the flag"
-                        ]
-                    },
-                    {
-                        id: "recon-6",
-                        title: "Day 6: Lab - Basic Pentesting",
-                        duration: "50:00",
-                        difficulty: "Advanced",
-                        videoId: "K8fXVUzpryE",
-                        module: "Practical Labs",
-                        hasLab: true,
-                        labUrl: "labs.html#basic-pentesting",
-                        learningPoints: [
-                            "Full pentest methodology application",
-                            "Web app vulnerability scanning",
-                            "Exploiting SMB and RDP",
-                            "Post-exploitation gathering",
-                            "Report writing basics"
-                        ]
-                    }
-                ]
-            },
-            "web-attacks": {
-                title: "Web Application Attacks",
-                lessons: [
-                    {
-                        id: "web-1",
-                        title: "Introduction to Web Security",
-                        duration: "25:00",
-                        difficulty: "Intermediate",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Web Fundamentals",
-                        hasLab: false,
-                        labUrl: "",
-                        learningPoints: [
-                            "HTTP protocol deep dive",
-                            "Understanding cookies and sessions",
-                            "Same-origin policy (SOP)",
-                            "OWASP Top 10 overview",
-                            "Web application architecture"
-                        ]
-                    },
-                    {
-                        id: "web-2",
-                        title: "SQL Injection (SQLi)",
-                        duration: "40:00",
-                        difficulty: "Intermediate",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Injection Attacks",
-                        hasLab: true,
-                        labUrl: "labs.html#sqli-basics",
-                        learningPoints: [
-                            "Understanding SQL injection mechanics",
-                            "Types of SQLi (Union, Error, Blind)",
-                            "Manual exploitation techniques",
-                            "Using SQLmap responsibly",
-                            "Remediation and prevention"
-                        ]
-                    }
-                ]
-            },
-            "active-directory": {
-                title: "Active Directory Exploitation",
-                lessons: [
-                    {
-                        id: "ad-1",
-                        title: "Active Directory Fundamentals",
-                        duration: "30:00",
-                        difficulty: "Advanced",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "AD Structure",
-                        hasLab: false,
-                        labUrl: "",
-                        learningPoints: [
-                            "Domain Controllers, Forests, and Trees",
-                            "Users, Groups, and OUs",
-                            "Authentication protocols (Kerberos, NTLM)",
-                            "LDAP basics",
-                            "Common AD misconfigurations"
-                        ]
-                    }
-                ]
-            },
-            "red-team": {
-                title: "Red Team Fundamentals",
-                lessons: [
-                    {
-                        id: "red-1",
-                        title: "Introduction to Red Teaming",
-                        duration: "28:00",
-                        difficulty: "Expert",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Red Team Ops",
-                        hasLab: false,
-                        labUrl: "",
-                        learningPoints: [
-                            "Red Team vs Pentesting",
-                            "Rules of Engagement (RoE)",
-                            "Kill chain methodology",
-                            "C2 (Command & Control) basics",
-                            "Reporting and debriefing"
-                        ]
-                    }
-                ]
-            },
-            devops: {
-                title: "DevSecOps Fundamentals",
-                lessons: [
-                    {
-                        id: "devops-1",
-                        title: "Introduction to DevSecOps",
-                        duration: "24:00",
-                        difficulty: "Intermediate",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "DevSecOps Basics",
-                        hasLab: false,
-                        labUrl: "",
-                        learningPoints: [
-                            "Understanding DevOps culture and CI/CD",
-                            "Shifting security left",
-                            "Automated security testing (SAST/DAST)",
-                            "Container security basics (Docker/Kubernetes)",
-                            "Infrastructure as Code (IaC) security"
-                        ]
-                    }
-                ]
-            },
-            cloud: {
-                title: "Cloud Computing Security",
-                lessons: [
-                    {
-                        id: "cloud-1",
-                        title: "Cloud Security Essentials",
-                        duration: "30:00",
-                        difficulty: "Intermediate",
-                        videoId: "dQw4w9WgXcQ",
-                        module: "Cloud Fundamentals",
-                        hasLab: false,
-                        labUrl: "",
-                        learningPoints: [
-                            "Shared responsibility model (AWS, Azure, GCP)",
-                            "IAM (Identity and Access Management)",
-                            "Cloud storage security (S3 buckets)",
-                            "Serverless security risks",
-                            "Cloud compliance and governance"
-                        ]
-                    }
+                    // --- Information Gathering ---
+                    { id: "info-1", title: "Active and Passive Information Gathering", duration: "1:02:30", difficulty: "Beginner", videoId: "a5-90oA6tuw", module: "Information Gathering", thumbnail: "assets/thumbnails/info-1.png" },
+                    { id: "info-2", title: "Information Gathering - Web Edition", duration: "1:38:32", difficulty: "Intermediate", videoId: "Cu4Fp-0VeTM", module: "Information Gathering" },
+                    { id: "info-3", title: "HTB Recon", duration: "10:00", difficulty: "Intermediate", videoId: "s8uTAvxONAM", module: "Information Gathering" },
+                    { id: "info-4", title: "HTB Recon Part 2", duration: "53:32", difficulty: "Intermediate", videoId: "2haz1VHE6PI", module: "Information Gathering" },
+                    { id: "info-5", title: "Google Dorking", duration: "1:26:16", difficulty: "Beginner", videoId: "XBMS66vjxTY", module: "Information Gathering" },
+                    { id: "info-6", title: "Phishing Attack", duration: "1:20:47", difficulty: "Intermediate", videoId: "i8ZT8sSbE6s", module: "Information Gathering" },
+                    { id: "info-7", title: "Recon Exam", duration: "1:32:47", difficulty: "Advanced", videoId: "E6t6c2UT6GE", module: "Information Gathering" },
+                    { id: "info-8", title: "Red Team Recon Lab", duration: "1:14:12", difficulty: "Advanced", videoId: "gJMH0698rdQ", module: "Information Gathering" },
+
+                    // --- Sniffing Attack ---
+                    { id: "sniff-1", title: "Wireshark", duration: "1:26:16", difficulty: "Intermediate", videoId: "XBMS66vjxTY", module: "Sniffing Attack" },
+                    { id: "sniff-2", title: "Wireshark Part 2", duration: "1:19:38", difficulty: "Intermediate", videoId: "5Yu9GSYqcb0", module: "Sniffing Attack" },
+
+                    // --- Pen testing Process ---
+                    { id: "process-1", title: "Pentesting Process", duration: "1:10:29", difficulty: "Beginner", videoId: "IQ9B_VbTSR0", module: "Pen testing Process" },
+                    { id: "process-2", title: "Nibbles Lab Walk through", duration: "1:07:02", difficulty: "Intermediate", videoId: "Z2m4SNjBiTc", module: "Pen testing Process" },
+
+                    // --- Enumeration ---
+                    { id: "enum-1", title: "Introduction of Nmap", duration: "1:41:40", difficulty: "Beginner", videoId: "rcOGsI9DNoY", module: "Enumeration" },
+                    { id: "enum-2", title: "FTP Pentesting", duration: "1:29:12", difficulty: "Intermediate", videoId: "GNg86Nd4_rE", module: "Enumeration" },
+                    { id: "enum-3", title: "SMB Pentesting", duration: "1:18:10", difficulty: "Intermediate", videoId: "C9kWDGc04ZA", module: "Enumeration" },
+                    { id: "enum-4", title: "SMB Pentesting (Part 2)", duration: "56:18", difficulty: "Intermediate", videoId: "mBo-hobsAYQ", module: "Enumeration" },
+                    { id: "enum-5", title: "NFS Pentesting", duration: "1:17:49", difficulty: "Intermediate", videoId: "ce4Iz2v4Sxo", module: "Enumeration" },
+                    { id: "enum-6", title: "RDP Pentesting", duration: "1:01:41", difficulty: "Intermediate", videoId: "aC5XD7QRNkM", module: "Enumeration" },
+                    { id: "enum-7", title: "IMAP , POP3 , SNMP , MYSQL Pentesting", duration: "1:56:49", difficulty: "Intermediate", videoId: "7YYSK8Q81h8", module: "Enumeration" },
+                    { id: "enum-8", title: "SMTP Pentesting", duration: "1:04:31", difficulty: "Intermediate", videoId: "EHsTYSZZpPw", module: "Enumeration" },
+                    { id: "enum-9", title: "SSH / Telnet / Mysql Pentesting", duration: "1:34:19", difficulty: "Intermediate", videoId: "KQ3wlJnf_uo", module: "Enumeration" },
+                    { id: "enum-10", title: "HTB Footprinting", duration: "1:27:43", difficulty: "Intermediate", videoId: "rv6HQOMrxF4", module: "Enumeration" },
+                    { id: "enum-11", title: "HTB Footprinting Part 2", duration: "1:25:44", difficulty: "Intermediate", videoId: "mBeyTGOnGjI", module: "Enumeration" },
+                    { id: "enum-12", title: "HTB Footprinting Part 3", duration: "1:00:20", difficulty: "Intermediate", videoId: "EJDXwB6ePXk", module: "Enumeration" },
+                    { id: "enum-13", title: "Kinobi THM Lab", duration: "10:00", difficulty: "Advanced", videoId: "YYUb50uCbyk", module: "Enumeration" },
+                    { id: "enum-14", title: "Daily Bugle", duration: "1:24:02", difficulty: "Advanced", videoId: "Kop0UTNnSOo", module: "Enumeration" },
+
+                    // --- Shell and Payloads ---
+                    { id: "shell-1", title: "Reverse shell", duration: "1:00:48", difficulty: "Intermediate", videoId: "mrg_mGnvqfQ", module: "Shell and Payloads" },
+                    { id: "shell-2", title: "Metasploit Framework", duration: "1:29:08", difficulty: "Beginner", videoId: "ZARzBVTGM5c", module: "Shell and Payloads" },
+                    { id: "shell-3", title: "Shell Uploading", duration: "1:10:52", difficulty: "Intermediate", videoId: "DmS4ZDk3rUo", module: "Shell and Payloads" },
+                    { id: "shell-4", title: "Payloads", duration: "2:42:17", difficulty: "Intermediate", videoId: "yOCJeCddbUg", module: "Shell and Payloads" },
+                    { id: "shell-5", title: "Msfvenom", duration: "2:13:23", difficulty: "Intermediate", videoId: "WInUWy0wGH8", module: "Shell and Payloads" },
+
+                    // --- Password Cracking ---
+                    { id: "pass-1", title: "Password Cracking", duration: "1:33:32", difficulty: "Beginner", videoId: "CfWzqt19YHQ", module: "Password Cracking" },
+                    { id: "pass-2", title: "Password Cracking Part 2", duration: "1:18:35", difficulty: "Beginner", videoId: "wJxQeCUW2pQ", module: "Password Cracking" },
+                    { id: "pass-3", title: "Hydra Password Cracking", duration: "59:09", difficulty: "Intermediate", videoId: "Y6J8N67Q96M", module: "Password Cracking" },
+                    { id: "pass-4", title: "Hash cracking", duration: "54:46", difficulty: "Intermediate", videoId: "zfNcq9np6bU", module: "Password Cracking" },
+                    { id: "pass-5", title: "Hash Cracking Part 2", duration: "54:46", difficulty: "Intermediate", videoId: "zfNcq9np6bU", module: "Password Cracking" },
+
+                    // --- File Transfer ---
+                    { id: "file-1", title: "File Transfer Attack", duration: "1:02:36", difficulty: "Intermediate", videoId: "UCz5pkPg0pE", module: "File Transfer" },
+                    { id: "file-2", title: "File Transfer Attack Part 2", duration: "1:44:04", difficulty: "Intermediate", videoId: "umFXlNkJrs0", module: "File Transfer" },
+
+                    // --- Burpsuite ---
+                    { id: "burp-1", title: "Burpsuite", duration: "1:31:14", difficulty: "Beginner", videoId: "3fLawBR1uEw", module: "Burpsuite" },
+                    { id: "burp-2", title: "Burpsuite Part 2", duration: "1:11:10", difficulty: "Beginner", videoId: "7UXbJpQQXpI", module: "Burpsuite" },
+                    { id: "burp-3", title: "Burpsuite Part 3", duration: "1:05:18", difficulty: "Beginner", videoId: "GdN9v2IweAE", module: "Burpsuite" },
+
+                    // --- Web Attack ---
+                    { id: "web-1", title: "Introduction of SQL Injection Attack", duration: "1:07:55", difficulty: "Beginner", videoId: "Wj82BcC33L0", module: "Web Attack" },
+                    { id: "web-2", title: "SQL Injection Attack", duration: "1:13:41", difficulty: "Intermediate", videoId: "C3_kJNN_PfA", module: "Web Attack" },
+                    { id: "web-3", title: "SQL Injection Attack Part 2", duration: "1:13:44", difficulty: "Intermediate", videoId: "852ruF6Evtc", module: "Web Attack" },
+                    { id: "web-4", title: "SQL Injection Attack Part 2 (Cont.)", duration: "1:23:16", difficulty: "Intermediate", videoId: "Wrsr9jXAtPw", module: "Web Attack" },
+                    { id: "web-5", title: "Sqlmap", duration: "1:08:07", difficulty: "Intermediate", videoId: "TT5Qk_ITcVI", module: "Web Attack" },
+                    { id: "web-6", title: "Xss Attack", duration: "1:15:23", difficulty: "Intermediate", videoId: "Br0vydgem3I", module: "Web Attack" },
+                    { id: "web-7", title: "Xss Attack Part 2", duration: "1:05:51", difficulty: "Intermediate", videoId: "xxAru48Nj6g", module: "Web Attack" },
+                    { id: "web-8", title: "Xss Session Hijacking", duration: "28:14", difficulty: "Advanced", videoId: "wVSiAEt3G2o", module: "Web Attack" },
+
+                    // --- File Uploading ---
+                    { id: "upload-1", title: "Introduction to File Uploading", duration: "21:42", difficulty: "Intermediate", videoId: "3p7v33-zB8o", module: "File Uploading" },
+
+                    // --- Linux Priv ---
+                    { id: "priv-1", title: "Linux Priv Part 1", duration: "21:42", difficulty: "Advanced", videoId: "3p7v33-zB8o", module: "Linux Priv" }, // Video ID same as prev, assuming typo in source but keeping it
+                    { id: "priv-2", title: "Linux Priv Part 2", duration: "1:11:15", difficulty: "Advanced", videoId: "QT8AABdDhXg", module: "Linux Priv" },
+
+                    // --- Active Directory ---
+                    { id: "ad-1", title: "Active Directory", duration: "1:01:21", difficulty: "Advanced", videoId: "qMUpCYb1yoE", module: "Active Directory" },
+                    { id: "ad-2", title: "Active Directory Part 2", duration: "1:06:28", difficulty: "Advanced", videoId: "e7avxG5gI4s", module: "Active Directory" },
+                    { id: "ad-3", title: "Active Directory Part 3", duration: "1:05:59", difficulty: "Advanced", videoId: "BxzdU7uDK4s", module: "Active Directory" },
+                    { id: "ad-4", title: "Active Directory 1", duration: "1:18:16", difficulty: "Advanced", videoId: "lEzLCWrA7AA", module: "Active Directory" },
+                    { id: "ad-5", title: "Active Directory 2", duration: "3:03:24", difficulty: "Advanced", videoId: "jt_JqrTx5tU", module: "Active Directory" },
+                    { id: "ad-6", title: "Active Directory 3", duration: "2:04:21", difficulty: "Advanced", videoId: "8olsJkw8RI0", module: "Active Directory" },
+                    { id: "ad-7", title: "Bloodhound", duration: "1:25:46", difficulty: "Advanced", videoId: "kMAcID9NKsg", module: "Active Directory" },
+                    { id: "ad-8", title: "Active Directory 5", duration: "1:25:46", difficulty: "Advanced", videoId: "kMAcID9NKsg", module: "Active Directory" },
+                    { id: "ad-9", title: "LLMNR Attack", duration: "40:24", difficulty: "Advanced", videoId: "D64T7sjsaEY", module: "Active Directory" },
+                    { id: "ad-10", title: "LLMNR Linux Attack Revision", duration: "1:13:20", difficulty: "Advanced", videoId: "utPjEPYMbRU", module: "Active Directory" },
+                    { id: "ad-11", title: "Password Spraying Part 1", duration: "1:16:29", difficulty: "Advanced", videoId: "okRAApEOPHo", module: "Active Directory" },
+                    { id: "ad-12", title: "Active Directory Attack", duration: "10:00", difficulty: "Advanced", videoId: "LMqwIgLx91Y", module: "Active Directory" },
+                    { id: "ad-13", title: "Active Directory Internal Pentesting", duration: "1:02:30", difficulty: "Advanced", videoId: "a5-90oA6tuw", module: "Active Directory" },
+                    { id: "ad-14", title: "SMB Footprinting AD", duration: "2:13:01", difficulty: "Advanced", videoId: "eLF-xutogSI", module: "Active Directory" },
+                    { id: "ad-15", title: "HTB Forest Lab Walkthrough", duration: "1:02:15", difficulty: "Advanced", videoId: "O7JqIjGel8o", module: "Active Directory" },
+                    { id: "ad-16", title: "Access Control List In Active Directory", duration: "1:11:27", difficulty: "Advanced", videoId: "OBilq2Q00nA", module: "Active Directory" },
+                    { id: "ad-17", title: "Access Control List", duration: "21:42", difficulty: "Advanced", videoId: "3p7v33-zB8o", module: "Active Directory" },
+                    { id: "ad-18", title: "Active Directory Lab", duration: "1:11:28", difficulty: "Advanced", videoId: "DN8MQ95oHos", module: "Active Directory" },
+
+                    // --- Prolabs ---
+                    { id: "pro-1", title: "Dante Lab Walk through", duration: "10:00", difficulty: "Expert", videoId: "Ng2ljf2ecz4", module: "Prolabs" },
+                    { id: "pro-2", title: "Dante Lab Walk through (Part 2)", duration: "1:28:48", difficulty: "Expert", videoId: "XWcY6GTspt8", module: "Prolabs" },
+                    { id: "pro-3", title: "Dante Lab Walk through Part 2", duration: "59:31", difficulty: "Expert", videoId: "_xkfcxKnrD8", module: "Prolabs" },
+                    { id: "pro-4", title: "Dante Lab Walk through Part 3", duration: "59:31", difficulty: "Expert", videoId: "_xkfcxKnrD8", module: "Prolabs" }, // Duplicate ID/Title handled by logic if needed, but keeping as is
+                    { id: "pro-5", title: "Offshore lab Walk through", duration: "48:28", difficulty: "Expert", videoId: "Lb5VfU7MznA", module: "Prolabs" }
                 ]
             }
         };
 
         // Get URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        const courseId = urlParams.get('module') || 'basics';
+        const courseId = urlParams.get('module') || 'redteam';
         const lessonId = urlParams.get('lesson');
 
         // Current state
@@ -1309,10 +876,20 @@
             const newUrl = `watch.html?module=${courseId}&lesson=${lesson.id}`;
             window.history.pushState({}, '', newUrl);
 
-            // Update Video Source
+            // Handle Thumbnail & Video Source
+            const thumbnailOverlay = document.getElementById('thumbnailOverlay');
             const iframe = document.getElementById('videoPlayer');
+
             if (iframe) {
+                // Reset video source
                 iframe.src = `https://www.youtube.com/embed/${lesson.videoId}?rel=0`;
+            }
+
+            if (lesson.thumbnail && thumbnailOverlay) {
+                thumbnailOverlay.style.backgroundImage = `url('${lesson.thumbnail}')`;
+                thumbnailOverlay.style.display = 'flex';
+            } else if (thumbnailOverlay) {
+                thumbnailOverlay.style.display = 'none';
             }
 
             // Update breadcrumb
@@ -1322,8 +899,12 @@
             // Update lesson info
             document.getElementById('videoTitle').textContent = lesson.title;
 
-            // Generate lesson description based on learning points
-            const description = `In this lesson, you'll explore ${lesson.learningPoints[0].toLowerCase()}. This comprehensive ${lesson.duration}-minute session covers essential concepts in ${lesson.module || 'cybersecurity'}.`;
+            // Generate lesson description based on learning points (Safe Access)
+            const learningTopic = (lesson.learningPoints && lesson.learningPoints.length > 0)
+                ? lesson.learningPoints[0].toLowerCase()
+                : 'cybersecurity concepts';
+
+            const description = `In this lesson, you'll explore ${learningTopic}. This comprehensive ${lesson.duration}-minute session covers essential concepts in ${lesson.module || 'cybersecurity'}.`;
             document.getElementById('lessonDescription').textContent = description;
 
             document.getElementById('videoDuration').textContent = lesson.duration;
@@ -1346,15 +927,23 @@
                 labBadge.style.display = 'none';
             }
 
-            // Update learning points
+            // Update learning points (Safe Access)
             const learnList = document.getElementById('learnList');
-            learnList.innerHTML = lesson.learningPoints.map(point => `<li>${point}</li>`).join('');
+            if (lesson.learningPoints && lesson.learningPoints.length > 0) {
+                learnList.innerHTML = lesson.learningPoints.map(point => `<li>${point}</li>`).join('');
+                document.getElementById('learnSection').style.display = 'block';
+            } else {
+                learnList.innerHTML = '';
+                document.getElementById('learnSection').style.display = 'none';
+            }
 
             // Update navigation buttons
             document.getElementById('prevBtn').disabled = index === 0;
             document.getElementById('nextBtn').disabled = index === currentCourse.lessons.length - 1;
 
-            // Mark as completed after 3 seconds (simulate watching)
+            // Mark as completed after 3 seconds (simulate watching if not thumbnail)
+            // If thumbnail is present, don't auto-mark until play? 
+            // Keeping simple logic for now
             setTimeout(() => {
                 saveProgress(lesson.id);
                 renderLessonList();
@@ -1365,6 +954,22 @@
 
             // Scroll to top
             document.querySelector('.video-main').scrollTop = 0;
+        }
+
+        function playVideo() {
+            const thumbnailOverlay = document.getElementById('thumbnailOverlay');
+            const iframe = document.getElementById('videoPlayer');
+
+            if (thumbnailOverlay) {
+                thumbnailOverlay.style.display = 'none';
+            }
+
+            // Auto-play by appending autoplay=1
+            if (iframe && iframe.src) {
+                if (!iframe.src.includes('autoplay=1')) {
+                    iframe.src += '&autoplay=1';
+                }
+            }
         }
 
         function navigateLesson(direction) {

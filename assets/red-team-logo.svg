@@ -1,0 +1,22 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Shield -->
+    <path d="M100 180C100 180 170 150 170 80V40L100 10L30 40V80C30 150 100 180 100 180Z" fill="#111827" stroke="#DC2626" stroke-width="4"/>
+    
+    <!-- Inner Abstract Tech Elements -->
+    <path d="M100 160C100 160 150 135 150 80V50L100 28L50 50V80C50 135 100 160 100 160Z" fill="#1F2937" fill-opacity="0.5"/>
+    
+    <!-- Crosshair / Reticle -->
+    <circle cx="100" cy="90" r="30" stroke="#DC2626" stroke-width="3" stroke-dasharray="10 5"/>
+    <circle cx="100" cy="90" r="10" fill="#DC2626"/>
+    
+    <!-- Horizontal Cross Line -->
+    <path d="M60 90H140" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+    <!-- Vertical Cross Line -->
+    <path d="M100 50V130" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Text 'RTO' Stylized -->
+    <text x="100" y="145" font-family="Arial, sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">RTO</text>
+    
+    <!-- Gloss/Reflection effect -->
+    <path d="M100 10L170 40V80C170 150 100 180 100 180V10Z" fill="white" fill-opacity="0.05"/>
+</svg>
