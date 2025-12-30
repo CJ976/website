@@ -198,6 +198,13 @@ body::before {
     margin-left: 8px;
 }
 
+.period {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-left: 8px;
+}
+
 .price-subtitle {
     color: var(--text-secondary);
     font-size: 0.95rem;
