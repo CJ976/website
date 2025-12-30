@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Subscription | Hackshala - Unlock Advanced Training</title>
+    <meta name="description"
+        content="Upgrade to Hackshala Premium. Get access to Red Team Operator training, live labs, certificates, and personal mentorship for just ₹2000/Month.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .page-header {
+            padding: 80px 0 60px;
+            background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.1) 0%, transparent 60%);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .pricing-container {
+            padding: 80px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pricing-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(0, 255, 163, 0.15);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+            color: var(--bg-primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .price-header h2 {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .price-amount {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .price-amount span {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .price-sub {
+            color: var(--accent-secondary);
+            margin-bottom: 32px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 40px;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li i {
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+        }
+
+        .btn-subscribe {
+            background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+            color: var(--bg-primary);
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-subscribe:hover {
+            opacity: 0.9;
+        }
+
+        .guarantee {
+            margin-top: 24px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-shield">
+                    <i class="ph-bold ph-shield-check"></i>
+                </div>
+                <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
+            </a>
+            <button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roadmap.html">Course Roadmap</a></li>
+                    <li><a href="labs.html">Practical Labs</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="subscription.html" class="btn btn-live-class">Subscription: ₹2000</a>
+                <a href="roadmap.html" class="btn btn-primary">Start Learning</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <span class="hero-tag">Premium Access</span>
+                <h1>Upgrade Your <span style="color: var(--accent-primary);">Career</span></h1>
+                <p style="max-width: 700px; margin: 16px auto 0;">Unlock the full potential of Hackshala with our
+                    premium subscription. Comprehensive training, mentorship, and certification.</p>
+            </div>
+        </section>
+
+        <section class="pricing-container">
+            <div class="container">
+                <div class="pricing-card">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="price-header">
+                        <h2>Monthly Plan</h2>
+                        <div class="price-amount">₹2000 <span>/mo</span></div>
+                        <span class="price-sub">Cancel anytime. No hidden fees.</span>
+                    </div>
+
+                    <ul class="features-list">
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Full Access</strong> to Red Team Operator
+                        </li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Live Labs</strong> & Private VPN</li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>1-on-1 Mentorship</strong> Support</li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Certificate</strong> of Completion</li>
+                        <li><i class="ph-fill ph-check-circle"></i> <strong>Private Discord</strong> Channel</li>
+                        <li><i class="ph-fill ph-check-circle"></i> Weekly <strong>Live Q&A</strong> Sessions</li>
+                    </ul>
+
+                    <a href="https://discord.gg" target="_blank" class="btn-subscribe">
+                        Subscribe Now <i class="ph-bold ph-lightning"></i>
+                    </a>
+
+                    <div class="guarantee">
+                        <i class="ph-fill ph-shield-check"></i> 7-Day Money-Back Guarantee
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 60px 0; background: var(--bg-secondary); border-top: 1px solid var(--border-color);">
+            <div class="container" style="text-align: center;">
+                <h2 style="margin-bottom: 20px;">Need Help Deciding?</h2>
+                <p style="max-width: 600px; margin: 0 auto 32px; color: var(--text-secondary);">Talk to our team or join
+                    our community to see what current students are maintaining.</p>
+                <div style="display: flex; gap: 16px; justify-content: center;">
+                    <a href="https://discord.gg" target="_blank" class="btn btn-outline">Contact Support</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content matches other pages -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                        <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
+                    </div>
+                    <p>Free cybersecurity education for everyone. Learn at your own pace, build real skills, and join a
+                        global community of security enthusiasts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="roadmap.html">Course Roadmap</a></li>
+                        <li><a href="watch.html">Video Lessons</a></li>
+                        <li><a href="labs.html">Practical Labs</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Join Community</a></li>
+                        <li><a href="https://www.youtube.com/@hackerhaltLiveTarget" target="_blank">YouTube Channel</a>
+                        </li>
+                        <li><a href="https://discord.gg" target="_blank">Discord Server</a></li>
+                        <li><a href="https://t.me" target="_blank">Telegram Group</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="about.html">Our Mission</a></li>
+                        <li><a href="about.html#instructor">Instructor</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hackshala. Free Cybersecurity Education for All.</p>
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@hackerhaltLiveTarget" target="_blank" aria-label="YouTube"><i
+                            class="ph-fill ph-youtube-logo"></i></a>
+                    <a href="https://discord.gg" target="_blank" aria-label="Discord"><i
+                            class="ph-fill ph-discord-logo"></i></a>
+                    <a href="https://t.me" target="_blank" aria-label="Telegram"><i
+                            class="ph-fill ph-telegram-logo"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="https://www.linkedin.com/in/hacker-halt-live/" target="_blank" aria-label="LinkedIn"><i
+                            class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i
+                            class="ph-fill ph-github-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle for mobile
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        navToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('mobile-active');
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('ph-list');
+            icon.classList.toggle('ph-x');
+        });
+    </script>
+    <script src="js/feedback-widget.js"></script>
+</body>
+
+</html>
