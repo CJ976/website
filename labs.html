@@ -527,59 +527,7 @@
         </div>
     </footer>
 
-    <script>
-        // Navigation toggle for mobile
-        const navToggle = document.getElementById('navToggle');
-        const mainNav = document.getElementById('mainNav');
-
-        navToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('mobile-active');
-            const icon = navToggle.querySelector('i');
-            icon.classList.toggle('ph-list');
-            icon.classList.toggle('ph-x');
-        });
-
-        // DATA: TryHackMe Labs Configuration
-        // To add a new lab, copy one of the blocks below and paste it to the list.
-        const tryHackMeLabs = [
-            // {
-            //     title: "Example Lab",
-            //     icon: "ph-shield-warning",
-            //     description: "Description...",
-            //     difficulty: "Beginner",
-            //     duration: "2-3 hours",
-            //     link: "#"
-            // }
-            // ADD NEW LABS HERE
-        ];
-
-        function renderLabs(labs, containerId) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-
-            // If no labs, we can leave it empty or show a placeholder message if desired.
-            // For now, if array is empty, it just stays empty.
-            if (labs.length === 0) return;
-
-            container.innerHTML = labs.map(lab => `
-                <div class="lab-card">
-                    <div class="lab-icon"><i class="ph-bold ${lab.icon}"></i></div>
-                    <h3>${lab.title}</h3>
-                    <p>${lab.description}</p>
-                    <div class="lab-meta">
-                        <span class="lab-badge difficulty-${lab.difficulty.toLowerCase()}">${lab.difficulty}</span>
-                        <span class="lab-badge">${lab.duration}</span>
-                    </div>
-                    <a href="${lab.link}" target="_blank" class="btn btn-outline">Launch Lab <i class="ph ph-arrow-square-out"></i></a>
-                </div>
-            `).join('');
-        }
-
-        // Render the labs on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            renderLabs(tryHackMeLabs, 'tryhackme-labs');
-        });
-    </script>
+    <script src="js/ui-scripts.js"></script>
     <script src="js/feedback-widget.js"></script>
 </body>
 

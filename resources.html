@@ -449,39 +449,7 @@
         </div>
     </footer>
 
-    <script>
-        // Navigation toggle for mobile
-        const navToggle = document.getElementById('navToggle');
-        const mainNav = document.getElementById('mainNav');
-
-        navToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('mobile-active');
-            const icon = navToggle.querySelector('i');
-            icon.classList.toggle('ph-list');
-            icon.classList.toggle('ph-x');
-        });
-
-        // Filter functionality
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        const resourceCards = document.querySelectorAll('.resource-card');
-
-        filterTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const filter = tab.dataset.filter;
-
-                filterTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-
-                resourceCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="js/ui-scripts.js"></script>
     <script src="js/feedback-widget.js"></script>
 </body>
 

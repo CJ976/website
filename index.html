@@ -202,25 +202,7 @@
     </footer>
 
 
-    <script>
-        // Navigation toggle for mobile
-        const navToggle = document.getElementById('navToggle');
-        const mainNav = document.getElementById('mainNav');
-
-        navToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('mobile-active');
-            const icon = navToggle.querySelector('i');
-            icon.classList.toggle('ph-list');
-            icon.classList.toggle('ph-x');
-        });
-
-        // Optional: Disable right-click and dev tools shortcuts (for production)
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('keydown', function (e) {
-            if (e.ctrlKey && (e.key === 'u' || e.key === 'i' || e.key === 'j' || e.key === 's')) e.preventDefault();
-            if (e.key === 'F12') e.preventDefault();
-        });
-    </script>
+    <script src="js/ui-scripts.js"></script>
     <script src="js/feedback-widget.js"></script>
 </body>
 
