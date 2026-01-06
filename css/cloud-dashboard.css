@@ -1,0 +1,111 @@
+/* Cloud Security Engineer — Dashboard UI
+   Dark, professional, enterprise-grade design
+   Font: Inter
+*/
+:root{
+  --bg:#05060a; /* deep black */
+  --bg-elev:#0b1220; /* dark navy */
+  --panel:#0f1724; /* panel */
+  --accent:#06b6d4; /* teal/cyan */
+  --accent-2:#00bcd4;
+  --muted:#94a3b8;
+  --text:#e6eef6;
+  --border: rgba(255,255,255,0.04);
+  --glass: rgba(255,255,255,0.02);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body.dashboard-page{
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, var(--bg), #071024 60%);
+  color:var(--text);
+  margin:0;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.topbar{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(7,10,20,0.6), rgba(7,10,20,0.3));backdrop-filter: blur(6px);border-bottom:1px solid var(--border);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+.topbar .container{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+.brand-title{font-weight:700;letter-spacing:0.6px}
+.brand .accent{color:var(--accent)}
+.brand-sub{font-size:0.82rem;color:var(--muted);display:block}
+
+.main-nav{display:flex;gap:18px;align-items:center}
+.main-nav a{color:var(--muted);text-decoration:none;font-weight:500;padding:8px 10px;border-radius:8px}
+.main-nav a:hover{color:var(--text);background:var(--glass)}
+
+.actions .btn{background:none;border:1px solid rgba(255,255,255,0.03);color:var(--muted);padding:8px 12px;border-radius:10px}
+
+/* Layout */
+.layout{display:grid;grid-template-columns:1fr 360px;gap:24px;padding:28px 20px}
+
+/* Player area */
+.player-wrap{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;border:1px solid var(--border);box-shadow: 0 8px 30px rgba(3,7,18,0.7)}
+.player-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.player-title{font-size:1.14rem;margin:0}
+.player-header .muted{color:var(--muted)}
+.player-actions .btn{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);color:var(--text);padding:8px 12px;border-radius:8px;margin-left:8px}
+
+.player-frame{background:#000;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+.player-frame iframe{width:100%;height:60vh;border:0}
+
+.player-footer{padding:14px 8px;color:var(--muted)}
+.player-footer h3{margin:0 0 8px 0;color:var(--text);font-size:0.98rem}
+
+/* Sidebar */
+.sidebar .sidebar-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:12px;padding:16px;border:1px solid var(--border);height:100%;display:flex;flex-direction:column}
+.course-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.course-header h2{margin:0;font-size:1rem}
+.course-header .muted{color:var(--muted)}
+
+.progress{min-width:160px}
+.progress-text{font-size:0.98rem;color:var(--muted);text-align:right}
+.progress-bar{height:8px;background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:999px;margin-top:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+
+.lesson-list{overflow:auto;padding-right:6px}
+
+.section{margin-top:6px}
+.section-toggle{width:100%;text-align:left;padding:10px 12px;border-radius:8px;background:transparent;border:none;color:var(--text);font-weight:600;display:flex;align-items:center;justify-content:space-between;font-size:0.95rem}
+.section-toggle:hover{background:var(--glass)}
+.section-body{max-height:0;overflow:hidden;transition:max-height 260ms cubic-bezier(.2,.9,.2,1),opacity 220ms;opacity:0}
+.section[open] .section-body{opacity:1}
+
+.section[open] .section-body{max-height:1000px;padding:8px 6px}
+
+.lesson{padding:8px;border-radius:8px;margin:6px 4px;display:flex;align-items:center}
+.lesson-meta{display:flex;align-items:center;width:100%}
+.lesson-number{width:44px;height:44px;background:rgba(255,255,255,0.02);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;margin-right:12px;border:1px solid rgba(255,255,255,0.02)}
+.lesson-info{flex:1;min-width:0}
+.lesson-title{font-weight:600;color:var(--text);font-size:0.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lesson-duration{color:var(--muted);font-size:0.82rem;margin-top:4px}
+.lesson-play{background:transparent;border:none;color:var(--accent);font-weight:700;min-width:44px;display:flex;align-items:center;justify-content:center}
+
+.lesson:hover{background:rgba(255,255,255,0.015);transform:translateY(-2px)}
+.lesson.active{background:linear-gradient(90deg, rgba(6,182,212,0.06), rgba(0,188,212,0.02));border-left:3px solid var(--accent)}
+
+.sidebar-footer{margin-top:auto}
+.btn-block{width:100%;padding:10px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#021018;font-weight:700}
+
+.muted{color:var(--muted)}
+
+/* Custom scrollbar */
+.lesson-list::-webkit-scrollbar{width:10px}
+.lesson-list::-webkit-scrollbar-track{background:transparent}
+.lesson-list::-webkit-scrollbar-thumb{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .layout{grid-template-columns:1fr;gap:12px;padding:16px}
+  .player-frame iframe{height:48vh}
+  .sidebar{order:2}
+}
+
+@media (max-width:720px){
+  .main-nav{display:none}
+  .topbar .container{justify-content:space-between}
+}

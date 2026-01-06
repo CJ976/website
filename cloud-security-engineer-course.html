@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Security Engineer Mastery Course | Hackshala</title>
+    <meta name="description" content="Professional Cloud Security Engineer curriculum with AWS IAM, EC2 security, network security, S3 security, and serverless architecture. Industry-aligned, job-ready training.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .curriculum-page { padding: 60px 20px; }
+        .course-overview { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 60px 20px; border-radius: 16px; margin-bottom: 60px; color: white; }
+        .course-overview h2 { color: #00d2ff; margin-bottom: 20px; }
+        .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .overview-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; border-left: 4px solid #00d2ff; }
+        .overview-item h4 { color: #00d2ff; margin-bottom: 10px; }
+        .overview-item p { font-size: 0.95rem; line-height: 1.6; }
+        .module { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 30px; margin-bottom: 40px; }
+        .module-header { display: flex; align-items: center; gap: 20px; margin-bottom: 25px; border-bottom: 2px solid #00d2ff; padding-bottom: 20px; }
+        .module-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; }
+        .module-title { flex: 1; }
+        .module-title h3 { color: #00d2ff; margin-bottom: 5px; font-size: 1.4rem; }
+        .module-title p { color: #cbd5e1; font-size: 0.95rem; }
+        .module-level { display: inline-block; background: #00d2ff; color: #0f172a; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .module-content { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+        .module-section { display: grid; gap: 15px; }
+        .module-section h4 { color: #00ff9d; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .module-section h4 i { font-size: 20px; }
+        .video-item { background: #0f172a; padding: 15px; border-radius: 8px; border-left: 3px solid #00ff9d; }
+        .video-item a { color: #00d2ff; text-decoration: none; font-weight: 500; }
+        .video-item a:hover { text-decoration: underline; }
+        .skill-badge { display: inline-block; background: rgba(0, 255, 157, 0.1); color: #00ff9d; padding: 6px 12px; border-radius: 6px; margin: 5px 5px 5px 0; font-size: 0.85rem; border: 1px solid rgba(0, 255, 157, 0.3); }
+        .security-concept { background: rgba(255, 65, 108, 0.1); border-left: 3px solid #ff4170; padding: 15px; border-radius: 6px; margin: 10px 0; }
+        .security-concept strong { color: #ff4170; }
+        .hands-on { background: rgba(100, 200, 255, 0.1); border-left: 3px solid #64c8ff; padding: 15px; border-radius: 6px; margin: 10px 0; }
+        .hands-on strong { color: #64c8ff; }
+        .learning-outcomes { background: linear-gradient(135deg, #00ff9d 0%, #00d2ff 100%); padding: 40px; border-radius: 12px; color: #0f172a; margin-top: 60px; }
+        .learning-outcomes h2 { color: #0f172a; margin-bottom: 30px; }
+        .outcomes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .outcome-card { background: white; padding: 20px; border-radius: 8px; }
+        .outcome-card h4 { color: #0f172a; margin-bottom: 10px; }
+        .outcome-card ul { list-style: none; padding: 0; }
+        .outcome-card li { color: #0f172a; padding: 5px 0; padding-left: 20px; position: relative; }
+        .outcome-card li:before { content: "✓"; position: absolute; left: 0; color: #00ff9d; font-weight: bold; }
+        .job-roles { background: #1e293b; border: 2px solid #00ff9d; padding: 30px; border-radius: 12px; margin-top: 40px; }
+        .job-roles h3 { color: #00ff9d; margin-bottom: 20px; }
+        .role-item { padding: 15px; background: #0f172a; border-radius: 6px; margin-bottom: 10px; border-left: 3px solid #00ff9d; }
+        .role-item strong { color: #00d2ff; }
+        .prerequisite { background: #334155; padding: 15px; border-radius: 8px; color: #e2e8f0; }
+        @media (max-width: 768px) {
+            .module-content { grid-template-columns: 1fr; }
+            .overview-grid { grid-template-columns: 1fr; }
+            .outcomes-grid { grid-template-columns: 1fr; }
+            .module-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
+            </a>
+            <button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="roadmap.html">Course Roadmap</a></li>
+                    <li><a href="labs.html">Practical Labs</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-primary">Start Learning</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container" style="text-align: center;">
+                <span class="hero-tag">Professional Curriculum</span>
+                <h1>Cloud Security Engineer <span style="color: var(--accent-primary);">Mastery Course</span></h1>
+                <p style="max-width: 700px; margin: 16px auto 0; font-size: 1.1rem;">Master AWS cloud security from fundamentals to advanced concepts. Industry-aligned curriculum designed for professional Cloud Security Engineers.</p>
+            </div>
+        </section>
+
+        <div class="container curriculum-page">
+            <!-- Course Overview -->
+            <section class="course-overview">
+                <div class="container">
+                    <h2><i class="ph-bold ph-target"></i> Course Overview</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">
+                        This comprehensive Cloud Security Engineer curriculum is structured to take you from AWS fundamentals to advanced security architecture. 
+                        Designed in alignment with industry standards and real-world Cloud Security Engineer responsibilities, this course covers IAM policies, 
+                        EC2 security hardening, network security controls, S3 data protection, and serverless security best practices.
+                    </p>
+                    
+                    <div class="overview-grid">
+                        <div class="overview-item">
+                            <h4><i class="ph-bold ph-graduation-cap"></i> Learning Path</h4>
+                            <p>Structured progression from beginner fundamentals to advanced security architectures</p>
+                        </div>
+                        <div class="overview-item">
+                            <h4><i class="ph-bold ph-clock"></i> Duration</h4>
+                            <p>40+ hours of video content with hands-on labs and practical exercises</p>
+                        </div>
+                        <div class="overview-item">
+                            <h4><i class="ph-bold ph-briefcase"></i> Career Focus</h4>
+                            <p>Aligned with Cloud Security Engineer job roles and AWS certifications</p>
+                        </div>
+                        <div class="overview-item">
+                            <h4><i class="ph-bold ph-lightning"></i> Hands-On Labs</h4>
+                            <p>Real-world scenarios and practical security configurations</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODULE 1: FUNDAMENTALS -->
+            <section class="module">
+                <div class="module-header">
+                    <div class="module-icon">📚</div>
+                    <div class="module-title">
+                        <h3>Module 1: AWS Cloud Fundamentals</h3>
+                        <p style="color: #cbd5e1;">Foundation concepts for understanding cloud infrastructure and services</p>
+                    </div>
+                    <span class="module-level">BEGINNER</span>
+                </div>
+
+                <div class="module-content">
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-play-circle"></i> Video Lessons</h4>
+                        <div class="video-item">
+                            <a href="https://youtu.be/7RlkluG6W58?si=9lnyi-rxV5m3D1yZ" target="_blank">
+                                → Amazon Web Services (AWS) – Complete Introduction
+                            </a>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 8px;">AWS services overview, regions, availability zones, and service categories</p>
+                        </div>
+                    </div>
+
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-target"></i> Topics Covered</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0;"><span class="skill-badge">AWS Infrastructure</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Cloud Computing Models</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Global Architecture</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Service Categories</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <h4 style="color: #00ff9d; margin-bottom: 10px;">💡 Key Objectives</h4>
+                    <ul style="color: #cbd5e1; padding-left: 20px;">
+                        <li>Understand AWS global infrastructure and regional architecture</li>
+                        <li>Identify core AWS services and their purposes</li>
+                        <li>Learn cloud security implications of service selection</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- MODULE 2: IDENTITY & ACCESS MANAGEMENT -->
+            <section class="module">
+                <div class="module-header">
+                    <div class="module-icon">🔐</div>
+                    <div class="module-title">
+                        <h3>Module 2: Identity & Access Management (IAM)</h3>
+                        <p style="color: #cbd5e1;">Master authentication, authorization, and access control policies</p>
+                    </div>
+                    <span class="module-level">BEGINNER → INTERMEDIATE</span>
+                </div>
+
+                <div class="module-content">
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-play-circle"></i> Video Lessons</h4>
+                        <div class="video-item">
+                            <a href="https://youtu.be/MDM8AraFgUE?si=gEFtTZ0u_y1eBX_N" target="_blank">
+                                → AWS IAM Identity & Access Management Deep Dive
+                            </a>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 8px;">IAM policies, roles, users, groups, and security best practices</p>
+                        </div>
+                    </div>
+
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-target"></i> Topics Covered</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0;"><span class="skill-badge">IAM Policies</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Role-Based Access Control</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Principle of Least Privilege</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">MFA & Security Best Practices</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <div class="security-concept">
+                        <strong>🔒 Critical Security Concepts:</strong><br>
+                        • Implement least privilege access principles<br>
+                        • Use IAM roles instead of access keys for applications<br>
+                        • Enable MFA for all user accounts<br>
+                        • Regular access reviews and permission audits
+                    </div>
+                    <div class="hands-on">
+                        <strong>🛠️ Hands-On Practice:</strong><br>
+                        1. Create IAM users with specific permissions<br>
+                        2. Design IAM policies for different job functions<br>
+                        3. Implement cross-account access with roles<br>
+                        4. Configure MFA and security credentials
+                    </div>
+                </div>
+
+                <h4 style="color: #00ff9d; margin-top: 20px; margin-bottom: 10px;">💡 Key Objectives</h4>
+                <ul style="color: #cbd5e1; padding-left: 20px;">
+                    <li>Design secure IAM policy frameworks for organizations</li>
+                    <li>Implement least privilege access controls</li>
+                    <li>Audit and monitor IAM security configurations</li>
+                    <li>Manage cross-account access securely</li>
+                </ul>
+            </section>
+
+            <!-- MODULE 3: COMPUTE SECURITY (EC2) -->
+            <section class="module">
+                <div class="module-header">
+                    <div class="module-icon">💻</div>
+                    <div class="module-title">
+                        <h3>Module 3: EC2 Security & Hardening</h3>
+                        <p style="color: #cbd5e1;">Secure compute instances with proper configuration and access controls</p>
+                    </div>
+                    <span class="module-level">BEGINNER → INTERMEDIATE</span>
+                </div>
+
+                <div class="module-content">
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-play-circle"></i> Video Lessons</h4>
+                        <div class="video-item">
+                            <a href="https://youtu.be/-FKQwXtrSSQ?si=uBpSVC98VuJ4Wtg-" target="_blank">
+                                → Amazon EC2: Elastic Cloud Server & Secure Hosting
+                            </a>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 8px;">EC2 fundamentals, instance types, security groups, and deployment patterns</p>
+                        </div>
+                        <div class="video-item" style="margin-top: 12px;">
+                            <a href="https://youtu.be/57TCFZG08oM?si=A2WVaYmrL2tAT48v" target="_blank">
+                                → Secure SSH Access into Amazon EC2 Machines
+                            </a>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 8px;">SSH key management, key pairs, secure remote access configuration</p>
+                        </div>
+                    </div>
+
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-target"></i> Topics Covered</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0;"><span class="skill-badge">EC2 Instances</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">SSH Key Management</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Security Groups</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Instance Hardening</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <div class="security-concept">
+                        <strong>🔒 Critical Security Concepts:</strong><br>
+                        • Use AWS Systems Manager Session Manager instead of SSH<br>
+                        • Rotate SSH keys regularly and securely<br>
+                        • Implement strict security group rules (least privilege)<br>
+                        • Enable VPC Flow Logs for instance traffic monitoring<br>
+                        • Use EC2 IMDSv2 for metadata access
+                    </div>
+                    <div class="hands-on">
+                        <strong>🛠️ Hands-On Practice:</strong><br>
+                        1. Create and configure EC2 key pairs<br>
+                        2. Launch secure EC2 instances with hardened AMIs<br>
+                        3. Configure restrictive security groups<br>
+                        4. Set up SSH key rotation automation<br>
+                        5. Implement bastion host architecture
+                    </div>
+                </div>
+
+                <h4 style="color: #00ff9d; margin-top: 20px; margin-bottom: 10px;">💡 Key Objectives</h4>
+                <ul style="color: #cbd5e1; padding-left: 20px;">
+                    <li>Deploy hardened EC2 instances with security best practices</li>
+                    <li>Manage SSH keys securely at scale</li>
+                    <li>Implement principle of least privilege for compute access</li>
+                    <li>Monitor and audit EC2 security posture</li>
+                </ul>
+            </section>
+
+            <!-- MODULE 4: NETWORK SECURITY -->
+            <section class="module">
+                <div class="module-header">
+                    <div class="module-icon">🛡️</div>
+                    <div class="module-title">
+                        <h3>Module 4: Network Security (Security Groups & NACLs)</h3>
+                        <p style="color: #cbd5e1;">Master network segmentation and traffic control mechanisms</p>
+                    </div>
+                    <span class="module-level">INTERMEDIATE</span>
+                </div>
+
+                <div class="module-content">
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-play-circle"></i> Video Lessons</h4>
+                        <div class="video-item">
+                            <a href="https://youtu.be/DKGLlTniH9U?si=hnz18O3hYu_kO7Bh" target="_blank">
+                                → Security Groups & Network ACLs in Amazon Web Services
+                            </a>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 8px;">Network ACLs, security group rules, and traffic filtering strategies</p>
+                        </div>
+                        <div class="video-item" style="margin-top: 12px;">
+                            <a href="https://youtu.be/6IaRNRonPLg?si=R575O_8QYTh-IMsx" target="_blank">
+                                → Security Groups in AWS: Advanced Configuration & Best Practices
+                            </a>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 8px;">Stateful rules, ingress/egress filtering, and security group design patterns</p>
+                        </div>
+                    </div>
+
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-target"></i> Topics Covered</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0;"><span class="skill-badge">Security Groups</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Network ACLs</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">VPC Segmentation</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Traffic Filtering</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <div class="security-concept">
+                        <strong>🔒 Critical Security Concepts:</strong><br>
+                        • Default-deny ingress (explicit allow only)<br>
+                        • Use NACLs for additional network segmentation<br>
+                        • Implement layered security (defense in depth)<br>
+                        • Regular security group audits and cleanup<br>
+                        • VPC Flow Logs for network monitoring
+                    </div>
+                    <div class="hands-on">
+                        <strong>🛠️ Hands-On Practice:</strong><br>
+                        1. Design multi-tier security group architectures<br>
+                        2. Implement NACLs for subnet-level segmentation<br>
+                        3. Create security group dependencies<br>
+                        4. Audit and remediate overly permissive rules<br>
+                        5. Implement VPC Flow Logs analysis
+                    </div>
+                </div>
+
+                <h4 style="color: #00ff9d; margin-top: 20px; margin-bottom: 10px;">💡 Key Objectives</h4>
+                <ul style="color: #cbd5e1; padding-left: 20px;">
+                    <li>Design secure network architectures with proper segmentation</li>
+                    <li>Implement least privilege network controls</li>
+                    <li>Audit and optimize security group configurations</li>
+                    <li>Monitor network traffic and detect anomalies</li>
+                </ul>
+            </section>
+
+            <!-- MODULE 5: STORAGE SECURITY (S3) -->
+            <section class="module">
+                <div class="module-header">
+                    <div class="module-icon">🗄️</div>
+                    <div class="module-title">
+                        <h3>Module 5: S3 Storage Security & Data Protection</h3>
+                        <p style="color: #cbd5e1;">Secure object storage with encryption, access controls, and compliance</p>
+                    </div>
+                    <span class="module-level">INTERMEDIATE → ADVANCED</span>
+                </div>
+
+                <div class="module-content">
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-play-circle"></i> Video Lessons</h4>
+                        <div class="video-item">
+                            <a href="https://youtu.be/d8A8JmAImc4?si=nIosdm57AFN1nDAc" target="_blank">
+                                → AWS S3: Simple Storage Service Fundamentals
+                            </a>
+                        </div>
+                        <div class="video-item">
+                            <a href="https://youtu.be/DOUxRYi2Fwg?si=pBxetle4htZSvyft" target="_blank">
+                                → Integrating AWS S3 with Node.js Applications
+                            </a>
+                        </div>
+                        <div class="video-item">
+                            <a href="https://youtu.be/1zNZHb7xais?si=TG8L7w83cS-LcscJ" target="_blank">
+                                → AWS S3 – Part 3: Advanced Features & Optimization
+                            </a>
+                        </div>
+                        <div class="video-item">
+                            <a href="https://youtu.be/L2Q1XdGZkzo?si=QXLosLlPIaeOJuE_" target="_blank">
+                                → AWS S3 – Part 4: Security, Encryption & Compliance
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-target"></i> Topics Covered</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0;"><span class="skill-badge">S3 Access Control</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Encryption (SSE-S3, SSE-KMS)</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Versioning & MFA Delete</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Bucket Policies</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Access Logging</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <div class="security-concept">
+                        <strong>🔒 Critical Security Concepts:</strong><br>
+                        • Block Public Access (S3 Block Public Access)<br>
+                        • Enable encryption-by-default (SSE-S3 or SSE-KMS)<br>
+                        • Implement bucket policies with explicit deny<br>
+                        • Enable versioning and MFA delete protection<br>
+                        • S3 access logging and CloudTrail integration<br>
+                        • Regular bucket policy audits
+                    </div>
+                    <div class="hands-on">
+                        <strong>🛠️ Hands-On Practice:</strong><br>
+                        1. Configure S3 bucket policies and ACLs<br>
+                        2. Implement encryption at rest and in transit<br>
+                        3. Enable versioning and MFA delete<br>
+                        4. Set up access logging and monitoring<br>
+                        5. Implement S3 bucket remediation for compliance<br>
+                        6. Secure S3 pre-signed URLs
+                    </div>
+                </div>
+
+                <h4 style="color: #00ff9d; margin-top: 20px; margin-bottom: 10px;">💡 Key Objectives</h4>
+                <ul style="color: #cbd5e1; padding-left: 20px;">
+                    <li>Implement end-to-end S3 security controls</li>
+                    <li>Enforce encryption for sensitive data</li>
+                    <li>Design audit trails for data access and modifications</li>
+                    <li>Comply with data protection regulations (GDPR, HIPAA, PCI-DSS)</li>
+                </ul>
+            </section>
+
+            <!-- MODULE 6: SERVERLESS SECURITY -->
+            <section class="module">
+                <div class="module-header">
+                    <div class="module-icon">⚡</div>
+                    <div class="module-title">
+                        <h3>Module 6: Serverless Security Architecture</h3>
+                        <p style="color: #cbd5e1;">Secure serverless applications with AWS Lambda and modern architectures</p>
+                    </div>
+                    <span class="module-level">ADVANCED</span>
+                </div>
+
+                <div class="module-content">
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-play-circle"></i> Video Lessons</h4>
+                        <div class="video-item">
+                            <a href="https://youtu.be/AgOmeANl3ls?si=h7Fk1T0zVDkRu7DT" target="_blank">
+                                → Serverless Architecture: AWS Lambda vs Monolithic Design
+                            </a>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 8px;">Serverless concepts, benefits, security implications, and architectural patterns</p>
+                        </div>
+                        <div class="video-item" style="margin-top: 12px;">
+                            <a href="https://youtu.be/VvYADzRwJK8?si=oloYAAALtSSV0FSl" target="_blank">
+                                → Serverless Framework with Node.js: Building Secure Applications
+                            </a>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 8px;">Framework deployment, Lambda security, API Gateway protection, and DevOps integration</p>
+                        </div>
+                    </div>
+
+                    <div class="module-section">
+                        <h4><i class="ph-bold ph-target"></i> Topics Covered</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0;"><span class="skill-badge">AWS Lambda Security</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">API Gateway Protection</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Secrets Management</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">IAM for Serverless</span></li>
+                            <li style="padding: 8px 0;"><span class="skill-badge">Monitoring & Logging</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <div class="security-concept">
+                        <strong>🔒 Critical Security Concepts:</strong><br>
+                        • Lambda execution roles with least privilege<br>
+                        • Secrets management via Secrets Manager or Parameter Store<br>
+                        • API Gateway authentication and authorization<br>
+                        • VPC-based Lambda for database connectivity<br>
+                        • CloudWatch Logs and X-Ray for observability<br>
+                        • Cold start security considerations
+                    </div>
+                    <div class="hands-on">
+                        <strong>🛠️ Hands-On Practice:</strong><br>
+                        1. Create Lambda functions with secure IAM roles<br>
+                        2. Implement API Gateway authentication<br>
+                        3. Manage secrets securely in Lambda<br>
+                        4. Deploy Lambda in VPC for secure database access<br>
+                        5. Set up CloudWatch alarms for security events<br>
+                        6. Implement Lambda function logging and monitoring
+                    </div>
+                </div>
+
+                <h4 style="color: #00ff9d; margin-top: 20px; margin-bottom: 10px;">💡 Key Objectives</h4>
+                <ul style="color: #cbd5e1; padding-left: 20px;">
+                    <li>Design secure serverless architectures</li>
+                    <li>Implement least privilege for Lambda execution</li>
+                    <li>Secure API endpoints and integrations</li>
+                    <li>Monitor and audit serverless applications</li>
+                </ul>
+            </section>
+
+            <!-- LEARNING OUTCOMES -->
+            <section class="learning-outcomes">
+                <div class="container">
+                    <h2><i class="ph-bold ph-target"></i> Learning Outcomes & Career Alignment</h2>
+                    
+                    <div class="outcomes-grid">
+                        <div class="outcome-card">
+                            <h4>🎓 Technical Skills</h4>
+                            <ul>
+                                <li>Architect secure AWS infrastructures</li>
+                                <li>Implement IAM policies and access controls</li>
+                                <li>Design network security controls</li>
+                                <li>Secure data in AWS storage services</li>
+                                <li>Deploy serverless applications securely</li>
+                            </ul>
+                        </div>
+
+                        <div class="outcome-card">
+                            <h4>🔒 Security Expertise</h4>
+                            <ul>
+                                <li>Defense-in-depth security strategies</li>
+                                <li>Threat modeling and risk assessment</li>
+                                <li>Compliance framework implementation</li>
+                                <li>Security monitoring and incident response</li>
+                                <li>Cloud security best practices</li>
+                            </ul>
+                        </div>
+
+                        <div class="outcome-card">
+                            <h4>💼 Professional Capabilities</h4>
+                            <ul>
+                                <li>Lead security architecture decisions</li>
+                                <li>Audit cloud security posture</li>
+                                <li>Design security solutions</li>
+                                <li>Communicate security risks</li>
+                                <li>Mentor junior security professionals</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job-roles">
+                        <h3><i class="ph-bold ph-briefcase"></i> Aligned Job Roles</h3>
+                        
+                        <div class="role-item">
+                            <strong>Cloud Security Engineer</strong>
+                            <p style="margin-top: 8px; color: #cbd5e1;">Design, implement, and maintain secure cloud infrastructure. Required: AWS expertise, IAM policy design, network security knowledge, compliance experience.</p>
+                        </div>
+
+                        <div class="role-item">
+                            <strong>AWS Security Architect</strong>
+                            <p style="margin-top: 8px; color: #cbd5e1;">Lead security architecture for cloud migrations and transformations. Required: Strategic AWS security design, threat modeling, compliance knowledge, technical leadership.</p>
+                        </div>
+
+                        <div class="role-item">
+                            <strong>Cloud Infrastructure Security Specialist</strong>
+                            <p style="margin-top: 8px; color: #cbd5e1;">Focus on infrastructure hardening and operational security. Required: EC2/VPC/S3 security, network controls, security monitoring, incident response.</p>
+                        </div>
+
+                        <div class="role-item">
+                            <strong>DevSecOps Engineer</strong>
+                            <p style="margin-top: 8px; color: #cbd5e1;">Integrate security into development and deployment pipelines. Required: Serverless security, IAM automation, Infrastructure as Code, CI/CD security.</p>
+                        </div>
+
+                        <div class="role-item">
+                            <strong>AWS Security Consultant</strong>
+                            <p style="margin-top: 8px; color: #cbd5e1;">Advisory role for security audits and implementations. Required: Multi-service AWS security knowledge, assessment skills, communication expertise.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PREREQUISITES & REQUIREMENTS -->
+            <section style="margin-top: 60px;">
+                <h2 style="color: #00d2ff; margin-bottom: 30px;"><i class="ph-bold ph-info"></i> Prerequisites & Requirements</h2>
+                
+                <div class="prerequisite">
+                    <h4 style="color: #00d2ff; margin-bottom: 15px;">Before Starting This Course:</h4>
+                    <ul style="padding-left: 20px;">
+                        <li>Basic understanding of cloud computing concepts</li>
+                        <li>Familiarity with networking fundamentals (TCP/IP, DNS, HTTP/HTTPS)</li>
+                        <li>Basic Linux/Unix command line knowledge</li>
+                        <li>Understanding of security principles and best practices</li>
+                        <li>AWS free tier account for hands-on labs</li>
+                    </ul>
+                </div>
+
+                <div class="prerequisite" style="margin-top: 20px;">
+                    <h4 style="color: #00d2ff; margin-bottom: 15px;">Certification Alignment:</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>AWS Certified Security – Specialty:</strong> 70% coverage of exam objectives</li>
+                        <li><strong>AWS Certified Solutions Architect – Professional:</strong> 50% security-focused content</li>
+                        <li><strong>AWS Certified DevOps Engineer – Professional:</strong> 40% infrastructure security coverage</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- STUDY PLAN -->
+            <section style="margin-top: 60px; background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 30px;">
+                <h2 style="color: #00d2ff; margin-bottom: 30px;"><i class="ph-bold ph-calendar"></i> Recommended Study Plan</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="background: #0f172a; padding: 20px; border-radius: 8px; border-left: 3px solid #00ff9d;">
+                        <h4 style="color: #00ff9d; margin-bottom: 10px;">🚀 Fast Track (4 weeks)</h4>
+                        <ul style="color: #cbd5e1; font-size: 0.9rem; padding-left: 20px;">
+                            <li>Week 1: Modules 1-2 (Fundamentals & IAM)</li>
+                            <li>Week 2: Module 3 (EC2 Security)</li>
+                            <li>Week 3: Module 4-5 (Network & Storage)</li>
+                            <li>Week 4: Module 6 + Capstone Project</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #0f172a; padding: 20px; border-radius: 8px; border-left: 3px solid #00d2ff;">
+                        <h4 style="color: #00d2ff; margin-bottom: 10px;">📚 Standard Track (8 weeks)</h4>
+                        <ul style="color: #cbd5e1; font-size: 0.9rem; padding-left: 20px;">
+                            <li>Week 1-2: Modules 1-2</li>
+                            <li>Week 3-4: Module 3</li>
+                            <li>Week 5-6: Modules 4-5</li>
+                            <li>Week 7-8: Module 6 + Capstone</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #0f172a; padding: 20px; border-radius: 8px; border-left: 3px solid #ff4170;">
+                        <h4 style="color: #ff4170; margin-bottom: 10px;">🎓 Deep Dive (12 weeks)</h4>
+                        <ul style="color: #cbd5e1; font-size: 0.9rem; padding-left: 20px;">
+                            <li>1-2 weeks per module</li>
+                            <li>Extended hands-on labs</li>
+                            <li>Certification prep</li>
+                            <li>Advanced projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CALL TO ACTION -->
+            <section style="text-align: center; margin-top: 60px; margin-bottom: 60px;">
+                <h2 style="color: #00d2ff; margin-bottom: 20px;">Ready to Become a Cloud Security Expert?</h2>
+                <p style="font-size: 1.1rem; color: #cbd5e1; margin-bottom: 30px;">Start your journey with Module 1 and master AWS cloud security from fundamentals to advanced concepts.</p>
+                <a href="watch.html?module=cloudsecurity" class="btn btn-primary" style="padding: 16px 40px; font-size: 1.1rem;">Open Course Player & Start Learning</a>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                        <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
+                    </div>
+                    <p>Professional cloud security training for everyone. Learn at your own pace, build real skills, and join a global community of security professionals.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="roadmap.html">Course Roadmap</a></li>
+                        <li><a href="watch.html">Video Lessons</a></li>
+                        <li><a href="labs.html">Practical Labs</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Join Community</a></li>
+                        <li><a href="https://www.youtube.com/@hackerhaltLiveTarget" target="_blank">YouTube Channel</a></li>
+                        <li><a href="https://discord.gg" target="_blank">Discord Server</a></li>
+                        <li><a href="https://t.me" target="_blank">Telegram Group</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="about.html">Our Mission</a></li>
+                        <li><a href="about.html#instructor">Instructor</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hackshala. Professional Cloud Security Education for All.</p>
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@hackerhaltLiveTarget" target="_blank" aria-label="YouTube"><i class="ph-fill ph-youtube-logo"></i></a>
+                    <a href="https://discord.gg" target="_blank" aria-label="Discord"><i class="ph-fill ph-discord-logo"></i></a>
+                    <a href="https://t.me" target="_blank" aria-label="Telegram"><i class="ph-fill ph-telegram-logo"></i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="https://www.linkedin.com/in/hacker-halt-live/" target="_blank" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="ph-fill ph-github-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/ui-scripts.js"></script>
+    <script src="js/feedback-widget.js"></script>
+</body>
+</html>

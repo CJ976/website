@@ -1,1 +1,273 @@
-<!doctypehtml><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"content="width=device-width,initial-scale=1"><title>Course Roadmap | Hackshala - Your Path to Cybersecurity Mastery</title><meta name="description"content="Follow our structured cybersecurity learning path. Master the art of Red Teaming with our comprehensive Operator course."><link rel="stylesheet"href="css/style.css"><script src="https://unpkg.com/@phosphor-icons/web"></script></head><body class="roadmap-page"><div class="scanline"></div><div id="registrationModal"class="modal-overlay"><div class="modal-content"><button class="modal-close"id="closeModal"><i class="ph ph-x"></i></button><div class="modal-header"><div class="modal-icon"><i class="ph-bold ph-user-plus"></i></div><h2>Student Registration</h2><p>Join Hackshala to access premium course materials and track your progress.</p></div><form id="registrationForm"><div class="form-group"><label for="fullName">Full Name</label><div class="input-wrapper"><i class="ph ph-user"></i> <input id="fullName"placeholder="Enter your full name"required></div></div><div class="form-group"><label for="email">Email Address</label><div class="input-wrapper"><i class="ph ph-envelope"></i> <input type="email"id="email"placeholder="name@example.com"required></div></div><div class="form-group"><label for="phone">Phone Number</label><div class="input-wrapper"><i class="ph ph-phone"></i> <input type="tel"id="phone"placeholder="+1 (555) 000-0000"required></div></div><div class="form-group"><label for="interest">Area of Interest</label><div class="input-wrapper"><i class="ph ph-crosshair"></i> <select id="interest"required><option value=""disabled="disabled"selected="selected">Select your path</option><option value="penetration-testing">Penetration Testing</option><option value="network-security">Network Security</option><option value="web-security">Web Application Security</option><option value="red-teaming">Red Teaming</option><option value="blue-teaming">Blue Teaming / SOC</option></select> <i class="ph ph-caret-down select-arrow"style="left: auto; right: 14px;"></i></div></div><button type="submit"class="btn btn-primary btn-block"><span>Start Learning</span> <i class="ph-bold ph-arrow-right"></i></button></form></div></div><div id="syllabusModal"class="modal-overlay"><div class="modal-content"style="max-width: 800px;"><button class="modal-close"id="closeSyllabusModal"><i class="ph ph-x"></i></button><div class="modal-header"><div class="modal-icon"><i class="ph-bold ph-list-dashes"></i></div><h2>Course Syllabus</h2><p>Detailed curriculum for Red Team Operator</p></div><div class="syllabus-content"style="max-height: 60vh; overflow-y: auto; padding-right: 10px;"><div class="syllabus-module"><h3 style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Linux & Command Line</h3><ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;"><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Introduction to Linux</li><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Linux Server Administration</li><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Networking Fundamentals</li><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Cryptography Basics</li></ul></div><div class="syllabus-module"><h3 style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Information Gathering</h3><ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;"><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Active & Passive Recon</li><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Google Dorking & OSINT</li><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Phishing Attacks</li></ul></div><div class="syllabus-module"><h3 style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Network Attacks</h3><ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;"><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Sniffing & Wireshark</li><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Enumeration (Nmap, SMB, FTP)</li><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Password Cracking</li></ul></div><div class="syllabus-module"><h3 style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Web & Active Directory</h3><ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;"><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>SQL Injection & XSS</li><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>File Upload Exploitation</li><li style="margin-bottom: 8px;"><i class="ph ph-check-circle"style="color: var(--accent-secondary); margin-right: 8px;"></i>Active Directory Attacks (LLMNR, Bloodhound)</li></ul></div></div><div class="modal-actions"style="margin-top: 20px; text-align: center;"><a href="watch.html?module=redteam"class="btn btn-primary">Start Learning Now</a></div></div></div><header><div class="container"><a href="index.html"class="logo"><div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div><div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div></a><button class="nav-toggle"id="navToggle"><i class="ph ph-list"></i></button><nav id="mainNav"><ul><li><a href="index.html">Home</a></li><li><a href="roadmap.html"class="active">Course Roadmap</a></li><li><a href="labs.html">Practical Labs</a></li><li><a href="resources.html">Resources</a></li><li><a href="about.html">About</a></li><li><a href="community.html">Community</a></li></ul></nav><div class="header-actions"><a href="watch.html"class="btn btn-primary">Watch Lessons</a></div></div></header><main><section class="page-header"><div class="container"><span class="hero-tag">Intensive Training</span><h1>Red Team <span style="color: var(--accent-secondary);">Operator</span></h1><p style="max-width: 700px; margin: 16px auto 0; color: var(--text-secondary);">An advanced, comprehensive course designed for aspiring Red Team Operators. Master the art of adversary simulation, evasion, and offensive security operations.</p></div></section><div class="container roadmap-container"><div class="roadmap-path"><div class="roadmap-line"></div><div class="phase-header"><span class="phase-badge">Elite Track</span></div><div class="module-item"><div class="module-logo"><img src="assets/red-team-logo.svg"alt="Red Team Operator Logo"></div><div class="module-card"><span class="module-tag">Advanced</span><h3>Red Team Operator</h3><p>This all-encompassing course takes you deep into the world of Red Teaming. You will learn advanced C2 infrastructure setup, payload development, EDR evasion, Active Directory exploitation, and post-exploitation tradecraft. Designed for those who want to operate at the highest level.</p><div class="module-meta"><span class="meta-badge"><i class="ph ph-clock"></i> 80+ Hours</span> <span class="meta-badge"><i class="ph ph-video-camera"></i> 85+ Lessons</span> <span class="meta-badge"><i class="ph ph-certificate"></i> Certified Operator</span></div><div class="prerequisites"><strong>Prerequisites</strong><ul><li>Solid understanding of Networking (TCP/IP, DNS)</li><li>Proficiency in Linux & Windows command line</li><li>Basic scripting (Python, PowerShell, Bash)</li><li>Prior Penetration Testing experience recommended</li></ul></div><div class="module-actions"><a href="watch.html?module=redteam"class="btn btn-primary">Start Course</a> <a href="#"id="viewSyllabusBtn"class="btn btn-outline">View Syllabus</a></div></div></div><div class="module-item"><div class="module-logo"><i class="ph-bold ph-cloud-check"style="color: var(--accent-secondary); font-size: 2.5rem;"></i></div><div class="module-card"><span class="module-tag">Specialization</span><h3>Cloud Security Engineer</h3><p>Master the security of cloud infrastructure. Learn identity management, compliance, data protection, and how to secure AWS, Azure, and Google Cloud environments. This track prepares you for high-demand roles in cloud security.</p><div class="module-meta"><span class="meta-badge"><i class="ph ph-clock"></i> 40+ Hours</span> <span class="meta-badge"><i class="ph ph-video-camera"></i> 30+ Lessons</span> <span class="meta-badge"><i class="ph ph-certificate"></i> Certified Engineer</span></div><div class="prerequisites"><strong>Prerequisites</strong><ul><li>Understanding of Cloud Computing Basics</li><li>Linux Administration Skills</li><li>Basic Networking Knowledge</li></ul></div><div class="module-actions"><a href="watch.html?module=cloudsecurity"class="btn btn-primary">Start Course</a></div></div></div></div></div></main><footer><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="logo"><div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div><div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div></div><p>Free cybersecurity education for everyone. Learn at your own pace, build real skills, and join a global community of security enthusiasts.</p></div><div class="footer-col"><h4>Learn</h4><ul><li><a href="roadmap.html">Course Roadmap</a></li><li><a href="watch.html">Video Lessons</a></li><li><a href="labs.html">Practical Labs</a></li><li><a href="resources.html">Resources</a></li></ul></div><div class="footer-col"><h4>Community</h4><ul><li><a href="community.html">Join Community</a></li><li><a href="https://www.youtube.com/@hackerhaltLiveTarget"target="_blank">YouTube Channel</a></li><li><a href="https://discord.gg"target="_blank">Discord Server</a></li><li><a href="https://t.me"target="_blank">Telegram Group</a></li></ul></div><div class="footer-col"><h4>About</h4><ul><li><a href="about.html">Our Mission</a></li><li><a href="about.html#instructor">Instructor</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Hackshala. Free Cybersecurity Education for All.</p><div class="social-links"><a href="https://www.youtube.com/@hackerhaltLiveTarget"target="_blank"aria-label="YouTube"><i class="ph-fill ph-youtube-logo"></i></a> <a href="https://discord.gg"target="_blank"aria-label="Discord"><i class="ph-fill ph-discord-logo"></i></a> <a href="https://t.me"target="_blank"aria-label="Telegram"><i class="ph-fill ph-telegram-logo"></i></a> <a href="https://instagram.com"target="_blank"aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a> <a href="https://www.linkedin.com/in/hacker-halt-live/"target="_blank"aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a> <a href="https://github.com"target="_blank"aria-label="GitHub"><i class="ph-fill ph-github-logo"></i></a></div></div></div></footer><script src="js/app-core.js"></script><script src="js/feedback-widget.js"></script></body></html>
+<!doctypehtml>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Course Roadmap | Hackshala - Your Path to Cybersecurity Mastery</title>
+        <meta name="description"
+            content="Follow our structured cybersecurity learning path. Master the art of Red Teaming with our comprehensive Operator course.">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    </head>
+
+    <body class="roadmap-page">
+        <div class="scanline"></div>
+        <div id="registrationModal" class="modal-overlay">
+            <div class="modal-content"><button class="modal-close" id="closeModal"><i class="ph ph-x"></i></button>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="ph-bold ph-user-plus"></i></div>
+                    <h2>Student Registration</h2>
+                    <p>Join Hackshala to access premium course materials and track your progress.</p>
+                </div>
+                <form id="registrationForm">
+                    <div class="form-group"><label for="fullName">Full Name</label>
+                        <div class="input-wrapper"><i class="ph ph-user"></i> <input id="fullName"
+                                placeholder="Enter your full name" required></div>
+                    </div>
+                    <div class="form-group"><label for="email">Email Address</label>
+                        <div class="input-wrapper"><i class="ph ph-envelope"></i> <input type="email" id="email"
+                                placeholder="name@example.com" required></div>
+                    </div>
+                    <div class="form-group"><label for="phone">Phone Number</label>
+                        <div class="input-wrapper"><i class="ph ph-phone"></i> <input type="tel" id="phone"
+                                placeholder="+1 (555) 000-0000" required></div>
+                    </div>
+                    <div class="form-group"><label for="interest">Area of Interest</label>
+                        <div class="input-wrapper"><i class="ph ph-crosshair"></i> <select id="interest" required>
+                                <option value="" disabled="disabled" selected="selected">Select your path</option>
+                                <option value="penetration-testing">Penetration Testing</option>
+                                <option value="network-security">Network Security</option>
+                                <option value="web-security">Web Application Security</option>
+                                <option value="red-teaming">Red Teaming</option>
+                                <option value="blue-teaming">Blue Teaming / SOC</option>
+                            </select> <i class="ph ph-caret-down select-arrow" style="left: auto; right: 14px;"></i>
+                        </div>
+                    </div><button type="submit" class="btn btn-primary btn-block"><span>Start Learning</span> <i
+                            class="ph-bold ph-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+        <div id="syllabusModal" class="modal-overlay">
+            <div class="modal-content" style="max-width: 800px;"><button class="modal-close" id="closeSyllabusModal"><i
+                        class="ph ph-x"></i></button>
+                <div class="modal-header">
+                    <div class="modal-icon"><i class="ph-bold ph-list-dashes"></i></div>
+                    <h2>Course Syllabus</h2>
+                    <p>Detailed curriculum for Red Team Operator</p>
+                </div>
+                <div class="syllabus-content" style="max-height: 60vh; overflow-y: auto; padding-right: 10px;">
+                    <div class="syllabus-module">
+                        <h3
+                            style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                            Linux & Command Line</h3>
+                        <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;">
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Introduction to Linux
+                            </li>
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Linux Server
+                                Administration</li>
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Networking
+                                Fundamentals</li>
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Cryptography Basics
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="syllabus-module">
+                        <h3
+                            style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                            Information Gathering</h3>
+                        <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;">
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Active & Passive
+                                Recon</li>
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Google Dorking &
+                                OSINT</li>
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Phishing Attacks</li>
+                        </ul>
+                    </div>
+                    <div class="syllabus-module">
+                        <h3
+                            style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                            Network Attacks</h3>
+                        <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;">
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Sniffing & Wireshark
+                            </li>
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Enumeration (Nmap,
+                                SMB, FTP)</li>
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Password Cracking
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="syllabus-module">
+                        <h3
+                            style="color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                            Web & Active Directory</h3>
+                        <ul style="list-style: none; color: var(--text-secondary); margin-bottom: 24px;">
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>SQL Injection & XSS
+                            </li>
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>File Upload
+                                Exploitation</li>
+                            <li style="margin-bottom: 8px;"><i class="ph ph-check-circle"
+                                    style="color: var(--accent-secondary); margin-right: 8px;"></i>Active Directory
+                                Attacks (LLMNR, Bloodhound)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-actions" style="margin-top: 20px; text-align: center;"><a
+                        href="watch.html?module=redteam" class="btn btn-primary">Start Learning Now</a></div>
+            </div>
+        </div>
+        <header>
+            <div class="container"><a href="index.html" class="logo">
+                    <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                    <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
+                </a><button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="roadmap.html" class="active">Course Roadmap</a></li>
+                        <li><a href="labs.html">Practical Labs</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions"><a href="watch.html" class="btn btn-primary">Watch Lessons</a></div>
+            </div>
+        </header>
+        <main>
+            <section class="page-header">
+                <div class="container"><span class="hero-tag">Intensive Training</span>
+                    <h1>Red Team <span style="color: var(--accent-secondary);">Operator</span></h1>
+                    <p style="max-width: 700px; margin: 16px auto 0; color: var(--text-secondary);">An advanced,
+                        comprehensive course designed for aspiring Red Team Operators. Master the art of adversary
+                        simulation, evasion, and offensive security operations.</p>
+                </div>
+            </section>
+            <div class="container roadmap-container">
+                <div class="roadmap-path">
+                    <div class="roadmap-line"></div>
+                    <div class="phase-header"><span class="phase-badge">Elite Track</span></div>
+                    <div class="module-item">
+                        <div class="module-logo"><img src="assets/red-team-logo.svg" alt="Red Team Operator Logo"></div>
+                        <div class="module-card"><span class="module-tag">Advanced</span>
+                            <h3>Red Team Operator</h3>
+                            <p>This all-encompassing course takes you deep into the world of Red Teaming. You will learn
+                                advanced C2 infrastructure setup, payload development, EDR evasion, Active Directory
+                                exploitation, and post-exploitation tradecraft. Designed for those who want to operate
+                                at the highest level.</p>
+                            <div class="module-meta"><span class="meta-badge"><i class="ph ph-clock"></i> 80+
+                                    Hours</span> <span class="meta-badge"><i class="ph ph-video-camera"></i> 85+
+                                    Lessons</span> <span class="meta-badge"><i class="ph ph-certificate"></i> Certified
+                                    Operator</span></div>
+                            <div class="prerequisites"><strong>Prerequisites</strong>
+                                <ul>
+                                    <li>Solid understanding of Networking (TCP/IP, DNS)</li>
+                                    <li>Proficiency in Linux & Windows command line</li>
+                                    <li>Basic scripting (Python, PowerShell, Bash)</li>
+                                    <li>Prior Penetration Testing experience recommended</li>
+                                </ul>
+                            </div>
+                            <div class="module-actions"><a href="watch.html?module=redteam"
+                                    class="btn btn-primary">Start Course</a> <a href="#" id="viewSyllabusBtn"
+                                    class="btn btn-outline">View Syllabus</a></div>
+                        </div>
+                    </div>
+                    <div class="module-item">
+                        <div class="module-logo"><i class="ph-bold ph-cloud-check"
+                                style="color: var(--accent-secondary); font-size: 2.5rem;"></i></div>
+                        <div class="module-card"><span class="module-tag">Specialization</span>
+                            <h3>Cloud Security Engineer</h3>
+                            <p>Master the security of cloud infrastructure. Learn identity management, compliance, data
+                                protection, and how to secure AWS, Azure, and Google Cloud environments. This track
+                                prepares you for high-demand roles in cloud security.</p>
+                            <div class="module-meta"><span class="meta-badge"><i class="ph ph-clock"></i> 40+
+                                    Hours</span> <span class="meta-badge"><i class="ph ph-video-camera"></i> 18
+                                    Lessons</span> <span class="meta-badge"><i class="ph ph-certificate"></i> Certified
+                                    Engineer</span></div>
+                            <div class="prerequisites"><strong>Prerequisites</strong>
+                                <ul>
+                                    <li>Understanding of Cloud Computing Basics</li>
+                                    <li>Linux Administration Skills</li>
+                                    <li>Basic Networking Knowledge</li>
+                                </ul>
+                            </div>
+                            <div class="module-actions"><a href="watch.html?module=cloudsecurity"
+                                    class="btn btn-primary">Start Course</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                            <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
+                        </div>
+                        <p>Free cybersecurity education for everyone. Learn at your own pace, build real skills, and
+                            join a global community of security enthusiasts.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Learn</h4>
+                        <ul>
+                            <li><a href="roadmap.html">Course Roadmap</a></li>
+                            <li><a href="watch.html">Video Lessons</a></li>
+                            <li><a href="labs.html">Practical Labs</a></li>
+                            <li><a href="resources.html">Resources</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Community</h4>
+                        <ul>
+                            <li><a href="community.html">Join Community</a></li>
+                            <li><a href="https://www.youtube.com/@hackerhaltLiveTarget" target="_blank">YouTube
+                                    Channel</a></li>
+                            <li><a href="https://discord.gg" target="_blank">Discord Server</a></li>
+                            <li><a href="https://t.me" target="_blank">Telegram Group</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>About</h4>
+                        <ul>
+                            <li><a href="about.html">Our Mission</a></li>
+                            <li><a href="about.html#instructor">Instructor</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Hackshala. Free Cybersecurity Education for All.</p>
+                    <div class="social-links"><a href="https://www.youtube.com/@hackerhaltLiveTarget" target="_blank"
+                            aria-label="YouTube"><i class="ph-fill ph-youtube-logo"></i></a> <a
+                            href="https://discord.gg" target="_blank" aria-label="Discord"><i
+                                class="ph-fill ph-discord-logo"></i></a> <a href="https://t.me" target="_blank"
+                            aria-label="Telegram"><i class="ph-fill ph-telegram-logo"></i></a> <a
+                            href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                                class="ph-fill ph-instagram-logo"></i></a> <a
+                            href="https://www.linkedin.com/in/hacker-halt-live/" target="_blank"
+                            aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a> <a
+                            href="https://github.com" target="_blank" aria-label="GitHub"><i
+                                class="ph-fill ph-github-logo"></i></a></div>
+                </div>
+            </div>
+        </footer>
+        <script src="js/app-core.js"></script>
+        <script src="js/feedback-widget.js"></script>
+    </body>
+
+    </html>

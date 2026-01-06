@@ -94,24 +94,19 @@ const _0x5a1b = {
     'cloudsecurity': {
         'title': 'Cloud Security Engineer',
         'lessons': [
-            { 'id': 'cloud-1', 'title': 'Introduction to Cloud Computing', 'duration': '45:00', 'difficulty': 'Beginner', 'videoId': 'GHKoCbpN4TA', 'module': 'Cloud Fundamentals' },
-            { 'id': 'cloud-2', 'title': 'Cloud Service Models (IaaS, PaaS, SaaS)', 'duration': '50:00', 'difficulty': 'Beginner', 'videoId': 'PzXlMkXGDMY', 'module': 'Cloud Fundamentals' },
-            { 'id': 'cloud-3', 'title': 'Shared Responsibility Model', 'duration': '40:00', 'difficulty': 'Beginner', 'videoId': '2R9lN6ZSYJ0', 'module': 'Cloud Fundamentals' },
-            { 'id': 'aws-1', 'title': 'Amazon Web Services - AWS', 'duration': '15:00', 'difficulty': 'Beginner', 'videoId': '7RlkluG6W58', 'module': 'AWS Services' },
-            { 'id': 'aws-2', 'title': 'AWS IAM Identity', 'duration': '12:00', 'difficulty': 'Intermediate', 'videoId': 'MDM8AraFgUE', 'module': 'AWS Services' },
-            { 'id': 'aws-3', 'title': 'Amazon EC2 - Elastic Cloud Server', 'duration': '20:00', 'difficulty': 'Intermediate', 'videoId': '-FKQwXtrSSQ', 'module': 'AWS Services' },
-            { 'id': 'aws-4', 'title': 'How to SSH into Amazon EC2', 'duration': '10:00', 'difficulty': 'Intermediate', 'videoId': '57TCFZG08oM', 'module': 'AWS Services' },
-            { 'id': 'aws-5', 'title': 'Security Groups and Network ACL', 'duration': '18:00', 'difficulty': 'Intermediate', 'videoId': 'DKGLlTniH9U', 'module': 'AWS Services' },
-            { 'id': 'aws-6', 'title': 'Security Groups in AWS', 'duration': '15:00', 'difficulty': 'Intermediate', 'videoId': '6IaRNRonPLg', 'module': 'AWS Services' },
-            { 'id': 'aws-7', 'title': 'AWS S3 Simple Storage Service', 'duration': '25:00', 'difficulty': 'Intermediate', 'videoId': 'd8A8JmAImc4', 'module': 'AWS Services' },
-            { 'id': 'aws-8', 'title': 'Use AWS S3 with NodeJS', 'duration': '22:00', 'difficulty': 'Advanced', 'videoId': 'DOUxRYi2Fwg', 'module': 'AWS Services' },
-            { 'id': 'aws-9', 'title': 'AWS S3 Part 3', 'duration': '15:00', 'difficulty': 'Advanced', 'videoId': '1zNZHb7xais', 'module': 'AWS Services' },
-            { 'id': 'aws-10', 'title': 'AWS S3 Part 4', 'duration': '18:00', 'difficulty': 'Advanced', 'videoId': 'L2Q1XdGZkzo', 'module': 'AWS Services' },
-            { 'id': 'aws-lambda', 'title': 'What is Serverless? | AWS Lambda', 'duration': '12:00', 'difficulty': 'Intermediate', 'videoId': 'AgOmeANl3ls', 'module': 'AWS Services' },
-            { 'id': 'aws-serverless', 'title': 'Serverless Framework with NodeJS', 'duration': '28:00', 'difficulty': 'Advanced', 'videoId': 'VvYADzRwJK8', 'module': 'AWS Services' },
-            { 'id': 'container-1', 'title': 'Introduction to Docker Security', 'duration': '55:00', 'difficulty': 'Intermediate', 'videoId': 'mrg_mGnvqfQ', 'module': 'Container Security' },
-            { 'id': 'container-2', 'title': 'Kubernetes Security Basics', 'duration': '1:20:00', 'difficulty': 'Advanced', 'videoId': 'ZARzBVTGM5c', 'module': 'Container Security' },
-            { 'id': 'comp-1', 'title': 'Cloud Compliance (GDPR, HIPAA)', 'duration': '45:00', 'difficulty': 'Beginner', 'videoId': 'GHKoCbpN4TA', 'module': 'Compliance' }
+            { 'id': 'aws-1', 'title': 'Amazon Web Services - AWS', 'duration': '15:20', 'difficulty': 'Beginner', 'videoId': '7RlkluG6W58', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/7RlkluG6W58/maxresdefault.jpg' },
+            { 'id': 'aws-2', 'title': 'AWS IAM Identity', 'duration': '12:45', 'difficulty': 'Intermediate', 'videoId': 'MDM8AraFgUE', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/MDM8AraFgUE/maxresdefault.jpg' },
+            { 'id': 'aws-3', 'title': 'Amazon EC2 - Elastic Cloud Server & Hosting with AWS', 'duration': '21:10', 'difficulty': 'Intermediate', 'videoId': '-FKQwXtrSSQ', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/-FKQwXtrSSQ/maxresdefault.jpg' },
+            { 'id': 'aws-4', 'title': 'How to SSH into Amazon EC2 Machine | SSH AWS EC2', 'duration': '11:05', 'difficulty': 'Intermediate', 'videoId': '57TCFZG08oM', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/57TCFZG08oM/maxresdefault.jpg' },
+            { 'id': 'aws-5', 'title': 'Security Groups and Network ACS in Amazon Web Services', 'duration': '18:30', 'difficulty': 'Intermediate', 'videoId': 'DKGLlTniH9U', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/DKGLlTniH9U/maxresdefault.jpg' },
+            { 'id': 'aws-6', 'title': 'Security Groups in Amazon Web Services', 'duration': '16:15', 'difficulty': 'Intermediate', 'videoId': '6IaRNRonPLg', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/6IaRNRonPLg/maxresdefault.jpg' },
+            { 'id': 'aws-7', 'title': 'AWS S3 Simple Storage Service', 'duration': '26:40', 'difficulty': 'Intermediate', 'videoId': 'd8A8JmAImc4', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/d8A8JmAImc4/maxresdefault.jpg' },
+            { 'id': 'aws-8', 'title': 'How to Use AWS S3 with NodeJS?', 'duration': '23:55', 'difficulty': 'Advanced', 'videoId': 'DOUxRYi2Fwg', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/DOUxRYi2Fwg/maxresdefault.jpg' },
+            { 'id': 'aws-9', 'title': 'AWS S3 Simple Storage Service | Part - 3', 'duration': '15:20', 'difficulty': 'Advanced', 'videoId': '1zNZHb7xais', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/1zNZHb7xais/maxresdefault.jpg' },
+            { 'id': 'aws-10', 'title': 'AWS S3 Simple Storage Service | Part - 4', 'duration': '19:10', 'difficulty': 'Advanced', 'videoId': 'L2Q1XdGZkzo', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/L2Q1XdGZkzo/maxresdefault.jpg' },
+            { 'id': 'aws-11', 'title': 'What is Serverless? | Serverless Vs Monolith | AWS Lambda', 'duration': '14:30', 'difficulty': 'Intermediate', 'videoId': 'AgOmeANl3ls', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/AgOmeANl3ls/maxresdefault.jpg' },
+            { 'id': 'aws-12', 'title': 'Serverless Framework with NodeJS', 'duration': '29:45', 'difficulty': 'Advanced', 'videoId': 'VvYADzRwJK8', 'module': 'AWS Services', 'thumbnail': 'https://img.youtube.com/vi/VvYADzRwJK8/maxresdefault.jpg' },
+            
         ]
     }
 };
@@ -168,11 +163,11 @@ function _0x7m3n() {
             _0x8n4o.appendChild(_0x2r8s);
         }
         const _0x3s9t = document.createElement('div');
-        _0x3s9t.className = `lesson-item ${_0x1q7r === _0x0f6g ? 'active' : ''} ${isLessonCompleted(_0x0p6q.id) ? 'completed' : ''}`;
+        _0x3s9t.className = `lesson-item ${_0x1q7r === _0x0f6g ? 'active' : ''}`;
         _0x3s9t.onclick = () => loadLesson(_0x1q7r);
         _0x3s9t.innerHTML = `
             <div class="lesson-status">
-                ${isLessonCompleted(_0x0p6q.id) ? '<i class="ph-bold ph-check"></i>' : (_0x1q7r + 1)}
+                ${_0x1q7r + 1}
             </div>
             <div class="lesson-info">
                 <h4>${_0x0p6q.title}</h4>

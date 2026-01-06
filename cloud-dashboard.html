@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cloud Security Engineer — Learning Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cloud-dashboard.css">
+</head>
+<body class="dashboard-page">
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <div class="logo">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#06b6d4" stroke-width="1.2" fill="rgba(6,182,212,0.06)"/><path d="M7 12h10M7 8h6M7 16h4" stroke="#a5f3fc" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">HACK<span class="accent">SHALA</span></span>
+          <span class="brand-sub">Cloud Security Engineer</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="roadmap.html">Course Roadmap</a>
+        <a href="labs.html">Practical Labs</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+        <a href="community.html">Community</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn-ghost" id="profileBtn">Instructor</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout container">
+    <section class="player-area">
+      <div class="player-wrap">
+        <div class="player-header">
+          <div>
+            <h1 class="player-title">Amazon Web Services - AWS</h1>
+            <p class="muted">Module: AWS Services • Lesson 1 of 15</p>
+          </div>
+          <div class="player-actions">
+            <button class="btn btn-sm">Mark Complete</button>
+            <button class="btn btn-ghost">Open Lab</button>
+          </div>
+        </div>
+
+        <div class="player-frame">
+          <iframe id="coursePlayer" src="https://www.youtube.com/embed/7RlkluG6W58?rel=0" title="YouTube video player" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+
+        <div class="player-footer">
+          <div class="lesson-summary">
+            <h3>Lesson Overview</h3>
+            <p>Concise summary and learning objectives. Focused on AWS service fundamentals and security implications. Eye-friendly layout for long sessions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="course-header">
+          <div>
+            <h2>Cloud Security Engineer</h2>
+            <p class="muted">15 lessons • 6 modules</p>
+          </div>
+          <div class="progress">
+            <div class="progress-text"><strong id="progressPercent">47%</strong></div>
+            <div class="progress-bar" aria-hidden>
+              <div id="progressFill" class="progress-fill" style="width:47%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson-list" id="lessonList">
+          <!-- Sections will be rendered by JS -->
+
+          <div class="section" data-section="AWS Services">
+            <button class="section-toggle" aria-expanded="true">AWS Services</button>
+            <div class="section-body">
+              <div class="lesson" data-video="7RlkluG6W58">
+                <div class="lesson-meta">
+                  <div class="lesson-number">1</div>
+                  <div class="lesson-info">
+                    <div class="lesson-title">Amazon Web Services - AWS</div>
+                    <div class="lesson-duration">15:20</div>
+                  </div>
+                  <button class="lesson-play" aria-label="Play lesson">▶</button>
+                </div>
+              </div>
+
+              <div class="lesson" data-video="MDM8AraFgUE">
+                <div class="lesson-meta">
+                  <div class="lesson-number">2</div>
+                  <div class="lesson-info">
+                    <div class="lesson-title">AWS IAM Identity</div>
+                    <div class="lesson-duration">12:45</div>
+                  </div>
+                  <button class="lesson-play" aria-label="Play lesson">▶</button>
+                </div>
+              </div>
+
+              <div class="lesson" data-video="-FKQwXtrSSQ">
+                <div class="lesson-meta">
+                  <div class="lesson-number">3</div>
+                  <div class="lesson-info">
+                    <div class="lesson-title">Amazon EC2 - Elastic Cloud Server & Hosting</div>
+                    <div class="lesson-duration">21:10</div>
+                  </div>
+                  <button class="lesson-play" aria-label="Play lesson">▶</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="section" data-section="Network Security">
+            <button class="section-toggle" aria-expanded="false">Network Security</button>
+            <div class="section-body">
+              <div class="lesson" data-video="DKGLlTniH9U">
+                <div class="lesson-meta">
+                  <div class="lesson-number">4</div>
+                  <div class="lesson-info">
+                    <div class="lesson-title">Security Groups & Network ACLs</div>
+                    <div class="lesson-duration">18:30</div>
+                  </div>
+                  <button class="lesson-play" aria-label="Play lesson">▶</button>
+                </div>
+              </div>
+
+              <div class="lesson" data-video="6IaRNRonPLg">
+                <div class="lesson-meta">
+                  <div class="lesson-number">5</div>
+                  <div class="lesson-info">
+                    <div class="lesson-title">Security Groups in AWS (Deep Dive)</div>
+                    <div class="lesson-duration">16:15</div>
+                  </div>
+                  <button class="lesson-play" aria-label="Play lesson">▶</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section" data-section="Storage Security">
+            <button class="section-toggle" aria-expanded="false">Storage Security (S3)</button>
+            <div class="section-body">
+              <div class="lesson" data-video="d8A8JmAImc4">
+                <div class="lesson-meta">
+                  <div class="lesson-number">6</div>
+                  <div class="lesson-info">
+                    <div class="lesson-title">AWS S3 — Simple Storage Service</div>
+                    <div class="lesson-duration">26:40</div>
+                  </div>
+                  <button class="lesson-play" aria-label="Play lesson">▶</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="sidebar-footer">
+          <button class="btn btn-block">Download Materials</button>
+          <div class="muted" style="margin-top:12px; font-size:0.9rem">Secure session • Auto-saved progress</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="js/cloud-dashboard.js"></script>
+</body>
+</html>

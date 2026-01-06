@@ -98,6 +98,34 @@ h4 {
 
 @keyframes gridPulse {
 
+/* --- USER GREETING --- */
+.user-greeting {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(0, 255, 163, 0.04));
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    border-radius: 8px;
+    color: var(--accent-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 210, 255, 0.1);
+    transition: all 300ms ease;
+}
+
+.user-greeting:hover {
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.12), rgba(0, 255, 163, 0.08));
+    border-color: rgba(0, 210, 255, 0.5);
+    box-shadow: 0 6px 16px rgba(0, 210, 255, 0.15);
+}
+
+.user-greeting small {
+    font-size: inherit;
+    color: inherit;
+}
+
     0%,
     100% {
         opacity: 0.3;
@@ -1097,6 +1125,26 @@ footer {
     transform: translateX(-50%);
 }
 
+.phase-header {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--space-64);
+}
+
+.phase-badge {
+    background: var(--bg-primary);
+    border: 1px solid var(--accent-secondary);
+    color: var(--accent-secondary);
+    padding: var(--space-8) var(--space-24);
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
 .module-item {
     position: relative;
     margin-bottom: var(--space-64);
@@ -1108,6 +1156,37 @@ footer {
 
 .module-item:nth-of-type(even) {
     flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+    .roadmap-line {
+        left: 20px;
+        transform: none;
+    }
+
+    .phase-header {
+        text-align: left;
+        margin-bottom: var(--space-32);
+        padding-left: 20px;
+    }
+
+    .phase-badge {
+        font-size: 0.75rem;
+        padding: var(--space-4) var(--space-16);
+    }
+
+    .module-item,
+    .module-item:nth-of-type(even) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-20);
+        padding-left: 40px;
+    }
+
+    .module-logo {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 .module-number {
@@ -1392,4 +1471,70 @@ body.watch-page {
 .lesson-item.active {
     background: rgba(0, 210, 255, 0.05);
     border-left: 3px solid var(--accent-secondary);
+}
+
+/* Professional lesson list styling */
+.module-section-header {
+    padding: 12px 20px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+
+.lesson-status {
+    min-width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.02);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.lesson-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.lesson-info h4 {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lesson-duration {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lesson-item:hover {
+    background: rgba(255,255,255,0.02);
+    transform: translateY(-1px);
+}
+
+.lesson-item i.ph-play-circle {
+    margin-left: auto;
+    color: var(--accent-secondary);
+    font-size: 1.18rem;
+}
+
+.video-sidebar .progress-bar-bg {
+    background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
 }

@@ -11,10 +11,16 @@ Thumbs.db
 
 # Logs
 *.log
+bot.log
 
 # Temporary files
 *.tmp
 *.temp
+
+# Environment variables - NEVER commit these with actual secrets!
+.env
+.env.local
+.env.*.local
 
 # Optional: Keep these if you had a backend before
 node_modules/
@@ -22,3 +28,16 @@ package-lock.json
 *.db
 server.js
 database.js
+
+# Build outputs
+dist/
+build/
+.next/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
