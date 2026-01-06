@@ -128,22 +128,38 @@
                         href="watch.html?module=redteam" class="btn btn-primary">Start Learning Now</a></div>
             </div>
         </div>
-        <header>
-            <div class="container"><a href="index.html" class="logo">
-                    <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
-                    <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
-                </a><button class="nav-toggle" id="navToggle"><i class="ph ph-list"></i></button>
-                <nav id="mainNav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="roadmap.html" class="active">Course Roadmap</a></li>
-                        <li><a href="labs.html">Practical Labs</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="community.html">Community</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions"><a href="watch.html" class="btn btn-primary">Watch Lessons</a></div>
+        <header class="header-main">
+            <div class="header-wrapper">
+                <div class="header-container">
+                    <!-- Logo Section -->
+                    <a href="index.html" class="logo-section">
+                        <div class="logo-shield"><i class="ph-bold ph-shield-check"></i></div>
+                        <div class="logo-text">HACK <span class="logo-highlight">SHALA</span></div>
+                    </a>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                        <i class="ph ph-list"></i>
+                    </button>
+
+                    <!-- Center Navigation -->
+                    <nav id="mainNav" class="nav-primary" aria-label="Main navigation">
+                        <ul class="nav-list">
+                            <li><a href="index.html" class="nav-link">Home</a></li>
+                            <li><a href="roadmap.html" class="nav-link active">Course Roadmap</a></li>
+                            <li><a href="labs.html" class="nav-link">Practical Labs</a></li>
+                            <li><a href="resources.html" class="nav-link">Resources</a></li>
+                            <li><a href="about.html" class="nav-link">About</a></li>
+                            <li><a href="community.html" class="nav-link">Community</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Right Section: Welcome + CTA -->
+                    <div class="header-right">
+                        <div class="welcome-text" id="headerGreeting"></div>
+                        <a href="watch.html" class="btn-cta">Watch Lessons</a>
+                    </div>
+                </div>
             </div>
         </header>
         <main>
@@ -266,8 +282,63 @@
                 </div>
             </div>
         </footer>
+        <script src="js/course-access.js"></script>
         <script src="js/app-core.js"></script>
         <script src="js/feedback-widget.js"></script>
+        
+        <!-- Header Navigation & Greeting -->
+        <script>
+            // Mobile menu toggle
+            const navToggle = document.getElementById('navToggle');
+            const mainNav = document.getElementById('mainNav');
+
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
+                    const isExpanded = mainNav.classList.toggle('mobile-active');
+                    navToggle.setAttribute('aria-expanded', isExpanded);
+                });
+
+                // Close menu when clicking on a nav link
+                const navLinks = mainNav.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mainNav.classList.remove('mobile-active');
+                        navToggle.setAttribute('aria-expanded', false);
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navToggle.contains(e.target) && !mainNav.contains(e.target)) {
+                        mainNav.classList.remove('mobile-active');
+                        navToggle.setAttribute('aria-expanded', false);
+                    }
+                });
+            }
+
+            // Set active nav link based on current page
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Header greeting
+            const headerGreeting = document.getElementById('headerGreeting');
+            if (headerGreeting) {
+                const userName = localStorage.getItem('hackshala_user_name');
+                if (userName) {
+                    headerGreeting.textContent = `Welcome, ${userName} 👋`;
+                    headerGreeting.style.display = 'block';
+                } else {
+                    headerGreeting.style.display = 'none';
+                }
+            }
+        </script>
     </body>
 
     </html>
